@@ -1,6 +1,6 @@
 
 # The Bridal Gallery
-[The Bridal Gallery](https://www.thebridalgallery.com/)
+[Preview](https://www.thebridalgallery.com/)
 
 About project
 Shopify website development for The Bridal Gallery
