@@ -1,0 +1,195 @@
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{{ 'announcement-bar.out.css' | asset_url | stylesheet_tag }}  
+
+<div
+  class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} utility-bar--bottom-border{% endif %}"
+>
+    <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+      <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+        <div class="announcement-bar-custom">
+          <div class="page-width">
+            <div class="announcement-bar-custom__wrapper">
+              <div class="announcement-bar-custom__links">
+                {% if section.settings.first_link_label %}
+                  <a href="{{section.settings.first_link_url}}">{{section.settings.first_link_label}}</a>
+                {% endif %}
+                {% if section.settings.second_link_label %}
+                  <a href="{{section.settings.second_link_url}}">{{section.settings.second_link_label}}</a>
+                {% endif %}
+              </div>
+              {%- if section.blocks.size != 0 -%}
+                <div class="announcement-bar-custom__offers">
+                  <p class="bar-carousel-status text-white title-small-upper mr-4"></p>
+                  <div class="announcement-bar-custom__slider-wrapper">
+                    <div class="js-offers-slider">
+                      {% for block in section.blocks %}
+                        <div class="announcement-bar-custom__slider-item carousel-cell">
+                          <a class="text-white d-block title-small-upper" href="{{block.settings.link_url}}">{{block.settings.link_label}}</a>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  
+                
+                  <span class="d-block title-small-upper text-white" id="myBtn">{{section.settings.modal_trigger}}&nbsp;(<span class="bar_lenght"></span>)</span>
+                  <div id="myModal" class="modal">
+      
+                    <div class="modal-content">
+                      <div class="announcement-bar-custom__modal-header d-flex justify-content-between align-items-center">
+                        <p class="title-collection-item">{{section.settings.modal_title}}</p>
+                        <span class="close d-flex align-items-center">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.33366 15.8333L4.16699 14.6667L8.83366 9.99999L4.16699 5.33332L5.33366 4.16666L10.0003 8.83332L14.667 4.16666L15.8337 5.33332L11.167 9.99999L15.8337 14.6667L14.667 15.8333L10.0003 11.1667L5.33366 15.8333Z" fill="black"/>
+                            </svg>
+                        </span>
+                      </div>
+                      <div>
+                        {% for block in section.blocks %}
+                          <div class="announcement-bar-custom__modal-item">
+                            <a class="d-block" href="{{block.settings.link_url}}">
+                              <span class="d-block h4">{{block.settings.link_label}}</span>
+                              <p class="">Shop now</p>
+                            </a>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+            
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+
+  var elem = document.querySelector('.js-offers-slider');
+  var barflkty = new Flickity( elem, {
+    prevNextButtons: false,
+    pageDots: false,
+    cellAlign: 'left',
+    contain: true,
+    autoPlay: 3500,
+    wrapAround: true
+  });
+
+  var barcarouselStatus = document.querySelector('.bar-carousel-status');
+  var barLenght = document.querySelector('.bar_lenght');
+
+  function barUpdateStatus() {
+    var slideNumber = barflkty.selectedIndex + 1;
+    barcarouselStatus.textContent = slideNumber + '/' + barflkty.slides.length;
+  }
+  function barSliderLenght() {
+    barLenght.textContent = barflkty.slides.length;
+  }
+  barUpdateStatus();
+  barSliderLenght();
+  
+  barflkty.on( 'select', barUpdateStatus );
+
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.addEventListener('click', (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  })
+
+  
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 10,
+  "class": "announcement-bar-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Custom bar Settings"
+    },
+    {
+      "type": "html",
+      "id": "first_link_label",
+      "label": "First Label SVG"
+    },
+    {
+      "type": "url",
+      "id": "first_link_url",
+      "label": "First Link"
+    },
+    {
+      "type": "html",
+      "id": "second_link_label",
+      "label": "Second Label SVG"
+    },
+    {
+      "type": "url",
+      "id": "second_link_url",
+      "label": "Second Link"
+    },
+    {
+      "type": "text",
+      "id": "modal_trigger",
+      "label": "Modal Button Label",
+      "default": "see all offers"
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "Modal Title",
+      "default": "Sale & offers"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Slide Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "link"
+      }
+    ]
+  }
+}
+{% endschema %}

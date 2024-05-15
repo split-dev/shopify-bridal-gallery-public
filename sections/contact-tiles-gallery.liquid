@@ -1,0 +1,130 @@
+{{ 'contact-tiles-gallery.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign imageWidth = section.settings.image.width
+  assign imageHeight = imageWidth | divided_by: section.settings.image.aspect_ratio
+  if section.settings.image_lazy
+  assign imageLoading = 'lazy'
+  else
+  assign imageLoading = ''
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<section class="page-width section-{{ section.id }}-padding">
+  <div class="contact-tiles-gallery__title">
+    <h2>{{ section.settings.title }}</h2>
+  </div>
+  <div class="contact-tiles-gallery__wrapper">
+    <div class="contact-column-left">
+     <div>
+      {%- if section.settings.contact_us_1 -%}
+        {{ section.settings.contact_us_1| image_url: width: 1500 | image_tag: loading: 'lazy' }}
+      {% endif %}
+    </div>
+    <div>
+      {%- if section.settings.contact_us_2 -%}
+        {{ section.settings.contact_us_2| image_url: width: 1500 | image_tag: loading: 'lazy' }}
+      {% endif %}
+    </div>
+    </div>
+    <div class="contact-column-centr">
+      {%- if section.settings.contact_us_3 -%}
+        {{ section.settings.contact_us_3| image_url: width: 1500 | image_tag: loading: 'lazy' }}
+      {% endif %}
+    </div>
+    <div class="contact-column-right">
+      <div>
+        {%- if section.settings.contact_us_4 -%}
+          {{ section.settings.contact_us_4| image_url: width: 1500 | image_tag: loading: 'lazy' }}
+        {% endif %}
+      </div>
+      <div>
+        {%- if section.settings.contact_us_5 -%}
+          {{ section.settings.contact_us_5| image_url: width: 1500 | image_tag: loading: 'lazy' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+    
+{% schema %}
+{
+  "name": "Contact Gallery Tiles",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Gallery Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "contact_us_1",
+      "label": "Image Gallery 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "contact_us_2",
+      "label": "Image Gallery 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "contact_us_3",
+      "label": "Image Gallery 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "contact_us_4",
+      "label": "Image Gallery 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "contact_us_5",
+      "label": "Image Gallery 5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Gallery Tiles"
+    }
+  ]
+}
+{% endschema %}

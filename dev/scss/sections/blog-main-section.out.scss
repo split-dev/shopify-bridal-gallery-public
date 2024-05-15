@@ -1,0 +1,43 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.blog-main {
+  &__header {
+    color: $c-text;
+    max-width: 750px;
+    margin: 0 auto 60px;
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__blogs-small {
+    background-color: $c-almost-white;
+    padding: 80px 0;
+
+    @include media-breakpoint-down(xs) {
+      padding: 48px 0;
+    }
+
+    &-title {
+      display: none;
+      color: $c-text;
+
+      @include media-breakpoint-down(xs) {
+       display: block;
+        margin-bottom: 24px;
+      }
+    }
+
+
+    &-inner {
+      display: flex;
+      flex-direction: row;
+
+      @include media-breakpoint-down(xs) {
+        flex-direction: column;
+      }
+    }
+  }
+}

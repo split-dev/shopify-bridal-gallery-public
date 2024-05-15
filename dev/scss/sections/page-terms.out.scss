@@ -1,0 +1,27 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.page-terms {
+    color: $c-text;
+    h1 {
+        margin-top: 39px;
+        @include media-breakpoint-down(xs) {
+            margin-top: 32px;
+        }
+    }
+    h4 {
+        margin: 48px 0 17px;
+        color: $c-text;
+        @include media-breakpoint-down(xs) {
+            &:first-child {
+                margin: 32px 0 17px;
+            }
+        }
+    }
+    &__content {
+        color: $c-dark-grey;
+        p:last-child {
+            margin: 15px 0 0;
+        }
+    }
+}

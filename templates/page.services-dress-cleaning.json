@@ -1,0 +1,195 @@
+{
+  "sections": {
+    "eb9bdad0-5bff-41a2-9cc3-db83c658c2e6": {
+      "type": "services-banner",
+      "settings": {
+        "header": "DRESS CLEANING",
+        "text": "<p>Our expert seamstresses, beaders, and pressers, the same people who prepare your gown for your wedding, will repair, clean, and oversee the preservation of your bridal gown right after your wedding. <br\/><br\/>All work is performed on premises, not shipped out of province or off-site.<\/p>",
+        "button_label_1": "book an appointment",
+        "button_link_1": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+        "button_primary_1": true,
+        "button_label_2": "contact us",
+        "button_link_2": "https:\/\/d91310.myshopify.com\/pages\/contact",
+        "button_primary_2": false,
+        "image": "shopify:\/\/shop_images\/Photo_1_f4c7e7af-cfd8-4b95-a353-cb31f1314e6d.png",
+        "image_lazy": true,
+        "breadcrumbs": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "a7950546-114a-4cb9-aad1-92a33621825b": {
+      "type": "rich-text-with-icon",
+      "blocks": {
+        "7b2f2673-4a97-462d-9b1d-507e442972f3": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Symbol.svg"
+          }
+        },
+        "template--19837347004689__a7950546-114a-4cb9-aad1-92a33621825b-168917186122f97c71-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The memories should last a life time, and so should your dress.",
+            "heading_size": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "7b2f2673-4a97-462d-9b1d-507e442972f3",
+        "template--19837347004689__a7950546-114a-4cb9-aad1-92a33621825b-168917186122f97c71-0"
+      ],
+      "settings": {
+        "background_color": "rgba(0,0,0,0)",
+        "image_overlay": false,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 60,
+        "padding_bottom_mb": 72
+      }
+    },
+    "0ce79514-8f81-48a5-9147-f016897ae20f": {
+      "type": "services-main-section",
+      "settings": {
+        "image_section_1": "shopify:\/\/shop_images\/Rectangle_2.png",
+        "image_section_2": "shopify:\/\/shop_images\/Rectangle_2_1.png",
+        "image_lazy": true,
+        "header_1": "An Unforgettable Experience",
+        "text_1": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst. Aliquam erat volutpat. Sed quis nibh malesuada tellus laoreet ultricies vel sed metus.<br\/><\/p><p>Praesent vitae massa ac purus sollicitudin pellentesque ac quis lorem. Sed tristique dui eget ullamcorper sodales. Nam sollicitudin purus non fringilla condimentum. Curabitur luctus lacinia justo at sagittis.<br\/><\/p>",
+        "button_label_1": "book an appointment",
+        "button_link_1": "",
+        "button_primary_1": true,
+        "image_1": "shopify:\/\/shop_images\/Rectangle_4_3.png",
+        "header_2": "An Unforgettable Experience",
+        "text_2": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst. Aliquam erat volutpat. Sed quis nibh malesuada tellus laoreet ultricies vel sed metus.<br\/><br\/>Praesent vitae massa ac purus sollicitudin pellentesque ac quis lorem. Sed tristique dui eget ullamcorper sodales. Nam sollicitudin purus non fringilla condimentum. Curabitur luctus lacinia justo at sagittis.<br\/><\/p>",
+        "button_label_2": "book an appointment",
+        "button_link_2": "",
+        "button_primary_2": true,
+        "image_2": "shopify:\/\/shop_images\/Rectangle_3_1.png",
+        "padding_top": 0,
+        "padding_bottom": 76,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 48
+      }
+    },
+    "5be3fede-ded6-4521-ab9b-cda51e01553f": {
+      "type": "cta-banner",
+      "blocks": {
+        "template--19837347004689__5be3fede-ded6-4521-ab9b-cda51e01553f-1689172348be944275-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Bridal Experience Awaits",
+            "heading_size": "h2"
+          }
+        },
+        "template--19837347004689__5be3fede-ded6-4521-ab9b-cda51e01553f-1689172348be944275-1": {
+          "type": "text",
+          "settings": {
+            "text": "For every bride there is a perfect wedding dress waiting to be discovered. At The Bridal Gallery, we look forward to helping you create the look of your dreams.",
+            "text_style": "body"
+          }
+        },
+        "template--19837347004689__5be3fede-ded6-4521-ab9b-cda51e01553f-1689172348be944275-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "book an appointment",
+            "button_link_1": "",
+            "button_style_primary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_primary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19837347004689__5be3fede-ded6-4521-ab9b-cda51e01553f-1689172348be944275-0",
+        "template--19837347004689__5be3fede-ded6-4521-ab9b-cda51e01553f-1689172348be944275-1",
+        "template--19837347004689__5be3fede-ded6-4521-ab9b-cda51e01553f-1689172348be944275-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg_2.png",
+        "image--mobile": "shopify:\/\/shop_images\/bg_3.png",
+        "image_overlay": "overlay_left",
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "color_scheme": "background-2",
+        "mobile_content_alignment": "left",
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "57cbad9f-f329-4f1b-ab3f-c1bbf07e3ea7": {
+      "type": "text-with-icon-grid",
+      "blocks": {
+        "b19e076b-357c-4ce7-881c-aac6b4ac8fa1": {
+          "type": "text-icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abstract-shape_1.svg",
+            "heading": "Expert Care by Wedding Specialists",
+            "text": "<p>Trust our expert team of seamstresses, beaders, and pressers for impeccable care. They will repair, clean, and preserve your bridal gown with expertise.<\/p>"
+          }
+        },
+        "62b30f12-a0ee-4e45-8075-71c3c18b701b": {
+          "type": "text-icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abstract-shape_1.svg",
+            "heading": "On-Premises Service",
+            "text": "<p>All the work is performed on-site at The Bridal Gallery. Your gown remains safe and secure throughout the cleaning process as it never leaves our premises.<\/p>"
+          }
+        },
+        "e7498293-ca0d-4544-a390-41b5ba41d629": {
+          "type": "text-icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abstract-shape_1.svg",
+            "heading": "Complete Restoration and Preservation",
+            "text": "<p>We offer comprehensive cleaning services, including repairs and preservation, ensuring your gown is restored to its original beauty and lasts a lifetime.<\/p>"
+          }
+        },
+        "2646efdb-6512-41c8-8e02-2578aa8ade66": {
+          "type": "text-icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abstract-shape_1.svg",
+            "heading": "Meticulous Attention to Detail:",
+            "text": "<p>Our team pays meticulous attention to every detail of your gown, from delicate beading to intricate lace, ensuring its longevity and exquisite appearance.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "b19e076b-357c-4ce7-881c-aac6b4ac8fa1",
+        "62b30f12-a0ee-4e45-8075-71c3c18b701b",
+        "e7498293-ca0d-4544-a390-41b5ba41d629",
+        "2646efdb-6512-41c8-8e02-2578aa8ade66"
+      ],
+      "settings": {
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mb": 64,
+        "padding_bottom_mb": 92
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "eb9bdad0-5bff-41a2-9cc3-db83c658c2e6",
+    "a7950546-114a-4cb9-aad1-92a33621825b",
+    "0ce79514-8f81-48a5-9147-f016897ae20f",
+    "5be3fede-ded6-4521-ab9b-cda51e01553f",
+    "57cbad9f-f329-4f1b-ab3f-c1bbf07e3ea7",
+    "main"
+  ]
+}

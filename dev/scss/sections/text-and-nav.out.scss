@@ -1,0 +1,32 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.text-and-nav {
+  h3 {
+    margin: 0 0 20px 0;
+  }
+  &__content {
+    color: $c-dark-grey;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 152%;
+    letter-spacing: 0.3px;
+    margin-bottom: 40px;
+    @include media-breakpoint-down(xs) {
+      font-size: 12px;
+      letter-spacing: 0.24px;
+      margin-bottom: 32px;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
+  &__item {
+    margin-right: 20px;
+    margin-bottom: 14px;
+    a {
+      color: $c-dark-grey;
+      opacity: 0.8;
+    }
+  }
+}

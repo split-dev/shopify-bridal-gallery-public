@@ -1,0 +1,35 @@
+:root {
+  --transition-default: 300ms;
+}
+
+// Type
+$font-family-base: var(--font-body-family);
+$headings-font-family: var(--font-heading-family);
+
+// Colors
+$c-gold: rgb(var(--custom-color-primary));
+$c-text: rgb(var(--custom-color-text));
+$c-white: rgb(var(--custom-color-white));
+$c-shadow-grey: rgb(var(--color-shadow));
+$c-almost-white: rgb(var( --custom-color-background-accent));
+$c-dark-grey: rgba(69, 88, 105, 1);
+$c-black: #000;
+$c-white: #fff;
+$c-black-secondary: #1f1f1f;
+$c-dark-gold: #966B57;
+$c-dark-blue: #455869;
+$c-almost-white: #F6F6F6;
+$c-dark-white: #F9F9F9;
+$c-light-grey: #D7DCE1;
+$c-light-grey-2: #E7E7E7;
+$c-gold: #D2B786;
+$c-red: #FF3932;
+$c-green: #007C23;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 750px,
+  lg: 990px,
+  xl: 1100px,
+  xxl: 1500px,
+);

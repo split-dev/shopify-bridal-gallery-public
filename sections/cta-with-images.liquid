@@ -1,0 +1,227 @@
+{{ 'cta-with-images.out.css' | asset_url | stylesheet_tag }}
+
+{{ 'glightbox.min.css' | asset_url | stylesheet_tag }}
+<script src="{{'glightbox.min.js' | asset_url}}"></script>
+
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+{%- liquid
+    if section.settings.image_lazy
+        assign imageLoading = 'lazy'
+    else
+        assign imageLoading = ''
+    endif
+-%}
+
+
+<section class="cta-with-images-section section-{{ section.id }}-padding page-width">
+  <div class="cta-with-images__content-wrap">
+    <div class="cta-with-images__content">
+      <h2 class="cta-with-images__title text-text h2">{{ section.settings.header }}</h2>
+      <p class="cta-with-images__text text-text text-15px">{{ section.settings.text }}</p>
+      <a class="cta-with-images__button btn btn__primary" href="{% if section.settings.button_link %}{{ section.settings.button_link }}{% endif %}">{{ section.settings.button_label }}</a>
+    </div>
+
+    <div class="cta-with-images__image-wrap">
+      {% if section.settings.image %}
+        {%- liquid
+          assign image = section.settings.image
+          assign imageWidth = image.width
+          assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+          assign imageClasses = 'cta-with-images__image'
+        %}
+
+        {{ image | image_url: width: 3840 | image_tag:
+        loading: imageLoading,
+        width: imageWidth,
+        height: imageHeight,
+        class: imageClasses,
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+    </div>
+  </div>
+  <div class="cta-with-images__video-wrap">
+
+    {% if section.settings.video_link != blank %}
+      <a href="{{ section.settings.video_link }}" class="glightbox">
+        <video
+                id="cta-with-images__video"
+                preload=""
+                webkit-playsinline="true"
+                playsinline="true"
+                muted="muted">
+          <source src="{{ section.settings.video_link }}#t=0.001" type="video/mp4">
+        </video>
+
+        <svg id="cta-with-images__play_icon" xmlns="http://www.w3.org/2000/svg" width="67" height="67" viewBox="0 0 67 67" fill="none">
+          <path opacity="0.6" fill-rule="evenodd" clip-rule="evenodd" d="M33.5 67C52.0015 67 67 52.0015 67 33.5C67 14.9985 52.0015 0 33.5 0C14.9985 0 0 14.9985 0 33.5C0 52.0015 14.9985 67 33.5 67ZM30.5852 43.1813L42.8764 34.3109C43.4295 33.9117 43.4295 33.0882 42.8764 32.6891L30.5852 23.8187C29.9238 23.3414 29 23.814 29 24.6296V42.3704C29 43.186 29.9238 43.6586 30.5852 43.1813Z" fill="white"/>
+        </svg>
+      </a>
+    {%  else %}
+      {% if section.settings.image_2 %}
+        {%- liquid
+          assign image = section.settings.image_2
+          assign imageWidth = image.width
+          assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+          assign imageClasses = 'cta-with-images__image'
+        %}
+
+        {{ image | image_url: width: 3840 | image_tag:
+        loading: imageLoading,
+        width: imageWidth,
+        height: imageHeight,
+        class: imageClasses,
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+
+<script>
+  const lightbox = GLightbox({ selector: '.glightbox'  });
+
+  const videos = document.querySelectorAll("#cta-with-images__video");
+
+  videos.forEach(video => {
+            video.addEventListener('mouseenter', () => {
+              video.play();
+            });
+
+            video.addEventListener('mouseleave', () => {
+              video.pause();
+            });
+          }
+  )
+
+</script>
+
+
+{% schema %}
+{
+  "name": "CTA with images",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Section header",
+      "default": "An Unforgettable Experience"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Paragraph"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "book an appointment"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "video_link",
+      "label": "Video link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Second image",
+      "info": "Add image instead of video, if the Video link field is empty."
+    },
+    {
+      "type": "checkbox",
+      "id": "image_lazy",
+      "label": "Image lazy loading",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA with images"
+    }
+  ]
+}
+{% endschema %}

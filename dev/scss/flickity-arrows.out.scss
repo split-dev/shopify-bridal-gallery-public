@@ -1,0 +1,12 @@
+@import 'settings/variables';
+@import "settings/bootstrap";
+
+.flickity-prev-next-button, .flickity-button {
+  width: 40px!important;
+  height: 40px!important;
+  background: transparent!important;
+}
+
+.flickity-prev-next-button .arrow, .flickity-prev-next-button.no-svg {
+  fill: $c-white;
+}

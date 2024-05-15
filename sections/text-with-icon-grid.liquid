@@ -1,0 +1,126 @@
+{{ 'text-with-icon-grid.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+<section class="text-icon-grid__section section-{{ section.id }}-padding page-width"
+style="{% if section.blocks.length <= 2 %} justify-content: space-around;{% endif %}">
+  {% for block in section.blocks %}
+    <div class="text-icon-grid__item">
+      {% if block.settings.image %}
+        {{ block.settings.image | image_url: width: 36 | image_tag: class: "text-icon-grid__item-img" }}
+      {% else %}
+        <svg class="text-icon-grid__item-img" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 30 30" fill="none">
+          <path d="M30 1.25C26.9002 1.25411 23.8802 2.2332 21.3676 4.04865C18.8551 5.8641 16.9772 8.42391 16 11.3657C15.0228 8.42391 13.1449 5.8641 10.6324 4.04865C8.1198 2.2332 5.09981 1.25411 2 1.25C1.80109 1.25001 1.61033 1.32903 1.46968 1.46968C1.32903 1.61033 1.25001 1.80109 1.25 2C1.25411 5.09981 2.2332 8.1198 4.04865 10.6324C5.8641 13.1449 8.42391 15.0228 11.3657 16C8.42391 16.9772 5.8641 18.8551 4.04865 21.3676C2.2332 23.8802 1.25411 26.9002 1.25 30C1.25001 30.1989 1.32903 30.3897 1.46968 30.5303C1.61033 30.671 1.80109 30.75 2 30.75C5.09981 30.7459 8.1198 29.7668 10.6324 27.9514C13.1449 26.1359 15.0228 23.5761 16 20.6343C16.9772 23.5761 18.8551 26.1359 21.3676 27.9514C23.8802 29.7668 26.9002 30.7459 30 30.75C30.1989 30.75 30.3897 30.671 30.5303 30.5303C30.671 30.3897 30.75 30.1989 30.75 30C30.7459 26.9002 29.7668 23.8802 27.9514 21.3676C26.1359 18.8551 23.5761 16.9772 20.6343 16C23.5761 15.0228 26.1359 13.1449 27.9514 10.6324C29.7668 8.1198 30.7459 5.09981 30.75 2C30.75 1.80109 30.671 1.61033 30.5303 1.46968C30.3897 1.32903 30.1989 1.25001 30 1.25ZM2.77246 29.2278C2.9656 25.9875 4.33982 22.9305 6.63505 20.6351C8.93028 18.3398 11.9873 16.9655 15.2275 16.7722C15.0344 20.0125 13.6602 23.0695 11.3649 25.3649C9.06972 27.6602 6.01271 29.0345 2.77246 29.2278ZM2.77246 2.77221C6.01271 2.96549 9.06972 4.33982 11.3649 6.63515C13.6602 8.93047 15.0344 11.9875 15.2275 15.2278C11.9873 15.0345 8.93028 13.6602 6.63505 11.3649C4.33982 9.06953 2.9656 6.01248 2.77246 2.77221ZM29.2275 29.2278C25.9873 29.0345 22.9303 27.6602 20.6351 25.3649C18.3398 23.0695 16.9656 20.0125 16.7725 16.7722C20.0127 16.9655 23.0697 18.3398 25.3649 20.6351C27.6602 22.9305 29.0344 25.9875 29.2275 29.2278ZM16.7725 15.2278C16.9656 11.9875 18.3398 8.93047 20.6351 6.63515C22.9303 4.33982 25.9873 2.96549 29.2275 2.77221C29.0344 6.01248 27.6602 9.06953 25.3649 11.3649C23.0697 13.6602 20.0127 15.0345 16.7725 15.2278Z" fill="#D2B786"/>
+          <path d="M18.75 4.00001C18.6343 0.365769 13.3652 0.366624 13.25 4.00007C13.3657 7.63426 18.6348 7.6334 18.75 4.00001ZM14.75 4.00001C14.7537 3.67094 14.8871 3.35662 15.1211 3.12523C15.3551 2.89385 15.6709 2.76409 16 2.76409C16.3291 2.7641 16.6449 2.89387 16.8789 3.12526C17.1129 3.35664 17.2463 3.67097 17.25 4.00004C17.2463 4.32911 17.1129 4.64344 16.8789 4.87482C16.6449 5.1062 16.3291 5.23597 16 5.23597C15.6709 5.23596 15.3551 5.10619 15.1211 4.8748C14.8871 4.64342 14.7537 4.32908 14.75 4.00001Z" fill="#D2B786"/>
+          <path d="M16.0007 25.25C12.3665 25.3657 12.3674 30.6348 16.0008 30.75C19.635 30.6343 19.6341 25.3651 16.0007 25.25ZM16.0007 29.25C15.6717 29.2463 15.3573 29.1129 15.126 28.8789C14.8946 28.6449 14.7648 28.3291 14.7648 28C14.7648 27.6709 14.8946 27.3551 15.126 27.1211C15.3574 26.8871 15.6717 26.7537 16.0008 26.75C16.3298 26.7537 16.6442 26.8871 16.8756 27.1211C17.1069 27.3551 17.2367 27.6709 17.2367 28C17.2367 28.3291 17.1069 28.6449 16.8755 28.8789C16.6441 29.1129 16.3298 29.2463 16.0007 29.25Z" fill="#D2B786"/>
+          <path d="M25.25 16C25.3657 19.6343 30.6348 19.6334 30.75 16C30.6343 12.3658 25.3652 12.3666 25.25 16ZM29.25 16C29.2463 16.3291 29.1129 16.6434 28.8789 16.8748C28.6449 17.1062 28.3291 17.236 28 17.236C27.6709 17.2359 27.3551 17.1062 27.1211 16.8748C26.8871 16.6434 26.7537 16.3291 26.75 16C26.7537 15.6709 26.8871 15.3566 27.1211 15.1252C27.3551 14.8938 27.6709 14.7641 28 14.7641C28.3291 14.7641 28.6449 14.8939 28.8789 15.1252C29.1129 15.3566 29.2463 15.671 29.25 16Z" fill="#D2B786"/>
+          <path d="M6.75 16C6.63431 12.3658 1.36518 12.3666 1.25 16.0001C1.36569 19.6343 6.63483 19.6334 6.75 16ZM2.75 16C2.75373 15.6709 2.88707 15.3566 3.12108 15.1252C3.3551 14.8939 3.67092 14.7641 4.00001 14.7641C4.32911 14.7641 4.64492 14.8939 4.87894 15.1253C5.11295 15.3566 5.24628 15.671 5.25 16C5.24627 16.3291 5.11293 16.6434 4.87892 16.8748C4.6449 17.1062 4.32908 17.236 3.99999 17.236C3.67089 17.236 3.35508 17.1062 3.12106 16.8748C2.88705 16.6434 2.75372 16.3291 2.75 16Z" fill="#D2B786"/>
+        </svg>
+      {% endif %}
+
+      <h5 class="text-icon-grid__item-heading title-small-upper">{{ block.settings.heading }}</h5>
+
+      <div class="text-icon-grid__item-text p-small">{{ block.settings.text }}</div>
+    </div>
+
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Text with icon grid",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "text-icon",
+      "name": "Text with icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.image-banner.settings.image-desktop.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Item heading",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with icon grid"
+    }
+  ]
+}
+{% endschema %}

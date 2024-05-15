@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-account",
+      "settings": {
+        "form_title": "Edit the event",
+        "dates_location": "Local time - Canada",
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "padding_top_mb": 20,
+        "padding_bottom_mb": 48
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

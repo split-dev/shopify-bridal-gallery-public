@@ -1,0 +1,164 @@
+{{ 'blog-post-cust.out.css' | asset_url | stylesheet_tag }}
+{{ 'blog-posts.out.css' | asset_url | stylesheet_tag }}
+{{ 'blog-post-item.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mb }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+
+  .blog-post__other-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mb_other }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mb_other }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .blog-post__other-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top_other }}px;
+        padding-bottom: {{ section.settings.padding_bottom_other }}px;
+      }
+    }
+{%- endstyle -%}
+
+{%- liquid
+    if section.settings.image_lazy
+        assign imageLoading = 'lazy'
+    else
+        assign imageLoading = ''
+    endif
+-%}
+
+<section class="blog-post__section section-{{ section.id }}-padding page-width">
+  <div class="blog-post__header-section">
+    {% render "breadcrumbs" %}
+
+    <h1 class="blog-post__header h1"> {{ article.title }}</h1>
+
+    <p class="blog-post__excerpt text-15px"> {{ article.excerpt }}</p>
+  </div>
+  <div class="blog-post__content">
+    {% liquid
+      assign image1 = article.metafields.custom.vertical_image_1
+      assign image2 = article.metafields.custom.vertical_image_2
+      assign image3 = article.metafields.custom.vertical_image_3
+      assign image_horizontal = article.metafields.custom.horizontal_image_
+
+      assign imageClasses = 'blog-post__content-img'
+      assign imageClassesFirst = 'blog-post__content-img blog-post__content-img-first'
+      assign imageClassesHorizontal = 'blog-post__content-img-horizontal blog-post__content-img'
+    %}
+
+    <div class="blog-post__content-item blog-post__content-item-1">
+      {% if image1 %}
+        {% render 'simple-image', image: image1, imageLoading: imageLoading, imageClasses: imageClassesFirst %}
+      {% endif %}
+      <div class="blog-post__content-text-wrap">
+        <div class="blog-post__content-text">{{ article.content }}</div>
+      </div>
+
+    </div>
+    <div class="blog-post__content-item blog-post__content-item-2">
+      {% if image2 %}
+        {% render 'simple-image', image: image2, imageLoading: imageLoading, imageClasses: imageClassesFirst %}
+      {% endif %}
+
+      {% if image3 %}
+        {% render 'simple-image', image: image3, imageLoading: imageLoading, imageClasses: imageClasses %}
+      {% endif %}
+    </div>
+    <div class="blog-post__content-item blog-post__content-item-3">
+      {% if image_horizontal %}
+        {% render 'simple-image', image: image_horizontal, imageLoading: imageLoading, imageClasses: imageClassesHorizontal %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="blog-post__other blog-post__other-{{ section.id }}-padding">
+    {% render "blog-posts-section-inner",
+            header: section.settings.header,
+            button_link: section.settings.button_link,
+            button_label: section.settings.button_label,
+            blog: section.settings.blog,
+            not_displayed_article_id: article.id
+    %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog post custom",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image lazy loading"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_lazy",
+      "label": "Enable image lazy loading",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog post custom"
+    }
+  ]
+}
+{% endschema %}

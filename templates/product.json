@@ -1,0 +1,188 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "bcbbfe77-fbd2-4630-a2e8-dac07661203e": {
+          "type": "custom-variants",
+          "settings": {
+            "label_first": "Size",
+            "label_second": "Color"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "c97dbfb5-3aea-4af1-9382-ae07d95fc837": {
+          "type": "booking",
+          "settings": {
+            "booking_label": "Book An Appointment to Try"
+          }
+        },
+        "d358c7b9-3ea9-4679-bdf0-09c4abae5752": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Size Chart",
+            "icon": "none",
+            "content": "<p>Need help finding your size? <a href=\"\/pages\/contact\" title=\"Contact us\">Contact Us<\/a> for personalized support.<\/p>",
+            "page": "",
+            "text_pop_up": "<p>Size Guide<\/p>",
+            "page_pop_up": "size-guide"
+          }
+        },
+        "cc209c43-cb0a-4c61-92d4-6e48f24e6965": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Dress Features",
+            "icon": "none",
+            "content": "",
+            "page": "",
+            "text_pop_up": "",
+            "page_pop_up": ""
+          }
+        },
+        "bbfec183-bb82-4bfe-966f-487cfc949833": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Designer Highlight",
+            "icon": "none",
+            "content": "<p>Calla Blanche captures the essence of elegance with a diverse range of bridal styles. From enchanting silhouettes to everlasting lace, our collection is thoughtfully designed to meet the unique needs of every bride. Whether you're drawn to the timeless allure of lace sleeves, the refined beauty of satin or tulle fabrics, the ethereal charm of a flowing cape, or the romantic allure of a cascading train, Calla Blanche is here to make your fairy-tale dreams come true.<\/p>",
+            "page": "",
+            "text_pop_up": "",
+            "page_pop_up": ""
+          }
+        },
+        "d2b59cea-324e-4b36-8a51-c315e5faf34a": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "description",
+        "variant_picker",
+        "bcbbfe77-fbd2-4630-a2e8-dac07661203e",
+        "buy_buttons",
+        "c97dbfb5-3aea-4af1-9382-ae07d95fc837",
+        "d358c7b9-3ea9-4679-bdf0-09c4abae5752",
+        "cc209c43-cb0a-4c61-92d4-6e48f24e6965",
+        "bbfec183-bb82-4bfe-966f-487cfc949833",
+        "d2b59cea-324e-4b36-8a51-c315e5faf34a"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "columns",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 12,
+        "padding_bottom": 104,
+        "padding_top_mb": 12,
+        "padding_bottom_mb": 52
+      }
+    },
+    "78904026-de3a-4cb4-ad10-3c3bf8c8563a": {
+      "type": "cta-banner",
+      "blocks": {
+        "template--19603193430289__78904026-de3a-4cb4-ad10-3c3bf8c8563a-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Bridal Experience Awaits",
+            "heading_size": "h2"
+          }
+        },
+        "template--19603193430289__78904026-de3a-4cb4-ad10-3c3bf8c8563a-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "For every bride there is a perfect wedding dress waiting to be discovered. At The Bridal Gallery, we look forward to helping you create the look of your dreams.",
+            "text_style": "body"
+          }
+        },
+        "template--19603193430289__78904026-de3a-4cb4-ad10-3c3bf8c8563a-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "book an appointment",
+            "button_link_1": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+            "button_style_primary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_primary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19603193430289__78904026-de3a-4cb4-ad10-3c3bf8c8563a-heading-1",
+        "template--19603193430289__78904026-de3a-4cb4-ad10-3c3bf8c8563a-text-1",
+        "template--19603193430289__78904026-de3a-4cb4-ad10-3c3bf8c8563a-buttons-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg_3_1.jpg",
+        "image--mobile": "shopify:\/\/shop_images\/bg_4_1.jpg",
+        "image_overlay": "total",
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "products_to_show": 4,
+        "header": "you may also like",
+        "button_label": "view all",
+        "button_link": "",
+        "image_lazy": true,
+        "padding_top": 104,
+        "padding_bottom": 92,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "78904026-de3a-4cb4-ad10-3c3bf8c8563a",
+    "related-products"
+  ]
+}

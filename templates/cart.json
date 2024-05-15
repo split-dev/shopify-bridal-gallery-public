@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "title": "My Shopping bag",
+        "padding_top": 16,
+        "padding_bottom": 12
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {
+            "order_title": "Order Summary",
+            "shipping": "Shipping:",
+            "total": "Total",
+            "description": "(Excludes taxes and shipping)",
+            "order_terms": "<p>I agree to the <a href=\"#\" target=\"_blank\" title=\"#\">terms and conditions.<\/a><\/p>"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer"
+  ]
+}

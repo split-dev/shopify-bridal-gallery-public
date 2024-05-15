@@ -1,0 +1,210 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="page-width{% if cart == empty %} is-empty cart-empty {% endif %}"
+  id="main-cart-footer"
+  data-id="{{ section.id }}">
+  <div>
+    <div class="cart__footer">
+      {%- if settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea
+            class="text-area field__input"
+            name="note"
+            form="cart"
+            id="Cart-note"
+            placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+      <div class="cart__blocks">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+            {% render block %}
+            {%- when 'subtotal' -%}
+            <div class="js-contents cart__block-top" {{ block.shopify_attributes }}>
+              <div class="order">
+                <h4>{{ block.settings.order_title }}</h4>
+              </div>
+              <div class="totals">
+                <h2 class="totals__subtotal text-text text-15px">{{ 'sections.cart.subtotal' | t }}</h2>
+                <p class="totals__subtotal-value text-15px">{{ cart.total_price | money_with_currency }}</p>
+              </div>
+
+              <div>
+                {%- if cart.cart_level_discount_applications.size > 0 -%}
+                  <ul
+                    class="discounts list-unstyled"
+                    role="list"
+                    aria-label="{{ 'customer.order.discount' | t }}">
+                    {%- for discount in cart.cart_level_discount_applications -%}
+                      <li class="discounts__discount discounts__discount--position">
+                        {%- render 'icon-discount' -%}
+                        {{ discount.title }}
+                        (-{{ discount.total_allocated_amount | money }})
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+
+              <small class="tax-note caption-large rte cart__shipping text-15px">
+                {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                  {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                {%- elsif cart.taxes_included -%}
+                  {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                {%- elsif shop.shipping_policy.body != blank -%}
+                  {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+                {%- else -%}
+                  <span class="text-text text-15px">{{ block.settings.shipping }}</span>
+                  {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                {%- endif -%}
+              </small>
+              <div class="cart__block-bottom">
+                <div class="total">
+                  <div class="total__block">
+                    <h4 class="text-text text-15px">{{ block.settings.total }}</h4>
+                    <p class="p-small">{{ block.settings.description }}</p>
+                  </div>
+                  <div class="total__price">
+                    <p class="totals__subtotal-value text-15px">{{ cart.total_price | money_with_currency }}</p>
+                  </div>
+                </div>
+                {% if block.settings.order_terms != blank %}
+                  <div class="check_terms">
+                    <input
+                      type="checkbox"
+                      id="checkTerms"
+                      name="checkTerms" />
+                    <label class="p-small" for="checkTerms">{{ block.settings.order_terms }}</label>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {%- else -%}
+            <div class="cart__ctas" {{ block.shopify_attributes }}>
+              <noscript>
+                <button
+                  type="submit"
+                  class="cart__update-button button button--secondary"
+                  form="cart">
+                  {{ 'sections.cart.update' | t }}
+                </button>
+              </noscript>
+
+              <button
+                type="submit"
+                id="checkout"
+                class="cart__checkout-button button btn btn__primary"
+                name="checkout"
+                {% if cart == empty %}
+                disabled
+                {% endif %}
+                disabled
+                form="cart">
+                {{ 'sections.cart.checkout' | t }}
+              </button>
+            </div>
+
+            {%- if additional_checkout_buttons -%}
+              <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                {{ content_for_additional_checkout_buttons }}
+              </div>
+            {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const checkoutButton = document.getElementById('checkout');
+  checkBox = document.getElementById('checkTerms').addEventListener('click', e => {
+    if (e.target.checked) {
+      checkoutButton.removeAttribute('disabled')
+    } else {
+      checkoutButton.setAttribute("disabled", '');
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return msie > 0 || trident > 0;
+    }
+
+    if (! isIE()) 
+      return;
+    
+
+    const cartSubmitInput = document.createElement('input');
+    cartSubmitInput.setAttribute('name', 'checkout');
+    cartSubmitInput.setAttribute('type', 'hidden');
+    document.querySelector('#cart').appendChild(cartSubmitInput);
+    document.querySelector('#checkout').addEventListener('click', function(event) {
+      document.querySelector('#cart').submit();
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "t:sections.main-cart-footer.name",
+    "class": "cart__footer-wrapper",
+    "blocks": [
+      {
+        "type": "subtotal",
+        "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "order_title",
+            "label": "Title",
+            "default": "Order Summary"
+          },
+          {
+            "type": "text",
+            "id": "shipping",
+            "label": "Shipping",
+            "default": "Shipping:"
+          },
+          {
+            "type": "text",
+            "id": "total",
+            "label": "Total",
+            "default": "Total"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "Description",
+            "default": "(Excludes taxes and shipping)"
+          }, {
+            "type": "richtext",
+            "id": "order_terms",
+            "label": "Terms and conditions"
+          }
+        ]
+      }, {
+        "type": "buttons",
+        "name": "t:sections.main-cart-footer.blocks.buttons.name",
+        "limit": 1
+      }, {
+        "type": "@app"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,404 @@
+{{ 'designers.collection.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+{%- liquid
+  if section.settings.image_lazy
+    assign imageLoading = 'lazy'
+  else
+    assign imageLoading = ''
+  endif
+-%}
+
+<section class="design-collection section-{{ section.id }}-padding page-width">
+    <div class="design-collection__title-row">
+        <h3 class="design-collection__title text-text">{{ section.settings.header }}</h3>
+        <a class="btn btn__primary design-collection__button-desk" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+    </div>
+    <div class="design-collection__collections">
+        <div class="design-collection__primary">
+          <div class="design-collection__collection-title title-collection-item">{{ section.settings.collection_primary.title }}</div>
+          <a
+              class="design-collection__link"
+              href="{{ section.settings.collection_primary.url }}"
+            >
+              {%- if section.settings.image_collection_primary != blank or section.settings.collection_primary.image != blank -%}
+                  {% if section.settings.image_collection_primary != blank %}
+                    {%- liquid
+                      assign image_primary = section.settings.image_collection_primary
+                      assign imageWidth = image_primary.width
+                      assign imageHeight = imageWidth | divided_by: image_primary.aspect_ratio
+                    %}
+
+                    {{ image_primary | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__primary-image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+                  {% else %}
+
+                    {%- liquid
+                      assign image_primary = section.settings.collection_primary.image
+                      assign imageWidth = image_primary.width
+                      assign imageHeight = imageWidth | divided_by: image_primary.aspect_ratio
+                    %}
+
+                    {{ image_primary | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__primary-image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+                  {% endif %}
+              {%- else -%}
+                {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </a>
+        </div>
+
+        <div class="design-collection__secondary-list">
+          <div class="design-collection__secondary-line1">
+            <div class="design-collection__secondary-collection-1">
+              <div class="design-collection__collection-title title-collection-item">{{ section.settings.collection_1.title }}</div>
+              <a
+                      class="design-collection__link"
+                      href="{{ section.settings.collection_1.url }}"
+              >
+                {%- if section.settings.image_collection_1 != blank or section.settings.collection_1.image != blank -%}
+                  {% if section.settings.image_collection_1 != blank %}
+                    {%- liquid
+                      assign image = section.settings.image_collection_1
+                      assign imageWidth = image.width
+                      assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+                    %}
+
+                    {{ image | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+                  {% else %}
+
+                    {%- liquid
+                      assign image = section.settings.collection_1.image
+                      assign imageWidth = image.width
+                      assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+                    %}
+
+                    {{ image | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+                  {% endif %}
+                {%- else -%}
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </a>
+            </div>
+
+            <div class="design-collection__secondary-collection-2">
+              <div class="design-collection__collection-title title-collection-item">{{ section.settings.collection_2.title }}</div>
+              <a
+                      class="design-collection__link"
+                      href="{{ section.settings.collection_2.url }}"
+              >
+                {%- if section.settings.image_collection_2 != blank or section.settings.collection_2.image != blank -%}
+                  {% if section.settings.image_collection_2 != blank %}
+                    {%- liquid
+                      assign image = section.settings.image_collection_2
+                      assign imageWidth = image.width
+                      assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+                    %}
+
+                    {{ image | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+                  {% else %}
+
+                    {%- liquid
+                      assign image = section.settings.collection_2.image
+                      assign imageWidth = image.width
+                      assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+                    %}
+
+                    {{ image | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+                  {% endif %}
+                {%- else -%}
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </a>
+            </div>
+            
+          </div>
+          <div class="design-collection__secondary-line2">
+            <div class="design-collection__secondary-collection-3">
+              <div class="design-collection__collection-title title-collection-item">{{ section.settings.collection_3.title }}</div>
+              <a
+                      class="design-collection__link"
+                      href="{{ section.settings.collection_3.url }}"
+              >
+                {%- if section.settings.image_collection_3 != blank or section.settings.collection_3.image != blank -%}
+                  {% if section.settings.image_collection_3 != blank %}
+                    {%- liquid
+                      assign image = section.settings.image_collection_3
+                      assign imageWidth = image.width
+                      assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+                    %}
+
+                    {{ image | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+                  {% else %}
+
+                    {%- liquid
+                      assign image = section.settings.collection_3.image
+                      assign imageWidth = image.width
+                      assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+                    %}
+
+                    {{ image | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+                  {% endif %}
+                {%- else -%}
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </a>
+            </div>
+
+            <div class="design-collection__secondary-collection-4">
+              <div class="design-collection__collection-title title-collection-item">{{ section.settings.collection_4.title }}</div>
+              <a
+                      class="design-collection__link"
+                      href="{{ section.settings.collection_4.url }}"
+              >
+                {%- if section.settings.image_collection_4 != blank or section.settings.collection_4.image != blank -%}
+                  {% if section.settings.image_collection_4 != blank %}
+                    {%- liquid
+                      assign image = section.settings.image_collection_4
+                      assign imageWidth = image.width
+                      assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+                    %}
+
+                    {{ image | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+                  {% else %}
+
+                    {%- liquid
+                      assign image = section.settings.collection_4.image
+                      assign imageWidth = image.width
+                      assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+                    %}
+
+                    {{ image | image_url: width: 3840 | image_tag:
+                    loading: imageLoading,
+                    width: imageWidth,
+                    height: imageHeight,
+                    class: 'design-collection__image',
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+                  {% endif %}
+                {%- else -%}
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </a>
+
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <div class="design-collection__button-row">
+    <a class="btn btn__primary" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+  </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Designers collection",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+    "type": "header",
+    "content": "t:sections.all.padding.section_padding_heading"
+  },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Collection list"
+    },
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Section header",
+      "default": "Our designers"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "all designers"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_lazy",
+      "label": "Image lazy loading",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image_collection_primary",
+      "label": "Image for primary collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection_primary",
+      "label": "Primary collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_collection_1",
+      "label": "Image for collection 1"
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "Collection 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_collection_2",
+      "label": "Image for collection 2"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collection 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_collection_3",
+      "label": "Image for collection 3"
+    },
+    {
+      "type": "collection",
+      "id": "collection_3",
+      "label": "Collection 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_collection_4",
+      "label": "Image for collection 4"
+    },
+    {
+      "type": "collection",
+      "id": "collection_4",
+      "label": "Collection 4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Designers collection"
+    }
+  ]
+}
+{% endschema %}

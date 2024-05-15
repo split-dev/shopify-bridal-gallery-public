@@ -1,0 +1,162 @@
+{{ 'events-list.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign imageWidth = section.settings.image.width
+  assign imageHeight = imageWidth | divided_by: section.settings.image.aspect_ratio
+  if section.settings.image_lazy
+  assign imageLoading = 'lazy'
+  else
+  assign imageLoading = ''
+  endif-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="events-list page-width d-flex justify-content-center section-{{ section.id }}-padding" >
+  <div class="events-list__wrapper w-100">
+    {% for block in section.blocks %}
+      {% assign today_date = 'now' | date: '%s' %}
+      {% assign end_date = block.settings.events_list_data_off | date: '%s' %}
+      <div class="events-list__tile {% if today_date > end_date %} d-none {% endif %}">
+        <div class="events-list__tile-img">
+          {% if block.settings.image_events %}
+            {{ block.settings.image_events | image_url: width: 1500 | image_tag: loading: 'lazy' }}
+          {% endif %}
+        </div>
+        <div class="events-list__text">
+          <div class="events-list__text-content">
+            <div class="title-small-upper events-list__data">
+              {% if block.settings.events_list_data_on != blank %}
+                {{ block.settings.events_list_data_on | date: "%B %d" }} -
+              {% endif %}
+              {{ block.settings.events_list_data_off | date: "%B %d" }}
+            </div>
+            <h4>{{ block.settings.events_list_title }}</h4>
+            <div>{{ block.settings.events_list_content }}</div>
+  
+          </div>
+            {% if block.settings.events_button_link != blank %}
+              <a href="{{ block.settings.events_button_link }}" class="btn btn__primary">{{ block.settings.events_list_button }}</a>
+            {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+  
+{% schema %}
+{
+    "name": "Events List",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Content"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top desktop",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom desktop",
+        "default": 148
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top mobile",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom mobile",
+        "default": 80
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Events Item",
+        "type": "text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image_events",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "events_list_data_on",
+            "label": "Data On (format: dd.mm.yyyy)",
+            "info": "If the event lasts one day, this field should be left blank "
+          },
+          {
+            "type": "text",
+            "id": "events_list_data_off",
+            "label": "Data Off (format: dd.mm.yyyy)"
+          },
+          {
+            "type": "text",
+            "id": "events_list_title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "events_list_content",
+            "label": "Events Content"
+          },
+          {
+            "type": "text",
+            "id": "events_list_button",
+            "label": "Button Label"
+          },
+          {
+            "type": "url",
+            "id": "events_button_link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Events List",
+        "category": "Custom"
+      }
+    ]
+}
+{% endschema %}

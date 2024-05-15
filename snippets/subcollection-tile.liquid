@@ -1,0 +1,19 @@
+<div class="subcollection-tile">
+  <a href="{{card_collection.url}}">
+    {% if card_collection.image %}
+      {{ card_collection.image | image_url: width: 625 | image_tag: loading: 'lazy' }}
+      {%- else -%}
+
+      <img
+        srcset="https://cdn.shopify.com/s/files/1/0782/9753/0641/files/Empty_pic_placeholder_4.svg?v=1696415905"
+        src="https://cdn.shopify.com/s/files/1/0782/9753/0641/files/Empty_pic_placeholder_4.svg?v=1696415905"
+        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+        class="motion-reduce"
+      >
+    {% endif %}
+    <span class="d-block title-collection-item text-white text-uppercase">{{card_collection.title}}</span>
+    {% if card_collection.metafields.custom.price_range != blank %}
+      <span class="subcollection-tile__price-range d-block text-white title-small-upper">{{ 'products.product.price.price_range' | t }} ${{ card_collection.metafields.custom.price_range.value.price.min }} - ${{ card_collection.metafields.custom.price_range.value.price.max }}</span>
+    {% endif %}
+  </a>
+</div>

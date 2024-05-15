@@ -1,0 +1,36 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.template-blog{
+	.blog-banner {
+			.breadcrumbs a {
+				color: $c-dark-grey;
+			}
+	
+			.breadcrumbs span {
+				color: $c-dark-grey;
+			}
+	
+			&__wrapper {
+				h1 {
+					letter-spacing: 16px;
+					padding: 31px 0 20px;
+					color: $c-text;
+	
+					@include media-breakpoint-down(xs) {
+						font-size: 20px;
+						letter-spacing: 5.6px;
+						padding: 32px 0 12px;
+					}
+				}
+			}
+	
+			&__content {
+				color: $c-dark-grey;
+	
+				p {
+					margin: 0;
+				}
+			}
+		}
+}

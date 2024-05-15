@@ -1,0 +1,545 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'cta-banner.out.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%endstyle%}
+
+{%- if section.settings.image_height == 'adapt' and section.settings.image != blank or section.settings.image--mobile != blank-%}
+  {%- style -%}
+
+    @media screen and (max-width: 749px) {
+      #Banner-{{ section.id }}::before,
+      #Banner-{{ section.id }} .banner__media::before,
+      #Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.image--mobile.aspect_ratio | times: 70 }}%;
+        content: '';
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 550px) {
+      #Banner-{{ section.id }}::before,
+      #Banner-{{ section.id }} .banner__media::before,
+      #Banner-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+      padding-bottom: {{ 1 | divided_by: section.settings.image--mobile.aspect_ratio | times: 100 }}%;
+      content: '';
+      display: block;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+    #Banner-{{ section.id }}::before,
+    #Banner-{{ section.id }} .banner__media::before {
+    padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 150 }}%;
+    content: '';
+    display: block;
+    }
+    }
+
+    @media screen and (min-width: 990px) {
+      #Banner-{{ section.id }}::before,
+      #Banner-{{ section.id }} .banner__media::before {
+        padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;
+        content: '';
+        display: block;
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+
+{%- style -%}
+{% comment %}
+#Banner-{{ section.id }}::after {
+opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+}
+ {% endcomment %}
+{%- endstyle -%}
+
+{%- liquid
+assign full_width = '100vw'
+assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+comment
+ assign half_width = '50vw'
+ assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
+ endcomment
+-%}
+
+<div
+id="Banner-{{ section.id }}"
+class="cta_banner banner banner--content-align-{{ section.settings.desktop_content_alignment }}
+banner--content-align-mobile-{{ section.settings.mobile_content_alignment }}
+banner--{{ section.settings.image_height }}
+{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}
+ banner--desktop-transparent
+section-{{ section.id }}-padding"
+>
+  {%- if section.settings.image != blank -%}
+   <div class="cta_banner__media banner__media banner__media--desktop banner__media media
+      {% if section.settings.image_overlay == 'overlay_left' %} banner__media__left_overlay{% endif %}
+     {% if section.settings.image_overlay == 'total' %} banner__media__total_overlay{% endif %}
+     {% if section.settings.image == blank %} placeholder{% endif %}">
+     {%- liquid
+       assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+       assign sizes = full_width
+     -%}
+     {{
+       section.settings.image
+       | image_url: width: 3840
+       | image_tag:
+         loading: 'lazy',
+         width: section.settings.image.width,
+         height: image_height,
+         class: image_class,
+         sizes: sizes,
+         widths: widths
+     }}
+   </div>
+  {%- else -%}
+   <div class="banner__media media{% if section.settings.image == blank %} placeholder{% endif %}">
+     {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+   </div>
+  {%- endif -%}
+
+
+    <div class="cta_banner__media banner__media banner__media--mobile banner__media media
+   {% if section.settings.image_overlay == 'overlay_left' %} banner__media__left_overlay{% endif %}
+   {% if section.settings.image_overlay == 'total' %} banner__media__total_overlay{% endif %}
+   {% if section.settings.image--mobile == blank %} placeholder{% endif %}">
+
+      {%- if section.settings.image--mobile != blank -%}
+      {%- liquid
+        assign image_height = section.settings.image--mobile.width
+        assign sizes = full_width
+      -%}
+      {{
+      section.settings.image--mobile
+      | image_url: width: 3840
+      | image_tag:
+      loading: 'lazy',
+      width: section.settings.image--mobile.width,
+      height: image_height,
+      class: image_class,
+      sizes: sizes,
+      widths: widths
+      }}
+    {% elsif section.settings.image != blank %}
+      {%- liquid
+        assign image_height = section.settings.image.width
+        assign sizes = full_width
+      -%}
+      {{
+      section.settings.image
+      | image_url: width: 3840
+      | image_tag:
+      loading: 'lazy',
+      width: section.settings.image--mobile.width,
+      height: image_height,
+      class: image_class,
+      sizes: sizes,
+      widths: widths
+      }}
+  {%- else -%}
+    <div class="banner__media media{% if section.settings.image--mobile == blank %} placeholder{% endif %}">
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+  {%- endif -%}
+    </div>
+
+<div class="
+banner__content
+banner__content--{{ section.settings.desktop_content_position }}
+{% if section.settings.desktop_content_position != 'top-center' and section.settings.desktop_content_position != 'middle-center' and section.settings.desktop_content_position != 'bottom-center'%} page-width {% endif %}"
+>
+ <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
+   {%- for block in section.blocks -%}
+     {%- case block.type -%}
+       {%- when 'heading' -%}
+         <h2
+           class="cta_banner__heading inline-richtext {{ block.settings.heading_size }}"
+           {{ block.shopify_attributes }}
+         >
+           {{ block.settings.heading }}
+         </h2>
+       {%- when 'text' -%}
+         <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+           <p class="cta_banner__richtext">{{ block.settings.text }}</p>
+         </div>
+       {%- when 'buttons' -%}
+         <div
+           class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+           {{ block.shopify_attributes }}
+         >
+           {%- if block.settings.button_label_1 != blank -%}
+             <a
+               {% if block.settings.button_link_1 == blank %}
+                 role="link" aria-disabled="true"
+               {% else %}
+                 href="{{ block.settings.button_link_1 }}"
+               {% endif %}
+               class="btn {% if block.settings.button_style_primary_1 %} btn__primary {% else %} btn__ternary {% endif %}"
+             >
+               {{- block.settings.button_label_1 | escape -}}
+             </a>
+           {%- endif -%}
+           {%- if block.settings.button_label_2 != blank -%}
+             <a
+               {% if block.settings.button_link_2 == blank %}
+                 role="link" aria-disabled="true"
+               {% else %}
+                 href="{{ block.settings.button_link_2 }}"
+               {% endif %}
+               class="btn {% if block.settings.button_style_primary_2 %} btn__primary {% else %} btn__ternary {% endif %}"
+             >
+               {{- block.settings.button_label_2 | escape -}}
+             </a>
+           {%- endif -%}
+         </div>
+     {%- endcase -%}
+   {%- endfor -%}
+ </div>
+</div>
+</div>
+
+{% schema %}
+{
+"name": "t:sections.cta-banner.name",
+"tag": "section",
+"class": "section",
+"disabled_on": {
+ "groups": ["header", "footer"]
+},
+"settings": [
+  {
+    "type": "header",
+    "content": "Image settings"
+  },
+ {
+   "type": "image_picker",
+   "id": "image",
+   "label": "t:sections.image-banner.settings.image-desktop.label"
+ },
+  {
+    "type": "image_picker",
+    "id": "image--mobile",
+    "label": "t:sections.image-banner.settings.image-mobile.label"
+  },
+  {
+    "type": "select",
+    "id": "image_overlay",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "overlay_left",
+        "label": "Left-centered overlay"
+      },
+      {
+        "value": "total",
+        "label": "Total overlay"
+      }
+    ],
+    "default": "total",
+    "label": "Image overlay"
+  },
+ {
+   "type": "select",
+   "id": "image_height",
+   "options": [
+     {
+       "value": "adapt",
+       "label": "t:sections.image-banner.settings.image_height.options__1.label"
+     },
+     {
+       "value": "small",
+       "label": "t:sections.image-banner.settings.image_height.options__2.label"
+     },
+     {
+       "value": "medium",
+       "label": "t:sections.image-banner.settings.image_height.options__3.label"
+     },
+     {
+       "value": "large",
+       "label": "t:sections.image-banner.settings.image_height.options__4.label"
+     }
+   ],
+   "default": "medium",
+   "label": "t:sections.image-banner.settings.image_height.label",
+   "info": "t:sections.image-banner.settings.image_height.info"
+ },
+ {
+   "type": "select",
+   "id": "desktop_content_position",
+   "options": [
+     {
+       "value": "top-left",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__1.label"
+     },
+     {
+       "value": "top-center",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__2.label"
+     },
+     {
+       "value": "top-right",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__3.label"
+     },
+     {
+       "value": "middle-left",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__4.label"
+     },
+     {
+       "value": "middle-center",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__5.label"
+     },
+     {
+       "value": "middle-right",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__6.label"
+     },
+     {
+       "value": "bottom-left",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__7.label"
+     },
+     {
+       "value": "bottom-center",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__8.label"
+     },
+     {
+       "value": "bottom-right",
+       "label": "t:sections.image-banner.settings.desktop_content_position.options__9.label"
+     }
+   ],
+   "default": "middle-center",
+   "label": "t:sections.image-banner.settings.desktop_content_position.label"
+ },
+ {
+   "type": "select",
+   "id": "desktop_content_alignment",
+   "options": [
+     {
+       "value": "left",
+       "label": "t:sections.image-banner.settings.desktop_content_alignment.options__1.label"
+     },
+     {
+       "value": "center",
+       "label": "t:sections.image-banner.settings.desktop_content_alignment.options__2.label"
+     },
+     {
+       "value": "right",
+       "label": "t:sections.image-banner.settings.desktop_content_alignment.options__3.label"
+     }
+   ],
+   "default": "center",
+   "label": "t:sections.image-banner.settings.desktop_content_alignment.label"
+ },
+ {
+   "type": "color_scheme",
+   "id": "color_scheme",
+   "label": "t:sections.all.colors.label",
+   "default": "background-1"
+ },
+ {
+   "type": "header",
+   "content": "t:sections.image-banner.settings.mobile.content"
+ },
+ {
+   "type": "select",
+   "id": "mobile_content_alignment",
+   "options": [
+     {
+       "value": "left",
+       "label": "t:sections.image-banner.settings.mobile_content_alignment.options__1.label"
+     },
+     {
+       "value": "center",
+       "label": "t:sections.image-banner.settings.mobile_content_alignment.options__2.label"
+     },
+     {
+       "value": "right",
+       "label": "t:sections.image-banner.settings.mobile_content_alignment.options__3.label"
+     }
+   ],
+   "default": "center",
+   "label": "t:sections.image-banner.settings.mobile_content_alignment.label"
+ },
+ {
+  "type": "header",
+  "content": "t:sections.all.padding.section_padding_heading"
+},
+{
+  "type": "range",
+  "id": "padding_top",
+  "min": 0,
+  "max": 160,
+  "step": 4,
+  "unit": "px",
+  "label": "Padding top desktop",
+  "default": 80
+},
+{
+  "type": "range",
+  "id": "padding_bottom",
+  "min": 0,
+  "max": 160,
+  "step": 4,
+  "unit": "px",
+  "label": "Padding bottom desktop",
+  "default": 148
+},
+{
+  "type": "range",
+  "id": "padding_top_mb",
+  "min": 0,
+  "max": 120,
+  "step": 4,
+  "unit": "px",
+  "label": "Padding top mobile",
+  "default": 80
+},
+{
+  "type": "range",
+  "id": "padding_bottom_mb",
+  "min": 0,
+  "max": 120,
+  "step": 4,
+  "unit": "px",
+  "label": "Padding bottom mobile",
+  "default": 80
+}
+],
+"blocks": [
+ {
+   "type": "heading",
+   "name": "t:sections.image-banner.blocks.heading.name",
+   "limit": 2,
+   "settings": [
+     {
+       "type": "inline_richtext",
+       "id": "heading",
+       "default": "Image banner",
+       "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+     },
+     {
+       "type": "select",
+       "id": "heading_size",
+       "options": [
+         {
+           "value": "h5",
+           "label": "t:sections.all.heading_size.options__1.label"
+         },
+         {
+           "value": "h2",
+           "label": "t:sections.all.heading_size.options__2.label"
+         },
+         {
+           "value": "h1",
+           "label": "t:sections.all.heading_size.options__3.label"
+         }
+       ],
+       "default": "h1",
+       "label": "t:sections.all.heading_size.label"
+     }
+   ]
+ },
+ {
+   "type": "text",
+   "name": "t:sections.image-banner.blocks.text.name",
+   "limit": 2,
+   "settings": [
+     {
+       "type": "inline_richtext",
+       "id": "text",
+       "default": "Give customers details about the banner image(s) or content on the template.",
+       "label": "t:sections.image-banner.blocks.text.settings.text.label"
+     },
+     {
+       "type": "select",
+       "id": "text_style",
+       "options": [
+         {
+           "value": "body",
+           "label": "t:sections.image-banner.blocks.text.settings.text_style.options__1.label"
+         },
+         {
+           "value": "caption-with-letter-spacing",
+           "label": "t:sections.image-banner.blocks.text.settings.text_style.options__3.label"
+         }
+       ],
+       "default": "body",
+       "label": "t:sections.image-banner.blocks.text.settings.text_style.label"
+     }
+   ]
+ },
+ {
+   "type": "buttons",
+   "name": "t:sections.image-banner.blocks.buttons.name",
+   "limit": 1,
+   "settings": [
+     {
+       "type": "text",
+       "id": "button_label_1",
+       "default": "Button label",
+       "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
+       "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+     },
+     {
+       "type": "url",
+       "id": "button_link_1",
+       "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+     },
+     {
+       "type": "checkbox",
+       "id": "button_style_primary_1",
+       "default": false,
+       "label": "t:sections.image-banner.blocks.buttons.settings.button_style_primary_1.label"
+     },
+     {
+       "type": "text",
+       "id": "button_label_2",
+       "default": "Button label",
+       "label": "t:sections.image-banner.blocks.buttons.settings.button_label_2.label",
+       "info": "t:sections.image-banner.blocks.buttons.settings.button_label_2.info"
+     },
+     {
+       "type": "url",
+       "id": "button_link_2",
+       "label": "t:sections.image-banner.blocks.buttons.settings.button_link_2.label"
+     },
+     {
+       "type": "checkbox",
+       "id": "button_style_primary_2",
+       "default": false,
+       "label": "t:sections.image-banner.blocks.buttons.settings.button_style_primary_2.label"
+     }
+   ]
+ }
+],
+"presets": [
+ {
+   "name": "t:sections.cta-banner.name",
+   "blocks": [
+     {
+       "type": "heading"
+     },
+     {
+       "type": "text"
+     },
+     {
+       "type": "buttons"
+     }
+   ]
+ }
+]
+}
+{% endschema %}

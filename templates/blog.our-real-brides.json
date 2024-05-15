@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "a6434784-032e-4655-95df-02e7d79ea7a5": {
+      "type": "blog-hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_10.png",
+        "image_mobile": "shopify:\/\/shop_images\/Rectangle_10_1.png",
+        "image_lazy": false,
+        "image_overlay": true,
+        "header": "Our Real Brides",
+        "paragraph": "Experience the true magic of wedding day moments as you browse through our collection of real weddings. Our clients share their cherished photos and heartfelt testimonials, inspiring others with beautiful ensembles and unforgettable wedding memories.",
+        "button_url": "",
+        "button_label": "share my wedding",
+        "enable_breadcrumbs": true,
+        "breadcrumbs_white": true,
+        "form_title": "Share My Wedding",
+        "form_subtitle": "Don't skimp on the details! We love to share well captioned wedding stories with our TBG Bride community",
+        "check_terms": "<p>By clicking submit you agree to The Bridal Gallery’s <a href=\"\/pages\/terms-conditions\" title=\"Terms & Conditions\">Terms and Conditions<\/a><\/p>",
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "padding_top_mb": 12,
+        "padding_bottom_mb": 0
+      }
+    },
+    "419a494b-2897-4f2a-b7de-f851e3e12836": {
+      "type": "blog-main-section",
+      "settings": {
+        "image_lazy": true,
+        "header": "Unforgettable Brides: Photos & Stories",
+        "header_small": "Our Real Weddings",
+        "padding_top": 80,
+        "padding_bottom": 52,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 0
+      }
+    },
+    "81e3cfbb-123e-4ceb-bef5-b407bbd9a656": {
+      "type": "rich-text-with-icon",
+      "blocks": {
+        "template--19916639731985__81e3cfbb-123e-4ceb-bef5-b407bbd9a656-1689592008a797bf8b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Experience Our Charm",
+            "heading_size": "h3"
+          }
+        },
+        "template--19916639731985__81e3cfbb-123e-4ceb-bef5-b407bbd9a656-1689592008a797bf8b-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Step into a world of delightful charm at our bridal salon. Discover the perfect setting where dreams come true. Visit our 'Our Location' page to explore our salon's address, contact information, and opening hours. Immerse yourself in the beauty of our collections and make an appointment to embark on your unforgettable bridal journey. Experience the magic of our enchanting salon today!<\/p>"
+          }
+        },
+        "template--19916639731985__81e3cfbb-123e-4ceb-bef5-b407bbd9a656-1689592008a797bf8b-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "book an appointment",
+            "button_link": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+            "button_style_primary_1": true
+          }
+        }
+      },
+      "block_order": [
+        "template--19916639731985__81e3cfbb-123e-4ceb-bef5-b407bbd9a656-1689592008a797bf8b-0",
+        "template--19916639731985__81e3cfbb-123e-4ceb-bef5-b407bbd9a656-1689592008a797bf8b-1",
+        "template--19916639731985__81e3cfbb-123e-4ceb-bef5-b407bbd9a656-1689592008a797bf8b-2"
+      ],
+      "settings": {
+        "background_color": "#f6f6f6",
+        "image_overlay": false,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "padding_top": 72,
+        "padding_bottom": 96,
+        "padding_top_mb": 44,
+        "padding_bottom_mb": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "a6434784-032e-4655-95df-02e7d79ea7a5",
+    "419a494b-2897-4f2a-b7de-f851e3e12836",
+    "81e3cfbb-123e-4ceb-bef5-b407bbd9a656"
+  ]
+}

@@ -1,0 +1,265 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.image_shape == 'blob' %}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{%- if section.settings.enable_quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{{ 'collection-grid.out.css' | asset_url | stylesheet_tag }}
+{{ 'card-product.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  {%- paginate collection.products by 18 -%}
+    <div class="{% comment %} {% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %} {%endcomment%}">
+      {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+      {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+        <aside
+          aria-labelledby="verticalTitle"
+          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+          id="main-collection-filters"
+          data-id="{{ section.id }}"
+        >
+          {% render 'facets',
+            results: collection,
+            enable_filtering: section.settings.enable_filtering,
+            enable_sorting: section.settings.enable_sorting,
+            filter_type: section.settings.filter_type,
+            paginate: paginate
+          %}
+        </aside>
+      {%- endif -%}
+
+      <div
+        class="product-grid-container"
+        id="ProductGridContainer"
+      >
+        {%- if collection.products.size == 0 -%}
+          <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+            <div class="loading-overlay gradient"></div>
+            <div class="title-wrapper center">
+              <h2 class="title title--primary">
+                {{ 'sections.collection_template.empty' | t -}}
+                <br>
+                {{
+                  'sections.collection_template.use_fewer_filters_html'
+                  | t: link: collection.url, class: 'underlined-link link'
+                }}
+              </h2>
+            </div>
+          </div>
+        {%- else -%}
+          <div class="collection page-width">
+            <div class="loading-overlay gradient"></div>
+            <div id="product-grid" data-id="{{ section.id }}" class="products-list collection-grid__wrapper ">
+              {%- for product in collection.products -%}
+                {% assign lazy_load = false %}
+                {%- if forloop.index > 2 -%}
+                  {%- assign lazy_load = true -%}
+                {%- endif -%}
+                <div
+                  data-type="markup"
+                  class="{% cycle {{collection.handle}}: 'collection-grid__item1', 'collection-grid__item2', 'collection-grid__item3', 'collection-grid__item4', 'collection-grid__item5', 'collection-grid__item6', 'collection-grid__item7', 'collection-grid__item8', 'collection-grid__item9', 'collection-grid__item10', 'collection-grid__item11', 'collection-grid__item12', 'collection-grid__item13', 'collection-grid__item14', 'collection-grid__item15', 'collection-grid__item16', 'collection-grid__item17', 'collection-grid__item18', 'collection-grid__item19', 'collection-grid__item20', 'collection-grid__item21' %}"
+                >
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    lazy_load: lazy_load,
+                    show_quick_add: section.settings.enable_quick_add,
+                    section_id: section.id
+                  %}
+                </div>
+              {%- endfor -%}
+            </div>
+
+            {%- if paginate.pages > 1 -%}
+              {% render 'pagination', paginate: paginate, anchor: '' %}
+            {%- endif -%}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {%- endpaginate -%}
+</div>
+
+<div id="loading-overlay__spinner" class="loading-overlay__spinner">
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    class="spinner"
+    viewBox="0 0 66 66"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+  </svg>
+</div>
+
+{%- style -%}
+  #loading-overlay__spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    display: none;
+
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+{%- endstyle -%}
+
+<script>
+  //Grid columns functionality and storage
+  const btnCol2 = document.querySelector('.btn-col-2'),
+    btnCol4 = document.querySelector('.btn-col-4'),
+    allBtnCol = document.querySelectorAll('.grid-btn');
+
+  function removeOtherCurrent() {
+    allBtnCol.forEach((btn) => {
+      btn.classList.remove('current-grid');
+    });
+  }
+  function col2Active() {
+    btnCol2.classList.add('current-grid');
+    document.querySelector('.products-list').classList.add('col-2-desktop');
+    document.querySelector('.products-list').classList.remove('col-4-desktop');
+  }
+  function col4Active() {
+    btnCol4.classList.add('current-grid');
+    document.querySelector('.products-list').classList.add('col-4-desktop');
+    document.querySelector('.products-list').classList.remove('col-2-desktop');
+  }
+  btnCol2.addEventListener('click', () => {
+    console.log('click2');
+    removeOtherCurrent();
+    localStorage.setItem('column', '2');
+    col2Active();
+  });
+  btnCol4.addEventListener('click', () => {
+    console.log('click4');
+    removeOtherCurrent();
+    localStorage.setItem('column', '4');
+    col4Active();
+  });
+
+  function setColumns() {
+    if (document.querySelector('.products-list') != null) {
+      let columnSelected = localStorage.getItem('column');
+      if (columnSelected != null) {
+        removeOtherCurrent();
+        switch (columnSelected) {
+          case '2':
+            col2Active();
+            break;
+          case '4':
+            col4Active();
+            break;
+          default:
+            break;
+        }
+      } else {
+        col4Active();
+      }
+    }
+  }
+  setColumns();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-product-grid.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "select",
+      "id": "filter_type",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__1.label"
+        },
+        {
+          "value": "vertical",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
+        }
+      ],
+      "default": "horizontal",
+      "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
+      "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header_mobile.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

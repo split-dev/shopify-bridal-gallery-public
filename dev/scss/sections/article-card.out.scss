@@ -1,0 +1,165 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.main-blog {
+    position: relative;
+    *a {
+        text-decoration: none;
+    }
+    &__item1 {
+        height: 482px;
+        @include media-breakpoint-down(xs){
+            height: 345px;
+            margin-bottom: 40px;
+        }
+        .article-tile {
+            height: 100%;
+            &:hover {
+                .article-tile__title, 
+                .article-tile__read-more {
+                    color: $c-gold;
+                }
+            }
+            &__img-wrapper {
+                height: 482px;
+                @include media-breakpoint-down(xs){
+                    height: 345px;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    background: linear-gradient(205deg, rgba(19, 6, 0, 0.00) 0%, rgba(19, 6, 0, 0.45) 100%);
+                }
+            }
+            &__text {
+                width: 100%;
+                margin: 0;
+                padding: 16px;
+                position: absolute;
+                bottom: 16px;
+                left: 16px;
+                @include media-breakpoint-down(xs){
+                    left: 0;
+                    bottom: 4px;
+                }
+            }
+            &__title {
+                color: $c-white;
+                margin-bottom: 12px;
+                max-width: 450px;
+                transition: all .4s ease-in-out;
+                font-size: 20px;
+                letter-spacing: 1.2px;
+                text-transform: uppercase;
+                @include media-breakpoint-down(xs){
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 137.9%;
+                    letter-spacing: 0.96px;
+                    margin-bottom: 12px;
+                }
+            }
+            &__excerpt  {
+                color: $c-white;
+                max-width: 424px;
+                font-size: 15px;
+                margin-bottom: 20px;
+                @include media-breakpoint-down(xs){
+                    font-size: 12px;
+                    font-weight: 300;
+                    line-height: 152%;
+                    letter-spacing: 0.24px;
+                }
+            }
+            &__read-more {
+                color: $c-white;
+                text-decoration: underline !important;
+                transition: all .4s ease-in-out;
+                font-size: 15px;
+                font-weight: 400;
+                letter-spacing: 0.3px;
+            }
+        }
+    }
+}
+
+.article-tile {
+    a {
+        text-decoration: none !important;
+    }
+    &:hover {
+        img {
+            transform: scale(1.07);
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .article-tile__title, 
+        .article-tile__read-more {
+            color: $c-gold;
+        }
+    }
+    img {
+        transition: all .4s ease-in-out;
+    }
+    &__img-wrapper {
+        overflow: hidden;
+        height: 415px;
+        @include media-breakpoint-down(xs) {
+            height: 338px;
+        }
+        a {
+            display: block;
+        }
+        img {
+            width: 100%;
+            display: block;
+            height: 100%;
+            object-fit: cover; 
+        }
+    }
+    &__text {
+        margin-top: 16px;
+        padding-bottom: 13px;
+        @include media-breakpoint-down(xs){
+            margin: 15px 0 26px;
+            padding: 0;
+        }
+    }
+    &__title {
+        color: $c-black;
+        margin-bottom: 12px;
+        transition: all .4s ease-in-out;
+        font-size: 15px;
+        @include media-breakpoint-down(xs) {
+            font-size: 12px;
+            font-weight: 400;
+        }
+    }
+    &__excerpt {
+        color: $c-dark-grey;
+        margin: 12px 0 10px;
+        font-size: 12px;
+        @include media-breakpoint-down(xs){
+            margin: 12px 0 20px;
+        }
+    }
+    &__read-more {
+        margin: 10px 0 0;
+        color: $c-text;
+        text-decoration: underline !important;
+        transition: all .4s ease-in-out;
+        font-size: 12px;
+        letter-spacing: 0.24px;
+        @include media-breakpoint-down(xs) {
+            margin: 20px 0 0;
+        }
+    }
+}

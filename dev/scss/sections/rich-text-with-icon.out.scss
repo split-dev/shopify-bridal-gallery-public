@@ -1,0 +1,103 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.template-index {
+  .rich-text-icon__text, .rich-text-icon__heading  {
+    max-width: 650px;
+      @include media-breakpoint-down(xs) {
+        max-width: 500px;
+      }
+  }
+}
+
+.rich-text-icon {
+  &-section {
+    position: relative;
+  }
+
+  &-gradient-overlay {
+    .banner__media__left_overlay::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 1;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(152deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.26) 100%);
+    }
+  }
+
+  &__background-image {
+    picture {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        max-height: -webkit-fill-available;
+      }
+    }
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_align--center {
+   align-items: center;
+  }
+
+  &_align--left {
+    align-items: flex-start;
+  }
+
+  &_align--right {
+    align-items: flex-end;
+  }
+
+  &__heading {
+    margin-top: 20px;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 18px;
+    }
+  }
+
+  &__text, &__heading  {
+    max-width: 860px;
+    color: $c-text;
+
+      @include media-breakpoint-down(xs) {
+        max-width: 500px;
+      }
+  }
+
+  &__text {
+    margin-top: 20px;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 12px;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
+
+  &__button {
+    margin-top: 40px;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 24px;
+    }
+  }
+}

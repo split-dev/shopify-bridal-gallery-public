@@ -1,0 +1,18 @@
+<div class="blog-posts-section">
+    <div class="blog-posts__title-row">
+        <h3 class="blog-posts__title">{{ header }}</h3>
+        <a class="btn btn__primary blog-posts__button-desk" href="{{ button_link }}">{{ button_label }}</a>
+    </div>
+
+    <div class="blog-posts__posts">
+        {% for article in blog.articles limit:3 %}
+            {% if article.id != not_displayed_article_id %}
+              {% render 'blog-post-item', article: article %}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="blog-posts__button-row">
+        <a class="btn btn__primary" href="{{ button_link }}">{{ button_label }}</a>
+    </div>
+</div>

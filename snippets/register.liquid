@@ -1,0 +1,423 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+<div id="registerModal" class="register-modal">
+	<div class="register-modal__content">
+		<span id="closer" class="closer">
+			<svg  xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+			<g clip-path="url(#clip0_355_6334)">
+			<path d="M15.1004 14L21.5482 7.55224C21.6756 7.40345 21.7422 7.21206 21.7347 7.01631C21.7271 6.82056 21.646 6.63487 21.5074 6.49636C21.3689 6.35784 21.1832 6.27669 20.9875 6.26913C20.7917 6.26157 20.6003 6.32815 20.4516 6.45557L14.0038 12.9033L7.556 6.44779C7.40954 6.30133 7.2109 6.21906 7.00378 6.21906C6.79665 6.21906 6.59801 6.30133 6.45155 6.44779C6.3051 6.59425 6.22282 6.79289 6.22282 7.00002C6.22282 7.20714 6.3051 7.40578 6.45155 7.55224L12.9071 14L6.45155 20.4478C6.37014 20.5175 6.30401 20.6033 6.25732 20.6998C6.21064 20.7963 6.1844 20.9014 6.18027 21.0085C6.17613 21.1156 6.19418 21.2225 6.23328 21.3223C6.27238 21.4221 6.3317 21.5127 6.40749 21.5885C6.48329 21.6643 6.57394 21.7236 6.67375 21.7627C6.77356 21.8018 6.88037 21.8199 6.98749 21.8157C7.0946 21.8116 7.1997 21.7854 7.2962 21.7387C7.39269 21.692 7.4785 21.6259 7.54822 21.5445L14.0038 15.0967L20.4516 21.5445C20.6003 21.6719 20.7917 21.7385 20.9875 21.7309C21.1832 21.7233 21.3689 21.6422 21.5074 21.5037C21.646 21.3652 21.7271 21.1795 21.7347 20.9837C21.7422 20.788 21.6756 20.5966 21.5482 20.4478L15.1004 14Z" fill="black"/>
+			</g>
+			<defs>
+				<clipPath id="clip0_355_6334">
+					<rect width="28" height="28" fill="white"/>
+				</clipPath>
+			</defs>
+			</svg>
+		</span>
+    
+		<div class="register-modal__blank">
+			
+			<div class="register-modal__log d-flex flex-column">
+			<h3 class="text-center text-text" tabindex="-1">{{ 'customer.login_page.title' | t }}</h3>
+			<div class="register__form">
+				<div id ="subtext" style="display:none;">
+					<h3 tabindex="-1" class="text-center text-text" style="margin-top: -15px;">{{ 'customer.recover_password.title' | t }}</h3>
+					<p class="text-text text-center text-15px">
+					{{ 'customer.recover_password.subtext' | t }}
+					</p>
+					
+					{%- form 'recover_customer_password' -%}
+					{% assign recover_success = form.posted_successfully? %}
+					<div class="custom-form__field">
+						<label class="custom-form__label title-small-upper mb-3 d-block" for="RecoverEmail">
+							{{ 'customer.login_page.email' | t }}
+						</label>
+						<input
+							class="custom-form__input text-text text-15px"
+							type="email"
+							value=""
+							name="email"
+							id="RecoverEmail"
+							autocorrect="off"
+							autocapitalize="off"
+							autocomplete="email"
+							{% if form.errors %}
+							aria-invalid="true"
+							aria-describedby="RecoverEmail-email-error"
+							autofocus
+							{% endif %}
+							placeholder="{{ 'customer.login_page.email' | t }}"
+						>
+					</div>
+					{%- if form.errors -%}
+						<small id="RecoverEmail-email-error" class="form__message mb-4 h3">
+							<svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
+							<circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+							<circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+							<path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+							<path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+							</svg>
+							{{ form.errors.messages.form }}
+						</small>
+					{%- endif -%}
+			
+					<button class="btn btn__primary btn-gold w-100" style="margin: 15px 0 10px;">
+						{{ 'customer.login_page.submit' | t }}
+					</button>
+			
+					<a href="#login" id="triger_login" class="btn-cancel p-small">
+						{{ 'customer.login_page.cancel' | t }}
+					</a>
+					{%- endform -%}
+				</div>
+			
+			
+				
+				{%- if recover_success == true -%}
+					<h3 class="form__message text-center text-text mb-4" style="line-height: initial;" tabindex="-1" autofocus>
+					<svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
+						<path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z" fill="#428445" stroke="white" stroke-width="0.7"/>
+						<path d="M5.53271 8.66357L9.25213 4.68197" stroke="white"/>
+						<path d="M4.10645 6.7688L6.13766 8.62553" stroke="white">
+					</svg>
+					{{ 'customer.recover_password.success' | t }}
+					</h3>
+				{%- endif -%}
+				<div id="account_login" style="display:block;" class="customer login text-left w-100">
+					{%- form 'customer_login', novalidate: 'novalidate' -%}
+					{%- if form.errors -%}
+						<h3 class="form__message mb-4" style="line-height: initial;" tabindex="-1" autofocus>
+							<span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+							<svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
+							<circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+							<circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+							<path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+							<path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+							</svg>
+							{{ 'templates.contact.form.error_heading' | t }}
+						</h2>
+						{{ form.errors | default_errors }}
+					{%- endif -%}
+			
+					<div class="custom-form__field" style="margin: 0;">
+						<label class="custom-form__label title-small-upper mb-3 d-block" for="CustomerEmail">
+							{{ 'customer.login_page.email' | t }}
+						</label>
+						<input
+							class="custom-form__input text-text text-15px"
+							type="email"
+							name="customer[email]"
+							id="CustomerEmail"
+							autocomplete="email"
+							autocorrect="off"
+							autocapitalize="off"
+							{% if form.errors contains 'form' %}
+							aria-invalid="true"
+							{% endif %}
+							placeholder="{{ 'customer.login_page.email' | t }}"
+						>
+					</div>
+			
+					{%- if form.password_needed -%}
+						<div class="custom-form__field">
+							<label class="custom-form__label title-small-upper mb-3 d-block" for="CustomerPassword">
+							{{ 'customer.login_page.password' | t }}
+							</label>
+							<input
+							class="custom-form__input text-text text-15px d-flex justify-between"
+							type="password"
+							value=""
+							name="customer[password]"
+							id="CustomerPassword"
+							autocomplete="current-password"
+							{% if form.errors contains 'form' %}
+									aria-invalid="true"
+							{% endif %}
+							placeholder="{{ 'customer.login_page.password' | t }}"
+						>
+						<span class="password-look password-toggle" data-target="CustomerPassword">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+							<path d="M15.3424 7.84812C15.3212 7.79938 14.8012 6.64625 13.6399 5.485C12.5624 4.40875 10.7112 3.125 7.99991 3.125C5.28866 3.125 3.43741 4.40875 2.35991 5.485C1.19866 6.64625 0.678659 7.7975 0.657409 7.84812C0.636042 7.89613 0.625 7.94808 0.625 8.00062C0.625 8.05317 0.636042 8.10512 0.657409 8.15312C0.678659 8.20125 1.19866 9.35437 2.35991 10.5156C3.43741 11.5919 5.28866 12.875 7.99991 12.875C10.7112 12.875 12.5624 11.5919 13.6399 10.5156C14.8012 9.35437 15.3212 8.20312 15.3424 8.15312C15.3638 8.10512 15.3748 8.05317 15.3748 8.00062C15.3748 7.94808 15.3638 7.89613 15.3424 7.84812ZM7.99991 12.125C6.03866 12.125 4.32616 11.4113 2.90928 10.0044C2.31533 9.41409 1.81272 8.73854 1.41803 8C1.81261 7.26158 2.31523 6.58622 2.90928 5.99625C4.32616 4.58875 6.03866 3.875 7.99991 3.875C9.96116 3.875 11.6737 4.58875 13.0905 5.99625C13.6846 6.58622 14.1872 7.26158 14.5818 8C14.1837 8.76312 12.1874 12.125 7.99991 12.125ZM7.99991 5.125C7.43129 5.125 6.87544 5.29362 6.40264 5.60952C5.92985 5.92543 5.56136 6.37445 5.34376 6.89979C5.12615 7.42512 5.06922 8.00319 5.18015 8.56088C5.29108 9.11858 5.5649 9.63086 5.96698 10.0329C6.36905 10.435 6.88133 10.7088 7.43902 10.8198C7.99672 10.9307 8.57479 10.8738 9.10012 10.6562C9.62546 10.4386 10.0745 10.0701 10.3904 9.59726C10.7063 9.12447 10.8749 8.56862 10.8749 8C10.8739 7.23781 10.5707 6.50712 10.0317 5.96816C9.49279 5.42921 8.7621 5.12599 7.99991 5.125ZM7.99991 10.125C7.57962 10.125 7.16878 10.0004 6.81932 9.76687C6.46987 9.53338 6.1975 9.20149 6.03666 8.8132C5.87583 8.42491 5.83375 7.99764 5.91574 7.58543C5.99773 7.17322 6.20012 6.79458 6.49731 6.4974C6.79449 6.20021 7.17313 5.99782 7.58534 5.91583C7.99755 5.83384 8.42482 5.87592 8.81311 6.03676C9.2014 6.19759 9.53328 6.46996 9.76678 6.81941C10.0003 7.16887 10.1249 7.57971 10.1249 8C10.1249 8.56359 9.90102 9.10409 9.50251 9.5026C9.104 9.90112 8.56349 10.125 7.99991 10.125Z" fill="black"/>
+							</svg>
+						</span>
+						</div>
+			
+						<a href="#recover" id="recover_triger" class="password-comeback p-small">
+							{{ 'customer.login_page.forgot_password' | t }}
+						</a>
+					{%- endif -%}
+			
+					<button class="btn btn__primary btn-gold w-100" type="submit" style="margin: 0;">
+						{{ 'customer.log_in' | t }}
+					</button>
+
+
+					{%- endform -%}
+
+			
+					{%- if shop.checkout.guest_login -%}
+					<div>
+						<hr>
+						<h2>{{ 'customer.login_page.guest_title' | t }}</h2>
+				
+						{%- form 'guest_login' -%}
+							<button>
+							{{ 'customer.login_page.guest_continue' | t }}
+							</button>
+						{%- endform -%}
+					</div>
+					{%- endif -%}
+				</div>
+
+			</div>
+			<div id="loggrey" class="register-modal__face-grey bg-grey">
+				<h4 class="text-text">Got an account for The Bridal Gallery?</h4>
+				<button id="btnlog" class="btn btn__secondary btn-gold w-100">{{ 'customer.log_in' | t }}</button>
+				<a href="#recover" id="combck" class="password-comeback p-small">
+					{{ 'customer.login_page.forgot_password' | t }}
+				</a>
+			</div>
+			</div>
+
+
+			<div class="ruler"></div>
+			
+			<div class="register-modal__reg d-flex flex-column">
+			<h3 class="text-center text-text">{{ 'customer.register.title' | t }}</h3>
+			<div class="customer register text-left w-100">
+				<div class="register__form" id="regform" style="display:none;">
+					{%- form 'create_customer', novalidate: 'novalidate' -%}
+					{%- if form.errors -%}
+						<h3 class="form__message mb-4" tabindex="-1" autofocus>
+							<svg aria-hidden="true" focusable="false">
+							<use href="#icon-error" />
+							</svg>
+							{{ 'templates.contact.form.error_heading' | t }}
+						</h3>
+						<ul class="error-form">
+							{%- for field in form.errors -%}
+							<li>
+								{%- if field == 'form' -%}
+									{{ form.errors.messages[field] }}
+								{%- else -%}
+									<a class="text-dark-grey" href="#RegisterForm-{{ field }}">
+									{{ form.errors.translated_fields[field] | capitalize }}
+									{{ form.errors.messages[field] }}
+									</a>
+								{%- endif -%}
+							</li>
+							{%- endfor -%}
+						</ul>
+					{%- endif -%}
+					<div class="custom-form__field">
+						<label class="title-small-upper mb-3 d-block" for="RegisterForm-FirstName">
+							{{ 'customer.register.first_name' | t }}
+						</label>
+						<input
+							class="custom-form__input text-text text-15px"
+							type="text"
+							name="customer[first_name]"
+							id="RegisterForm-FirstName"
+							{% if form.first_name %}
+							value="{{ form.first_name }}"
+							{% endif %}
+							autocomplete="given-name"
+							placeholder="{{ 'customer.register.first_name' | t }}"
+						>
+					</div>
+					<div class="custom-form__field">
+						<label class="custom-form__label title-small-upper mb-3 d-block" for="RegisterForm-email">
+							{{ 'customer.register.email' | t }}
+						</label>
+						<input
+							required
+							class="custom-form__input text-text text-15px"
+							type="email"
+							name="customer[email]"
+							id="RegisterForm-email"
+							{% if form.email %}
+							value="{{ form.email }}"
+							{% endif %}
+							spellcheck="false"
+							autocapitalize="off"
+							autocomplete="email"
+							aria-required="true"
+							{% if form.errors contains 'email' %}
+							aria-invalid="true"
+							aria-describedby="RegisterForm-email-error"
+							{% endif %}
+							placeholder="{{ 'customer.register.email' | t }}"
+						>
+						
+					</div>
+					{%- if form.errors contains 'email' -%}
+						<span id="RegisterForm-email-error" class="mb-4 form__message" style="line-height: initial;">
+							<svg aria-hidden="true" focusable="false">
+							<use href="#icon-error">
+							</svg>
+							{{ form.errors.translated_fields.email | capitalize }}
+							{{ form.errors.messages.email }}.
+						</span>
+					{%- endif -%}
+					<div class="custom-form__field">
+						<label class="custom-form__label title-small-upper text-black mb-3 d-block" for="RegisterForm-password">
+							{{ 'customer.register.password' | t }}
+						</label>
+						<input
+							required
+							class="custom-form__input text-text text-15px d-flex justify-between"
+							type="password"
+							value=""
+							name="customer[password]"
+							id="RegisterForm-password"
+							autocomplete="off"
+							aria-required="true"
+							{% if form.errors contains 'password' %}
+							aria-invalid="true"
+							aria-describedby="RegisterForm-password-error"
+							{% endif %}
+							placeholder="{{ 'customer.register.password' | t }}"
+						>
+						<span class="password-look password-toggle" data-target="RegisterForm-password">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+							<path d="M15.3424 7.84812C15.3212 7.79938 14.8012 6.64625 13.6399 5.485C12.5624 4.40875 10.7112 3.125 7.99991 3.125C5.28866 3.125 3.43741 4.40875 2.35991 5.485C1.19866 6.64625 0.678659 7.7975 0.657409 7.84812C0.636042 7.89613 0.625 7.94808 0.625 8.00062C0.625 8.05317 0.636042 8.10512 0.657409 8.15312C0.678659 8.20125 1.19866 9.35437 2.35991 10.5156C3.43741 11.5919 5.28866 12.875 7.99991 12.875C10.7112 12.875 12.5624 11.5919 13.6399 10.5156C14.8012 9.35437 15.3212 8.20312 15.3424 8.15312C15.3638 8.10512 15.3748 8.05317 15.3748 8.00062C15.3748 7.94808 15.3638 7.89613 15.3424 7.84812ZM7.99991 12.125C6.03866 12.125 4.32616 11.4113 2.90928 10.0044C2.31533 9.41409 1.81272 8.73854 1.41803 8C1.81261 7.26158 2.31523 6.58622 2.90928 5.99625C4.32616 4.58875 6.03866 3.875 7.99991 3.875C9.96116 3.875 11.6737 4.58875 13.0905 5.99625C13.6846 6.58622 14.1872 7.26158 14.5818 8C14.1837 8.76312 12.1874 12.125 7.99991 12.125ZM7.99991 5.125C7.43129 5.125 6.87544 5.29362 6.40264 5.60952C5.92985 5.92543 5.56136 6.37445 5.34376 6.89979C5.12615 7.42512 5.06922 8.00319 5.18015 8.56088C5.29108 9.11858 5.5649 9.63086 5.96698 10.0329C6.36905 10.435 6.88133 10.7088 7.43902 10.8198C7.99672 10.9307 8.57479 10.8738 9.10012 10.6562C9.62546 10.4386 10.0745 10.0701 10.3904 9.59726C10.7063 9.12447 10.8749 8.56862 10.8749 8C10.8739 7.23781 10.5707 6.50712 10.0317 5.96816C9.49279 5.42921 8.7621 5.12599 7.99991 5.125ZM7.99991 10.125C7.57962 10.125 7.16878 10.0004 6.81932 9.76687C6.46987 9.53338 6.1975 9.20149 6.03666 8.8132C5.87583 8.42491 5.83375 7.99764 5.91574 7.58543C5.99773 7.17322 6.20012 6.79458 6.49731 6.4974C6.79449 6.20021 7.17313 5.99782 7.58534 5.91583C7.99755 5.83384 8.42482 5.87592 8.81311 6.03676C9.2014 6.19759 9.53328 6.46996 9.76678 6.81941C10.0003 7.16887 10.1249 7.57971 10.1249 8C10.1249 8.56359 9.90102 9.10409 9.50251 9.5026C9.104 9.90112 8.56349 10.125 7.99991 10.125Z" fill="black"/>
+							</svg>
+						</span>
+						
+					</div>
+					{%- if form.errors contains 'password' -%}
+						<span id="RegisterForm-password-error" class="form__message" style="line-height: initial;">
+							<svg aria-hidden="true" focusable="false">
+							<use href="#icon-error" />
+							</svg>
+							{{ form.errors.translated_fields.password | capitalize }}
+							{{ form.errors.messages.password }}.
+						</span>
+					{%- endif -%}
+					<div class="checkbox-block">
+						<div class="d-flex">
+							<input type="checkbox" id="checkbox3">
+							<label for="checkbox3" id="label3">
+							<span class="p-small text-text">I’d like to receive the latest news and promotions</span>
+							</label>
+						</div>
+					
+						<div class ="d-flex" style="margin-top: 22px;">
+							<input type="checkbox" id="checkbox4">
+							<label for="checkbox4" id="label4">
+							<span class="p-small text-text">I have read and accepted our <a href="{{ link.url }}" target="_blank" class="text-underline p-small text-text">Privacy Policy</a> and <a href="{{ link.url }}" target="_blank" class="text-underline p-small text-text">Terms & Conditions.</a></span>
+							</label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn__primary btn-gold w-100" id="btn__checkbox-block" disabled>
+						{{ 'customer.register.submit' | t }}
+					</button>
+
+					{%- endform -%}
+				</div>
+				
+				<div id="reggrey" class="register-modal__face-grey bg-grey text-left" style="display: flex;">
+				<p class="text-text text-center title-collection-item" style="margin: 0;">What are the benefits of having an account at The Bridal gallery?</p>
+					<div class="text-15px w-100 text-text">
+					<p class="d-flex">
+						<span class="m-right-10">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+							<path d="M6.0001 11.28L3.2201 8.5L2.27344 9.44L6.0001 13.1667L14.0001 5.16667L13.0601 4.22667L6.0001 11.28Z" fill="#D2B786"/>
+							</svg>
+						</span>
+						<span>Speedy checkout</span>
+					</p>
+					<p class="d-flex">
+						<span class="m-right-10">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+							<path d="M6.0001 11.28L3.2201 8.5L2.27344 9.44L6.0001 13.1667L14.0001 5.16667L13.0601 4.22667L6.0001 11.28Z" fill="#D2B786"/>
+							</svg>
+						</span>
+						<span>Track orders and view order history</span>
+					</p>
+					<p class="d-flex">
+						<span class="m-right-10">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+							<path d="M6.0001 11.28L3.2201 8.5L2.27344 9.44L6.0001 13.1667L14.0001 5.16667L13.0601 4.22667L6.0001 11.28Z" fill="#D2B786"/>
+							</svg>
+						</span>
+						<span>Manage favourites lists</span>
+					</p>
+					<p class="d-flex">
+						<span class="m-right-10">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+							<path d="M6.0001 11.28L3.2201 8.5L2.27344 9.44L6.0001 13.1667L14.0001 5.16667L13.0601 4.22667L6.0001 11.28Z" fill="#D2B786"/>
+							</svg>
+						</span>
+						<span>View Appointment Bookings</span>
+					</p>
+					
+					</div>
+					<button id="btnreg" class="btn btn__secondary btn-gold w-100">Create Account</button>
+				</div>
+			</div>
+			</div>
+
+		
+		</div>
+	</div>
+</div>
+<script>
+
+    btnlog = document.getElementById('btnlog').addEventListener('click', () => {
+    loggrey.style.display = "none";
+    reggrey.style.display = "flex";
+    regform.style.display = "none";
+    account_login.style.display = "block";
+    });
+
+    btnreg = document.getElementById('btnreg').addEventListener('click', () => {
+    reggrey.style.display = "none";
+    loggrey.style.display = "flex";
+    regform.style.display = "block";
+    subtext.style.display = "none";
+    account_login.style.display = "none";
+    });
+
+    combck = document.getElementById('combck').addEventListener('click', () => {
+    reggrey.style.display = "flex";
+    loggrey.style.display = "none";
+    subtext.style.display = "block";
+    regform.style.display = "none";
+    account_login.style.display = "none";
+    });
+
+    recover_triger = document.getElementById('recover_triger').addEventListener('click', () => {
+      reggrey.style.display = "flex";
+      loggrey.style.display = "none";
+      subtext.style.display = "block";
+      regform.style.display = "none";
+      account_login.style.display = "none";
+    });
+
+    const toggleLoginView = () => {
+      reggrey.style.display = "flex";
+      loggrey.style.display = "none";
+      subtext.style.display = "none";
+      regform.style.display = "none";
+      account_login.style.display = "block";
+    };
+  
+    triger_login = document.getElementById('triger_login').addEventListener('click', toggleLoginView);
+    
+    closer = document.getElementById('closer').addEventListener('click', toggleLoginView);
+    
+    const checkBox4List = document.querySelectorAll('#checkbox4');
+    const checkoutButton4List = document.querySelectorAll('#btn__checkbox-block');
+
+    checkBox4List.forEach((checkBox4, index) => {
+    checkBox4.addEventListener('click', (e) => {
+        if (e.target.checked) {
+        checkoutButton4List[index].removeAttribute('disabled');
+        } else {
+        checkoutButton4List[index].setAttribute('disabled', '');
+        }
+    });
+    });
+
+</script>

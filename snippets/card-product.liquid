@@ -1,0 +1,121 @@
+<div class="card-product">
+  
+    <div class="card-product__media">
+      <div class="media media--transparent media--hover-effect">
+        {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+        {%- if card_product.featured_media -%}
+          <img
+            srcset="
+              {%- if card_product.featured_media.width >= 165 -%}
+                {{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if card_product.featured_media.width >= 360 -%}
+                {{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if card_product.featured_media.width >= 533 -%}
+                {{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+              {%- if card_product.featured_media.width >= 720 -%}
+                {{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+              {%- if card_product.featured_media.width >= 940 -%}
+                {{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+              {%- if card_product.featured_media.width >= 1066 -%}
+                {{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+              {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+            "
+            src="{{ card_product.featured_media | image_url: width: 533 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+            alt="{{ card_product.featured_media.alt | escape }}"
+            class="motion-reduce"
+            {% unless lazy_load == false %}
+              loading="lazy"
+            {% endunless %}
+            width="{{ card_product.featured_media.width }}"
+            height="{{ card_product.featured_media.height }}"
+          >
+          {%- else -%}
+
+          <img
+            srcset="https://cdn.shopify.com/s/files/1/0782/9753/0641/files/Empty_pic_placeholder_4.svg?v=1696415905"
+            src="https://cdn.shopify.com/s/files/1/0782/9753/0641/files/Empty_pic_placeholder_4.svg?v=1696415905"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+            alt="{{ card_product.featured_media.alt | escape }}"
+            class="motion-reduce"
+            {% unless lazy_load == false %}
+              loading="lazy"
+            {% endunless %}
+            width="{{ card_product.featured_media.width }}"
+            height="{{ card_product.featured_media.height }}"
+          >
+            
+        {%- endif -%}
+        {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+
+        {%- if card_product.media[1] != null -%}
+          <img
+            srcset="
+              {%- if card_product.media[1].width >= 165 -%}
+                {{ card_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if card_product.media[1].width >= 360 -%}
+                {{ card_product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if card_product.media[1].width >= 533 -%}
+                {{ card_product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
+              {%- if card_product.media[1].width >= 720 -%}
+                {{ card_product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
+              {%- if card_product.media[1].width >= 940 -%}
+                {{ card_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
+              {%- if card_product.media[1].width >= 1066 -%}
+                {{ card_product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
+              {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
+            "
+            src="{{ card_product.media[1] | image_url: width: 533 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+            alt="#"
+            class="motion-reduce"
+            loading="lazy"
+            width="{{ card_product.media[1].width }}"
+            height="{{ card_product.media[1].height }}"
+          >
+        {%- endif -%}
+      </div>
+    </div>
+  
+
+  <div class="card-product__info">
+    <div class="card-product__info-title">
+      <a href="{{ card_product.url }}" class="card-product__title title-collection-item">{{ card_product.title }}</a>
+      <!-- Swym button on product pages -->
+      <button
+        data-with-epi="true"
+        class="swym-button swym-add-to-wishlist-view-product product_{{card_product.id}}"
+        data-swaction="addToWishlist"
+        data-product-id="{{card_product.id | json}}"
+        data-variant-id="{{card_product.variants[0].id}}"
+        data-product-url="{{ shop.url }}{{ card_product.url }}"
+      >
+        {% render 'icon-heart-2' %}
+      </button>
+      <!-- Swym button on product pages -->
+    </div>
+    <div class="card-product__price title-small-upper">
+      {% if card_product.metafields.custom.info_product.value.item.displayPrice != blank %}
+        <span>{{card_product.metafields.custom.info_product.value.item.displayPrice}}</span>
+        {% else %}
+        {% render 'price', product: card_product, price_class: '' %}
+      {% endif %}
+      
+    </div>
+    <div class="card-product__variants d-flex align-items-center">
+      <div class="card-product__variants-wrapper d-flex align-items-center">
+        {% for color in card_product.metafields.custom.info_product.value.colors limit: 4 %}
+          <img src="{{ color.url}}" alt="{{ color.name }}">
+        {% endfor %}
+      </div>
+      {% assign images = card_product.metafields.custom.info_product.value.colors %}
+      {% assign image_count = images.size %}
+
+      {% if image_count > 4 %}
+        <p class="title-small-upper">+{{ image_count | minus: 4 }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style></style>

@@ -1,0 +1,25 @@
+
+<a href="{{ article.url }}" class="blog-post">
+    <div class="blog-post__image-wrap">
+        {%- liquid
+            assign image = article.image
+            assign imageWidth = image.width
+            assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+            assign imageClasses = 'blog-post__image'
+        %}
+
+        {{ image | image_url: width: 3840 | image_tag:
+        width: imageWidth,
+        height: imageHeight,
+        class: imageClasses,
+        sizes: '100vw',
+        widths: '1100, 1500, 1780, 2000, 3000, 3840' }}
+    </div>
+    <div class="blog-post__content">
+        <h4 class="blog-post__content-title title-collection-item">{{ article.title }}</h4>
+        <p class="blog-post__content-excerpt p-small">{{ article.excerpt }}</p>
+        <p class="blog-post__content-more title-small-upper">READ MORE</p>
+    </div>
+</a>
+

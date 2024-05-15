@@ -1,0 +1,138 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.announcement-bar {
+    flex-direction: column;
+}
+.announcement-bar-custom {
+    background: $c-text;
+    width: 100%;
+    padding: 11px 0;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__offers {
+        display: flex;
+        align-items: center;
+        > p {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        > span {
+            opacity: 0.6;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: underline !important;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .bar-carousel-status {
+            @include media-breakpoint-down(sm) {
+                display: none !important;
+            }
+        }
+    }
+    &__links {
+        display: flex;
+        align-items: center;
+        a {
+            display: flex;
+            &:nth-child(2) {
+                padding-left: 12px;
+                margin-left: 12px;
+                border-left: solid 1px rgba(255, 255, 255, 0.23);
+            }
+            svg {
+                @include media-breakpoint-down(xs) {
+                    max-height: 8px;
+                    width: auto;
+                }
+            }
+        }
+    }
+    &__modal-header {
+        padding: 40px;
+        background: #F6F6F6;
+        @include media-breakpoint-down(xs) {
+            padding: 20px;
+        }    
+        p {
+            color: $c-text;
+        }
+    }
+    &__modal-item {
+        padding: 40px 40px 0 40px;
+        @include media-breakpoint-down(xs) {
+            padding: 20px 20px 0 20px;
+        } 
+        &:first-child {
+            padding-bottom: 40px !important;
+            border-bottom: solid 1px #F6F6F6 !important;
+            @include media-breakpoint-down(xs) {
+                padding-bottom: 20px !important;
+            } 
+            * {
+                color: $c-dark-gold !important;
+                
+                p {
+                    &:after {
+                        background: $c-dark-gold;
+                    }
+                }
+            }
+        }
+        &:last-child {
+            padding-bottom: 60px;
+            @include media-breakpoint-down(xs) {
+                padding-bottom: 20px;
+            } 
+        }
+        a {
+            text-decoration: none !important;
+            color: $c-text;
+        }
+        p {
+            position: relative;
+            width: fit-content;
+            margin-top: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: $c-dark-grey;
+            }
+        }
+    }
+    .js-offers-slider {  
+        &:focus-visible {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    }
+    &__slider-wrapper {
+        width: 250px;
+        margin-right: 24px;
+        @include media-breakpoint-down(sm) {
+           display: none !important;
+        }
+    }
+    &__slider-item {
+        width: 250px;
+        height: 16px; 
+        display: block;
+        a {
+            width: 100%;
+            text-decoration: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.collection-top {
+  h1 {
+    margin: 32px 0 8px;
+    @include media-breakpoint-down(xs) {
+      margin: 20px 0 12px;
+    } 
+  }
+  &__content {
+    color: $c-dark-grey;
+    a {
+      color: $c-text !important;
+      transition: 0.3s;
+      &:hover {
+        color: $c-black;
+      }
+    }
+  }
+  &__nav-wrapper {
+    margin-top: 40px;
+    @include media-breakpoint-down(xs) {
+      margin-top: 26px;
+    } 
+    > div {
+      margin-right: 6px;
+      margin-bottom: 12px;
+      @include media-breakpoint-down(xs) {
+        margin-right: 14px;
+      } 
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px 20px;
+        border: 1px solid #E7E7E7;
+        text-decoration: none;
+        transition: 0.3s;
+        @include media-breakpoint-down(xs) {
+          padding: 4px 12px;
+        } 
+        &:hover {
+          border: 1px solid #f6f6f6;
+          background: #f6f6f6;
+        }
+        &.active {
+          border: 1px solid #f6f6f6;
+          background: #f6f6f6;
+        }
+      }
+    }
+  }
+}

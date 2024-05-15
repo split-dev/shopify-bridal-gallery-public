@@ -1,0 +1,31 @@
+<div class="article-tile">
+  <a href="{{ article.url }}" class="d-block position-relative">
+    {%- if article.image -%}
+      <div class="d-block article-tile__img-wrapper">
+        <img
+          srcset="
+            {%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if article.image.src.width >= 360 -%}{{ article.image.src | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if article.image.src.width >= 533 -%}{{ article.image.src | image_url: width: 533 }} 533w,{%- endif -%}
+            {%- if article.image.src.width >= 720 -%}{{ article.image.src | image_url: width: 720 }} 720w,{%- endif -%}
+            {%- if article.image.src.width >= 1000 -%}{{ article.image.src | image_url: width: 1000 }} 1000w,{%- endif -%}
+            {%- if article.image.src.width >= 1500 -%}{{ article.image.src | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ article.image.src | image_url }} {{ article.image.src.width }}
+          "
+          src="{{ article.image.src | image_url: width: 533 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+          alt="{{ article.image.src.alt | escape }}"
+          class="motion-reduce"
+          loading="lazy"
+          width="{{ article.image.width }}"
+          height="{{ article.image.height }}"
+        >
+      </div>
+    {%- endif -%}
+    <div class="article-tile__text d-block">
+      <h4 class="article-tile__title d-block">{{ article.title }}</h4>
+      <p class="article-tile__excerpt d-block">{{ article.excerpt }}</p>
+      <p class="article-tile__read-more d-block">{{ 'blogs.article.read_more' | t }}</p>
+    </div>
+  </a>
+</div>

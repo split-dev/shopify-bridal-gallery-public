@@ -1,0 +1,120 @@
+{
+  "sections": {
+    "cdd12d82-1158-4ac6-b77e-3dddd6bc36db": {
+      "type": "subcollection-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_10_1_897a8a88-8772-48ac-ac8f-88a20815c5ba.png",
+        "image_mobile": "shopify:\/\/shop_images\/Rectangle_10_2_1.jpg",
+        "image_lazy": false,
+        "image_overlay": true,
+        "button_url": "shopify:\/\/collections\/wedding-dresses",
+        "button_label": "Browse the full collection",
+        "padding_top": 20,
+        "padding_bottom": 52,
+        "padding_top_mb": 12,
+        "padding_bottom_mb": 100
+      }
+    },
+    "73629b51-c67b-4de3-962d-b96aa3787305": {
+      "type": "subcollection-grid",
+      "settings": {
+        "collection_list": [
+          "beautiful-by-enzoani",
+          "blu-by-morilee",
+          "watters",
+          "calla-blanche",
+          "enzoani",
+          "love-by-enzoani",
+          "the-bridal-gallery",
+          "madi-lane",
+          "maggie-sottero-designs",
+          "mikaella",
+          "morilee",
+          "paloma-blanca",
+          "pronovias-group",
+          "rebecca-ingram",
+          "rosa-clara",
+          "wtoo"
+        ],
+        "padding_top": 72,
+        "padding_bottom": 80,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 40
+      }
+    },
+    "f0174604-fc21-4eaf-9865-f3d46d5a5cf1": {
+      "type": "cta-banner",
+      "blocks": {
+        "template--19733823553809__f0174604-fc21-4eaf-9865-f3d46d5a5cf1-168975240321fbdc12-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Bridal Experience Awaits",
+            "heading_size": "h2"
+          }
+        },
+        "template--19733823553809__f0174604-fc21-4eaf-9865-f3d46d5a5cf1-168975240321fbdc12-1": {
+          "type": "text",
+          "settings": {
+            "text": "For every bride there is a perfect wedding dress waiting to be discovered. At The Bridal Gallery, we look forward to helping you create the look of your dreams.",
+            "text_style": "body"
+          }
+        },
+        "template--19733823553809__f0174604-fc21-4eaf-9865-f3d46d5a5cf1-168975240321fbdc12-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "book an appointment",
+            "button_link_1": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+            "button_style_primary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_primary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19733823553809__f0174604-fc21-4eaf-9865-f3d46d5a5cf1-168975240321fbdc12-0",
+        "template--19733823553809__f0174604-fc21-4eaf-9865-f3d46d5a5cf1-168975240321fbdc12-1",
+        "template--19733823553809__f0174604-fc21-4eaf-9865-f3d46d5a5cf1-168975240321fbdc12-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg_1_6a7a55b0-2fce-4f83-89c9-1769417daf56.jpg",
+        "image--mobile": "shopify:\/\/shop_images\/Rectangle_2_2.jpg",
+        "image_overlay": "total",
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "mobile_content_alignment": "center",
+        "padding_top": 140,
+        "padding_bottom": 120,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "73eae237-03a0-4426-aa7a-ff2b9cc958f2": {
+      "type": "featured-products",
+      "settings": {
+        "header": "Best Sellers",
+        "button_label": "view all",
+        "button_link": "",
+        "image_lazy": true,
+        "product_list": [
+          "01-0320",
+          "01-0486",
+          "01-1340",
+          "01-1904"
+        ],
+        "padding_top": 104,
+        "padding_bottom": 92,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    }
+  },
+  "order": [
+    "cdd12d82-1158-4ac6-b77e-3dddd6bc36db",
+    "73629b51-c67b-4de3-962d-b96aa3787305",
+    "f0174604-fc21-4eaf-9865-f3d46d5a5cf1",
+    "73eae237-03a0-4426-aa7a-ff2b9cc958f2"
+  ]
+}

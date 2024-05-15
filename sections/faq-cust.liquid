@@ -1,0 +1,135 @@
+{{ 'faq-cust.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+
+<section class="faq-cust section-{{ section.id }}-padding page-width page-width">
+    <h3 class="faq-cust__title title-collection-item">{{ section.settings.header }}</h3>
+
+    <div class="faq-cust__items">
+        {% for block in section.blocks %}
+            <div class="faq-cust__item">
+                <div class="faq-cust__item-header">
+                    <div class="faq-cust__item-icon d-flex">
+                        <svg class="faq-cust__item-icon--open" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M14 7H9V2H7V7H2V9H7V14H9V9H14V7Z" fill="black"/>
+                        </svg>
+
+                        <svg class="faq-cust__item-icon--close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M14 7H9H7H2V9H7H9H14V7Z" fill="black"/>
+                        </svg>
+                    </div>
+                    <p class="title-collection-item m-0">{{ block.settings.question }}</p>
+                </div>
+
+                <div class="faq-cust__item-body">
+                  <div>
+                    {{ block.settings.answer }}
+                  </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "FAQ cust",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Section header",
+      "default": "FAQ Section header"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "question and answer",
+      "settings":[
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question example?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ cust"
+    }
+  ]
+}
+{% endschema %}

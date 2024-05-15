@@ -1,0 +1,5 @@
+$viewport-width: 1728px;
+
+@function size($size-in-px) {
+  @return calc($size-in-px / $viewport-width) * 100vw;
+}

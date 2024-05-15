@@ -1,0 +1,105 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.card-product {
+  position: relative;
+  a {
+    color: $c-text;
+    text-decoration: none !important;
+    &:after {
+      content: "";
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
+  &__media {
+    .media {
+      height: 451px;
+      @include media-breakpoint-down(xs) {
+        height: 350px;
+      }
+      @media (max-width: 450px) {
+        height: 240px;
+      }
+    }
+  }
+  &__info-title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 19px;
+    @include media-breakpoint-down(xs) {
+      margin-top: 12px;
+    }
+    svg {
+      margin-left: 10px;
+      margin-top: -3px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+  &__price {
+    margin-top: 8px;
+    * {
+      color: $c-dark-grey !important;
+    }
+  }
+  &__variants {
+    img {
+      width: 14px;
+      min-width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      margin-right: 8px;
+      &:last-of-type {
+        margin-right: 12px;
+      }
+    }
+  }
+  .swym-button {
+    z-index: 1;
+    min-height: 20px !important;
+    &::after {
+      display: none;
+    }
+    &:hover {
+      opacity: .4;
+    }
+    &.swym-added {
+      opacity: 1 !important;
+      svg path {
+        stroke: $c-black-secondary !important;
+        fill: $c-black-secondary !important;
+      }
+    }
+  }
+}
+div.card-product__variants {
+  display: none !important;
+}
+@media screen and (min-width: 749px) {
+  .card-product .media.media--hover-effect > img:only-child,
+  .card-product .media.media--hover-effect > img:only-child {
+    transition: all 0.4s ease-in-out;
+  }
+
+  .card-product:hover .media.media--hover-effect > img:first-child:only-child,
+  .card-product:hover .media.media--hover-effect > img:first-child:only-child {
+    transform: scale(1.03);
+  }
+
+  .card-product:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+    opacity: 0;
+  }
+
+  .card-product:hover .media.media--hover-effect > img + img {
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+    transform: scale(1.03);
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "9b1ed208-251b-463d-bfb1-814fe8e53c5f": {
+      "type": "article-banner",
+      "settings": {
+        "padding_top": 20,
+        "padding_bottom": 48,
+        "padding_top_mb": 12,
+        "padding_bottom_mb": 52
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "content"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 128,
+        "padding_top_mb": 32,
+        "padding_bottom_mb": 68
+      }
+    },
+    "68967a41-e22c-43ae-ab77-e76b7b178149": {
+      "type": "blog-posts",
+      "settings": {
+        "header": "Read more artivles",
+        "button_label": "view all",
+        "button_link": "#",
+        "image_lazy": true,
+        "blog": "blog",
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    }
+  },
+  "order": [
+    "9b1ed208-251b-463d-bfb1-814fe8e53c5f",
+    "main",
+    "68967a41-e22c-43ae-ab77-e76b7b178149"
+  ]
+}

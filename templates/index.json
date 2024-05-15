@@ -1,0 +1,313 @@
+{
+  "sections": {
+    "0096be14-9698-4ccd-8e70-0d61927bca5e": {
+      "type": "hero-banner",
+      "blocks": {
+        "template--19697353064721__0096be14-9698-4ccd-8e70-0d61927bca5e-1688824633d6a0fbde-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Passion, A Love Story",
+            "heading_size": "h5"
+          }
+        },
+        "d4bff800-dcd9-4e75-af14-ba638c00055b": {
+          "type": "heading",
+          "settings": {
+            "heading": "Where Every Bride Shines",
+            "heading_size": "h1"
+          }
+        },
+        "template--19697353064721__0096be14-9698-4ccd-8e70-0d61927bca5e-1688824633d6a0fbde-1": {
+          "type": "text",
+          "settings": {
+            "text": "Find your dream wedding dress at The Bridal Gallery. Our expert consultants will guide you through a personalized consultation, helping you explore a stunning collection of bridal gowns."
+          }
+        },
+        "template--19697353064721__0096be14-9698-4ccd-8e70-0d61927bca5e-1688824633d6a0fbde-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "book an appointment",
+            "button_link_1": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+            "button_style_primary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_primary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19697353064721__0096be14-9698-4ccd-8e70-0d61927bca5e-1688824633d6a0fbde-0",
+        "d4bff800-dcd9-4e75-af14-ba638c00055b",
+        "template--19697353064721__0096be14-9698-4ccd-8e70-0d61927bca5e-1688824633d6a0fbde-1",
+        "template--19697353064721__0096be14-9698-4ccd-8e70-0d61927bca5e-1688824633d6a0fbde-2"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mb": 52,
+        "padding_bottom_mb": 12,
+        "image": "shopify:\/\/shop_images\/BB_0d4d7cea-80a8-448d-8546-87951403d3b0_1_1.png",
+        "image_lazy": false,
+        "image--mobile": "shopify:\/\/shop_images\/BB_0d4d7cea-80a8-448d-8546-87951403d3b0_1_2.png",
+        "image_overlay_opacity_left": true,
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center"
+      }
+    },
+    "b5b010d4-1553-436f-a76d-2818e7835dcc": {
+      "type": "collections-slider",
+      "blocks": {
+        "b39c1e23-4523-4ab1-aed7-b0e49f2aa74f": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/uploads_2F1691626065741-Sottero-and-Midgley-Montgomery-Wedding-Cap-Sleeves-CS022SW545-Main-IV.jpg",
+            "collection": "calla-blanche"
+          }
+        },
+        "5619c70a-0003-4b15-a169-b1d5ca850c02": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/uploads_2F1690071102532-22546A_FRONT.jpg",
+            "collection": "enzoani"
+          }
+        },
+        "8d7a0800-156d-446d-9937-751ebca2204b": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/custom_resized_e0596ff6-573f-4459-acb9-87b0de3e5336.jpg",
+            "collection": "angela-alison"
+          }
+        },
+        "94d5f188-8e77-41ff-b798-7a406bdbf761": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/uploads_2F1683495771245-VCbFdEf8_281_29.jpg",
+            "collection": "2cute"
+          }
+        },
+        "c94fc111-6796-4a61-b420-bfdd6825a614": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/uploads_2F1694553012764-Amarra-88536-Peacock-Dress_c_600x_0c5d6c56-3f06-425f-96e7-c0a9e9cde8a8.webp",
+            "collection": "faviana"
+          }
+        }
+      },
+      "block_order": [
+        "b39c1e23-4523-4ab1-aed7-b0e49f2aa74f",
+        "5619c70a-0003-4b15-a169-b1d5ca850c02",
+        "8d7a0800-156d-446d-9937-751ebca2204b",
+        "94d5f188-8e77-41ff-b798-7a406bdbf761",
+        "c94fc111-6796-4a61-b420-bfdd6825a614"
+      ],
+      "settings": {
+        "header": "Explore Our Collections",
+        "button_label": "shop all",
+        "button_link": "https:\/\/d91310.myshopify.com\/collections\/all",
+        "image_lazy": true,
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
+    "7ca4e04d-d3c4-4ea7-aef7-49b4a181c35e": {
+      "type": "rich-text-with-icon",
+      "blocks": {
+        "7aca30ab-eed0-4fa1-8189-aa9a94589672": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Symbol.svg"
+          }
+        },
+        "template--19697353064721__7ca4e04d-d3c4-4ea7-aef7-49b4a181c35e-16887309047f831304-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your dream wedding dress awaits at Canada's largest wedding apparel store located in the heart of beautiful downtown New Westminster.",
+            "heading_size": "h4"
+          }
+        },
+        "template--19697353064721__7ca4e04d-d3c4-4ea7-aef7-49b4a181c35e-16887309047f831304-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "book an appointment",
+            "button_link": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+            "button_style_primary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "7aca30ab-eed0-4fa1-8189-aa9a94589672",
+        "template--19697353064721__7ca4e04d-d3c4-4ea7-aef7-49b4a181c35e-16887309047f831304-0",
+        "template--19697353064721__7ca4e04d-d3c4-4ea7-aef7-49b4a181c35e-16887309047f831304-2"
+      ],
+      "settings": {
+        "background_color": "rgba(0,0,0,0)",
+        "image": "shopify:\/\/shop_images\/image_12.png",
+        "image_mobile": "shopify:\/\/shop_images\/image_12_1.png",
+        "image_overlay": true,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mb": 60,
+        "padding_bottom_mb": 60
+      }
+    },
+    "0c7485be-dffd-4092-84a0-a2303dcc53a4": {
+      "type": "featured-products",
+      "settings": {
+        "header": "Most loved",
+        "button_label": "view all",
+        "button_link": "",
+        "image_lazy": true,
+        "product_list": [
+          "29-2163",
+          "01-1938",
+          "01-1340",
+          "01-3385"
+        ],
+        "padding_top": 104,
+        "padding_bottom": 68,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
+    "cff9376e-0a34-4f27-8837-7a46b6add32d": {
+      "type": "cta-with-images",
+      "settings": {
+        "header": "An Unforgettable Experience",
+        "text": "For every bride there is a perfect wedding dress waiting to be discovered. At The Bridal Gallery, we look forward to helping you create the look of your dreams.",
+        "button_label": "book an appointment",
+        "button_link": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+        "image": "shopify:\/\/shop_images\/Rectangle_4.png",
+        "video_link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/95fb55f524f34d198fa47f96bab14275.mp4",
+        "image_2": "shopify:\/\/shop_images\/banner_bg_mob.png",
+        "image_lazy": true,
+        "padding_top": 80,
+        "padding_bottom": 104,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 24
+      }
+    },
+    "11cebaa3-4054-4556-a0db-b5c5552f0e41": {
+      "type": "outer-links",
+      "settings": {
+        "image_1": "shopify:\/\/shop_images\/photo_695c29ea-4dd7-4606-bea0-d58d8160d31d.png",
+        "image_overlay": true,
+        "heading_1": "TBG Prom",
+        "text_1": "<p>Lorem ipsum dolor sit amet<\/p>",
+        "button_label_1": "Visit the website",
+        "button_link_1": "https:\/\/www.tbgprom.com\/",
+        "image_2": "shopify:\/\/shop_images\/photo_1.png",
+        "heading_2": "Menswear",
+        "text_2": "<p>Lorem ipsum dolor sit amet<\/p>",
+        "button_label_2": "Visit the website",
+        "button_link_2": "https:\/\/www.debonairformalwear.com\/",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 32
+      }
+    },
+    "c93e49d9-cdb6-4f86-a239-566b28cdcf0e": {
+      "type": "designers-collection",
+      "settings": {
+        "padding_top": 112,
+        "padding_bottom": 104,
+        "padding_top_mb": 32,
+        "padding_bottom_mb": 48,
+        "header": "Our designers",
+        "button_label": "all designers",
+        "button_link": "shopify:\/\/collections\/our-designers",
+        "image_lazy": true,
+        "image_collection_primary": "shopify:\/\/shop_images\/image.png",
+        "collection_primary": "enzoani",
+        "image_collection_1": "shopify:\/\/shop_images\/photo.png",
+        "collection_1": "calla-blanche",
+        "image_collection_2": "shopify:\/\/shop_images\/photo_bb02d2c9-1ba0-486d-a1f9-fec2a1785b12.png",
+        "collection_2": "st-patrick",
+        "image_collection_3": "shopify:\/\/shop_images\/photo_099809b4-a02e-45c9-9483-638bf36c0062.png",
+        "collection_3": "wtoo",
+        "image_collection_4": "shopify:\/\/shop_images\/photo_7265e7d0-6c21-424d-96f8-5c6051cd2632.png",
+        "collection_4": "wedding-dresses-1"
+      }
+    },
+    "9f8ae531-45e5-4f32-ad20-4748eb46ed9d": {
+      "type": "cta-banner",
+      "blocks": {
+        "template--19697353064721__9f8ae531-45e5-4f32-ad20-4748eb46ed9d-1688730082ad2883ad-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Bridal Experience Awaits",
+            "heading_size": "h2"
+          }
+        },
+        "template--19697353064721__9f8ae531-45e5-4f32-ad20-4748eb46ed9d-1688730082ad2883ad-1": {
+          "type": "text",
+          "settings": {
+            "text": "For every bride there is a perfect wedding dress waiting to be discovered. At The Bridal Gallery, we look forward to helping you create the look of your dreams.",
+            "text_style": "body"
+          }
+        },
+        "template--19697353064721__9f8ae531-45e5-4f32-ad20-4748eb46ed9d-1688730082ad2883ad-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "book an appointment",
+            "button_link_1": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+            "button_style_primary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_primary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19697353064721__9f8ae531-45e5-4f32-ad20-4748eb46ed9d-1688730082ad2883ad-0",
+        "template--19697353064721__9f8ae531-45e5-4f32-ad20-4748eb46ed9d-1688730082ad2883ad-1",
+        "template--19697353064721__9f8ae531-45e5-4f32-ad20-4748eb46ed9d-1688730082ad2883ad-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg.svg",
+        "image--mobile": "shopify:\/\/shop_images\/bg.png",
+        "image_overlay": "overlay_left",
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "color_scheme": "background-2",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "5dbbb002-5d69-4784-9bc2-5020e4b83609": {
+      "type": "blog-posts",
+      "settings": {
+        "header": "Our Real Weddings",
+        "button_label": "view all",
+        "button_link": "shopify:\/\/blogs\/our-real-brides",
+        "image_lazy": true,
+        "blog": "our-real-brides",
+        "padding_top": 112,
+        "padding_bottom": 104,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    }
+  },
+  "order": [
+    "0096be14-9698-4ccd-8e70-0d61927bca5e",
+    "b5b010d4-1553-436f-a76d-2818e7835dcc",
+    "7ca4e04d-d3c4-4ea7-aef7-49b4a181c35e",
+    "0c7485be-dffd-4092-84a0-a2303dcc53a4",
+    "cff9376e-0a34-4f27-8837-7a46b6add32d",
+    "11cebaa3-4054-4556-a0db-b5c5552f0e41",
+    "c93e49d9-cdb6-4f86-a239-566b28cdcf0e",
+    "9f8ae531-45e5-4f32-ad20-4748eb46ed9d",
+    "5dbbb002-5d69-4784-9bc2-5020e4b83609"
+  ]
+}

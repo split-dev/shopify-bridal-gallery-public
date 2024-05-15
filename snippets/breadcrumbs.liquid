@@ -1,0 +1,67 @@
+{{ 'breadcrumbs.out.css' | asset_url | stylesheet_tag }}
+
+{% unless template == 'index' or template == 'cart' %}
+  <div class="{% if color-white %}text-white{% endif %}">
+    <nav class="breadcrumbs " role="navigation" aria-label="breadcrumbs">
+      <a href="/" title="Home">Home</a>
+      {% if template contains 'page' %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        <span>{{ page.title }}</span>
+      {% elsif template contains 'product' %}
+        {% if collection.url %}
+          <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+          {{ collection.title | link_to: collection.url }}
+        {% endif %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        <span>{{ product.title }}</span>
+
+      {% elsif template contains 'collection' and collection.handle %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        {% if current_tags %}
+          {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+          {{ collection.title | link_to: url }}
+          <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+          <span>{{ current_tags | join: " + " }}</span>
+        {% else %}
+            <span>{{ collection.title }}</span>
+        {% endif %}
+
+      {% elsif template == 'blog' or template.suffix == 'dentist-interviews' %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        {% if current_tags %}
+          {{ blog.title | link_to: blog.url }}
+          <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+          <span>{{ current_tags | join: " + " }}</span>
+        {% else %}
+          <span>{{ blog.title }}</span>
+        {% endif %}
+
+      {% elsif template == 'article' %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        {{ blog.title | link_to: blog.url }}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        <span>{{ article.title }}</span>
+
+      {% elsif template == 'customers/login' %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        <span>Login</span>
+
+      {% elsif template == 'customers/register' %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        <span>Register</span>
+
+      {% elsif template == '404' %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        <span>404</span>   
+      {% elsif template contains 'search' %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        <span>Search</span>        
+
+      {% else %}
+        <span class="breadcrumbs__split pl-2 pr-2" aria-hidden="true">/</span>
+        <span>{{ page_title }}</span>
+
+      {% endif %}
+    </nav>
+  </div>
+{% endunless %}

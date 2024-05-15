@@ -1,0 +1,193 @@
+{{ 'collection-banner.out.css' | asset_url | stylesheet_tag }}
+
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+{%- liquid
+    if section.settings.image_lazy
+        assign imageLoading = 'lazy'
+    else
+        assign imageLoading = ''
+    endif
+-%}
+
+<section class="collection-banner section-{{ section.id }}-padding">
+  <div class="collection-banner-section">
+    <div class="collection-banner__inner">
+      <div class="collection-banner__content-wrap page-width">
+        {% if section.settings.breadcrumbs %}
+          <div>
+            {% render 'breadcrumbs' %}
+          </div>
+        {% endif %}
+        <div class="collection-banner__content">
+            <div class="collection-banner__content-inner">
+              {% if collection.title != blank %}
+                <h1 class="collection-banner__title mt-2 h2 text-text" data-title="{{ collection.title }}">
+                  {{ collection.title }}
+                </h1>
+              {% endif %}
+              
+              {% if collection.description != blank %}
+                <p class="collection-banner__text text-text text-15px">{{ collection.description }}</p>
+              {% endif %}
+              <div class=" mt-4">
+                {% if collection.metafields.custom.price_range != blank %}
+                  <div class="d-flex w-100 justify-content-between align-items-center">
+                    <p class="text-text title-small-upper ">{{ 'products.product.price.price_range' | t }}</p>
+                    <span class="d-block title-small-upper">${{ collection.metafields.custom.price_range.value.price.min}} - ${{ collection.metafields.custom.price_range.value.price.max}}</span>
+                  </div>
+                {% endif %}
+                {% if collection.metafields.custom.size_range != blank %}
+                  <div class="d-flex w-100 justify-content-between align-items-center">
+                    <p class="text-text title-small-upper ">{{ 'products.product.price.size_range' | t }}</p>
+                    <span class="d-block title-small-upper">{{ collection.metafields.custom.size_range.value.first }} - {{ collection.metafields.custom.size_range.value.last }}</span>
+                  </div>
+                {% endif %} 
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="collection-banner__image-wrap">
+  
+      {%- if section.settings.image != blank or collection.image != blank -%}
+        <picture class="">
+          {%- if section.settings.image_mobile != blank -%}
+            <source
+              media="(max-width: 750px)"
+              srcset="
+                {%- if section.settings.image_mobile.width >= 375 -%}{{ section.settings.image_mobile | image_url: width: 375 }} 750w,{%- endif -%}
+                {%- if section.settings.image_mobile.width >= 550 -%}{{ section.settings.image_mobile | image_url: width: 550 }} 1100w,{%- endif -%}
+                {%- if section.settings.image_mobile.width >= 750 -%}{{ section.settings.image_mobile | image_url: width: 750 }} 1500w,{%- endif -%}
+              ">
+          {%- endif -%}
+          
+          {% if section.settings.image != blank %}
+            {{ section.settings.image | image_url: width: 3840 | image_tag:
+              loading: imageLoading,
+              width: imageWidth,
+              height: imageHeight,
+              class: 'subcollection-banner__image',
+              sizes: '100vw',
+              widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+              {% else %}
+              {{ collection.image | image_url: width: 3840 | image_tag:
+                loading: imageLoading,
+                width: imageWidth,
+                height: imageHeight,
+                class: 'subcollection-banner__image',
+                sizes: '100vw',
+                widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+          {% endif %}
+          
+        </picture>
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+  
+    </div>
+  </div>
+  
+</section>
+
+{% schema %}
+{
+  "name": "Collection banner",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_lazy",
+      "label": "Image lazy loading",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Enable Breadcrumbs"
+    },
+    {
+      "type": "checkbox",
+      "id": "breadcrumbs",
+      "label": "Enable Breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection banner"
+    }
+  ]
+}
+{% endschema %}

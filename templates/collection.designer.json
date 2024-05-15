@@ -1,0 +1,94 @@
+{
+  "sections": {
+    "9d40bd1f-c0cd-4052-a2eb-dd278ab2d61b": {
+      "type": "collection-banner",
+      "settings": {
+        "image_lazy": true,
+        "breadcrumbs": true,
+        "padding_top": 80,
+        "padding_bottom": 148,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "a4fdb75d-c63f-4b14-badb-da45c8168ddf": {
+      "type": "text-and-nav",
+      "blocks": {
+        "b6292163-1d08-43bc-a713-0534842af438": {
+          "type": "text",
+          "settings": {
+            "label": "Simple Gowns",
+            "url": ""
+          }
+        },
+        "27816e45-3eef-4fde-9a85-32c181c2cd57": {
+          "type": "text",
+          "settings": {
+            "label": "Long Sleeve Gowns",
+            "url": ""
+          }
+        },
+        "45ef4493-ef54-4c66-87be-6acf62f7aa22": {
+          "type": "text",
+          "settings": {
+            "label": "Boho Gowns",
+            "url": ""
+          }
+        },
+        "33801e96-2bdb-418a-910f-f863e7c0118f": {
+          "type": "text",
+          "settings": {
+            "label": "Plus Size ",
+            "url": ""
+          }
+        },
+        "e2879073-3533-4a15-a4cd-bb6ca8a81039": {
+          "type": "text",
+          "settings": {
+            "label": "Short Wedding Dresses",
+            "url": ""
+          }
+        },
+        "f02c62a4-0677-4ae4-bed7-26a10b6b52f7": {
+          "type": "text",
+          "settings": {
+            "label": "Sample Sale",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "b6292163-1d08-43bc-a713-0534842af438",
+        "27816e45-3eef-4fde-9a85-32c181c2cd57",
+        "45ef4493-ef54-4c66-87be-6acf62f7aa22",
+        "33801e96-2bdb-418a-910f-f863e7c0118f",
+        "e2879073-3533-4a15-a4cd-bb6ca8a81039",
+        "f02c62a4-0677-4ae4-bed7-26a10b6b52f7"
+      ],
+      "settings": {
+        "title": "Find Your Perfect Wedding Dress at The Bridal Gallery in New Westminster",
+        "desc": "<p>The Bridal Gallery in New Westminster, is a bridal boutique that offers some of the most unique wedding dress collections Vancouver has ever known. Our wedding dress selection is curated with both the wildly unconventional and the romantic- traditional brides in mind. With an unerring eye for what's next in fashion and relentless drive to exceed brides’ expectations we bring you designer wedding dress labels from around the word. The wedding gowns range from $1,500 $ 8,000 and are available for special order or off the rack. If you are searching for a wedding dress sale, don’t forget to check out our events page for upcoming trunks shows to score the best deal on wedding dresses. <\/p>",
+        "nav_title": "Discover Wedding Dress Categories for Every Bride",
+        "padding_top": 60,
+        "padding_bottom": 104,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    }
+  },
+  "order": [
+    "9d40bd1f-c0cd-4052-a2eb-dd278ab2d61b",
+    "product-grid",
+    "a4fdb75d-c63f-4b14-badb-da45c8168ddf"
+  ]
+}

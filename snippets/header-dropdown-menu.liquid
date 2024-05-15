@@ -1,0 +1,232 @@
+{% comment %}
+  Renders a standard dropdown style menu for the header.
+
+  Usage:
+  {% render 'header-dropdown-menu' %}
+{% endcomment %}
+
+<nav class="header__inline-menu header__custom-menu">
+  <ul class="list-menu list-menu--inline" role="list">
+    {%- for link in section.settings.menu.links limit:5 -%}
+      {% assign currentIndex = forloop.index %}
+      <li class="header__custom-menu-item-li">
+
+        {% for block in section.blocks limit:5 %}
+          {% if block.settings.link_index == currentIndex %}
+            {% assign is_mega = true %}
+            {% case block.type %}
+              {%- when 'shop' -%}
+                <div class="header__mega-menu-wrapper">
+                  <div class="header__mega-menu">
+                    <div class="page-width d-flex justify-content-between">
+                      <div class="header__mega-menu-nav d-flex">
+                        {% if linklists[block.settings.link_list_1].title != blank %}
+                          <div class="header__mega-menu-nav-list">
+                            <p class="mb-2 title-small-upper">{{ linklists[block.settings.link_list_1].title }}</p>
+                            <ul class="m-0 p-0">
+                              
+                              {% for link in linklists[block.settings.link_list_1].links %}
+                                <li>
+                                  <a class="link-menu text-12px text-decoration-none" href="{{ link.url }}">
+                                    {{- link.title | escape -}}
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        {% endif %}
+                        {% if linklists[block.settings.link_list_2].title != blank %}
+                          <div class="header__mega-menu-nav-list">
+                            <p class="mb-2 title-small-upper">{{ linklists[block.settings.link_list_2].title }}</p>
+                            <ul class="m-0 p-0 text-two-col">
+                              {% for link in linklists[block.settings.link_list_2].links %}
+                                <li>
+                                  <a class="link-menu text-12px text-decoration-none" href="{{ link.url }}">
+                                    {{- link.title | escape -}}
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        {% endif %}
+                        {% if linklists[block.settings.link_list_3].title != blank %}
+                          <div class="header__mega-menu-nav-list">
+                            <p class="mb-2 title-small-upper">{{ linklists[block.settings.link_list_3].title }}</p>
+                            <ul class="m-0 p-0">
+                              
+                              {% for link in linklists[block.settings.link_list_3].links %}
+                                <li>
+                                  <a class="link-menu text-12px text-decoration-none" href="{{ link.url }}">
+                                    {{- link.title | escape -}}
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        {% endif %}
+                        {% if linklists[block.settings.link_list_4].title != blank %}
+                          <div class="header__mega-menu-nav-list">
+                            <p class="mb-2 title-small-upper">{{ linklists[block.settings.link_list_4].title }}</p>
+                            <ul class="m-0 p-0">
+                              
+                              {% for link in linklists[block.settings.link_list_4].links %}
+                                <li>
+                                  <a class="link-menu text-12px text-decoration-none" href="{{ link.url }}">
+                                    {{- link.title | escape -}}
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        {% endif %}
+                      </div>
+                      {%- if block.settings.tile_url != blank -%}
+                        <div class="header__mega-menu-tile-shop">
+                          <a href="{{block.settings.tile_url}}">
+                            {{ block.settings.tile_image | image_url: width: 625 | image_tag: loading: 'lazy' }}
+                            <span class="d-block title-collection-item text-white text-uppercase">{{ block.settings.tile_title }}</span>
+                            <span class="title-small-upper text-white mt-3 d-block text-underline">EXPLORE</span>
+                          </a>
+                        </div>
+                    
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              {%- when 'services' -%}
+                <div class="header__mega-menu-wrapper header__mega-menu-wrapper-services">
+                  <div class="header__mega-menu">
+                    <div class="page-width d-flex justify-content-between">
+                      <div class="header__mega-menu-nav d-flex">
+                          <div class="header__mega-menu-nav-list">
+                            <ul class="m-0 p-0">        
+                              {%- for childlink in link.links -%}
+                                <li>
+                                  <a class="link-menu mb-2 title-small-upper text-text text-decoration-none" href="{{ childlink.url }}">
+                                    {{ childlink.title | escape }}
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                      </div>
+                      <div class="header__mega-menu-services-tile-list d-flex">
+                        {%- if block.settings.services_tile_url_first != blank -%}
+                          <div class="header__mega-menu-tile-shop">
+                            <a href="{{block.settings.services_tile_url_first}}">
+                              {{ block.settings.services_tile_image_first | image_url: width: 700 | image_tag: loading: 'lazy' }}
+                              <span class="d-block title-collection-item text-white text-uppercase">{{ block.settings.services_tile_title_first }}</span>
+                            </a>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.services_tile_url_second != blank -%}
+                          <div class="header__mega-menu-tile-shop">
+                            <a href="{{block.settings.services_tile_url_second}}">
+                              {{ block.settings.services_tile_image_second | image_url: width: 700 | image_tag: loading: 'lazy' }}
+                              <span class="d-block title-collection-item text-white text-uppercase">{{ block.settings.services_tile_title_second }}</span>
+                            </a>
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- when 'blog' -%}
+                <div class="header__mega-menu-wrapper header__mega-menu-wrapper-services">
+                  <div class="header__mega-menu">
+                    <div class="page-width">
+                      <div class="header__mega-menu-blog-tile-list d-flex">
+                        {%- if block.settings.blog_tile_url != blank -%}
+                          <div class="header__mega-menu-tile-shop">
+                            <a href="{{block.settings.blog_tile_url}}">
+                              {{ block.settings.blog_tile_image | image_url: width: 700 | image_tag: loading: 'lazy' }}
+                              <span class="d-block title-collection-item text-white text-uppercase">{{ block.settings.blog_tile_title }}</span>
+                            </a>
+                          </div>
+                        {%- endif -%}
+                        {%- assign article_1 = block.settings.article_1 -%}
+                        {%- if article_1.url != blank -%}
+                          <div class="header__mega-menu-tile-shop">
+                            <a href="{{ article_1.url }}">
+                              {{ article_1.image.src | image_url: width: 700 | image_tag: loading: 'lazy' }}
+                              <span class="d-block title-collection-item text-white text-uppercase">{{ article_1.title }}</span>
+                            </a>
+                          </div>
+                        {%- endif -%}
+                        {%- assign article_2 = block.settings.article_2 -%}
+                        {%- if article_2.url != blank -%}
+                          <div class="header__mega-menu-tile-shop">
+                            <a href="{{ article_2.url }}">
+                              {{ article_2.image.src | image_url: width: 700 | image_tag: loading: 'lazy' }}
+                              <span class="d-block title-collection-item text-white text-uppercase">{{ article_2.title }}</span>
+                            </a>
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- when 'pages' -%}
+                <div class="header__mega-menu-wrapper header__mega-menu-wrapper-pages">
+                  <div class="header__mega-menu">
+                    <div class="page-width d-flex justify-content-between">
+                      <div class="header__mega-menu-nav d-flex">
+                          <div class="header__mega-menu-nav-list">
+                            <ul class="m-0 p-0 text-two-col">        
+                              {%- for childlink in link.links -%}
+                                <li>
+                                  <a class="link-menu mb-2 title-small-upper text-text text-decoration-none" href="{{ childlink.url }}">
+                                    {{ childlink.title | escape }}
+                                  </a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                      </div>
+                      <div class="header__mega-menu-tile-list d-flex">
+                        {%- if block.settings.pages_tile_url_first != blank -%}
+                          <div class="header__mega-menu-tile-shop">
+                            <a href="{{block.settings.pages_tile_url_first}}">
+                              {{ block.settings.pages_tile_image_first | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+                              <span class="d-block title-collection-item text-white text-uppercase">{{ block.settings.pages_tile_title_first }}</span>
+                            </a>
+                          </div>
+                        {%- endif -%}
+                        {%- if block.settings.pages_tile_url_second != blank -%}
+                          <div class="header__mega-menu-tile-shop">
+                            <a href="{{block.settings.pages_tile_url_second}}">
+                              {{ block.settings.pages_tile_image_second | image_url: width: 625 | image_tag: loading: 'lazy' }}
+                              <span class="d-block title-collection-item text-white text-uppercase">{{ block.settings.pages_tile_title_second }}</span>
+                            </a>
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {%- endcase -%}
+          {% endif %}
+        {% endfor %}
+
+
+
+        <a
+          id="HeaderMenu-{{ link.handle }}"
+          href="{{ link.url }}"
+          class="header__menu-item list-menu__item link link--text focus-inset"
+          {% if link.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          <span
+            {%- if link.current %}
+              class="header__active-menu-item"
+            {% endif %}
+          >
+            {{- link.title | escape -}}
+          </span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>

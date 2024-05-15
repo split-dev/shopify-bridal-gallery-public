@@ -1,0 +1,122 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+
+.opening-content {
+    display: flex;
+    justify-content: space-between;
+    @include media-breakpoint-down(sm) {
+        display: flex;
+        flex-direction: column;
+      }
+    &__text-button {
+        color: $c-text;
+        justify-content: center;
+        display: flex;
+        text-align: left;
+        flex-direction: column;
+        max-width: 536px;
+        padding-right: 50px;
+        width: 50%;
+        @include media-breakpoint-down(sm) {
+            max-width: 100%;
+            margin-right: 0;
+            width: 100%;
+            padding-right: 0;
+        }
+    }
+    &__text {
+        .p-small {
+            padding-top: 5px;
+            color: $c-dark-grey;
+        }
+        .contacts_button {
+            margin-top: 40px;
+            @include media-breakpoint-down(xs) {
+                margin-top: 24px;
+            }
+        }
+    }
+    &__image-bg {
+        display: flex;
+        width: 50%;
+        max-width: 648px;
+        max-height: 710px;
+        min-height: 710px;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        @include media-breakpoint-down(sm) {
+            margin-top: 48px;
+            display: flex;
+            max-height: 100%;
+            max-width: 100%;
+            min-height: 450px;
+            width: 100%;
+          }
+        @include media-breakpoint-down(xs) {
+            max-width: 100%;
+            width: 100%;
+            min-height: 378px;
+        }
+        .opening-content__img {
+            height: 100%;
+            min-width: 100%;
+            position: absolute;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background: rgba(19, 6, 0, 0.45);              
+                z-index: 1;
+            }
+            img{ 
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 1;
+                @include media-breakpoint-down(sm) {
+                    object-position: top;
+                  }
+                @include media-breakpoint-down(xs) {
+                    max-width: 100%;
+                    width: 100%;
+                    min-height: 378px;
+                }
+            }
+        }
+    }
+    &__image-text {
+        max-width: 326px;
+        min-width: 326px;
+        z-index: 2;
+        color: $c-white;
+        @include media-breakpoint-down(xs) {
+            max-height: 305px;
+          }
+        h4 {
+            margin-bottom: 25px;
+        }
+        .title-collection-item {
+            p {
+                margin: 0;
+            }
+            .date-line {
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0;
+                .border-opening {
+                    display: flex !important;
+                    margin: 0 8px 5px;
+                    flex-shrink: 3;
+                    flex-grow: 4;
+                    border-bottom: dashed 1px rgba(255, 255, 255, 0.33);
+                }
+            }
+        } 
+    } 
+}

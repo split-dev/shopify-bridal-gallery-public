@@ -1,0 +1,121 @@
+{
+  "sections": {
+    "a52d4869-8993-49b7-9330-d02a2cda5fc0": {
+      "type": "blog-banner",
+      "settings": {
+        "banner_blog_title": "Gift cards",
+        "banner_blog_text": "",
+        "padding_top": 12,
+        "padding_bottom": 32,
+        "padding_top_mb": 12,
+        "padding_bottom_mb": 20
+      }
+    },
+    "3539dece-9e4b-4b0d-b21b-ef057d9e8b7d": {
+      "type": "gift-card-page",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 44,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 12,
+        "title1": "SEND AN E-GIFT CARD",
+        "image_1": "shopify:\/\/shop_images\/Frame_98_1.jpg",
+        "description1": "<p>For purchases of <em><strong>up to $500.<\/strong><\/em><\/p>",
+        "gift_left_button": "Buy Now",
+        "gift_left_link": "https:\/\/d91310.myshopify.com\/products\/gift-card",
+        "title2": "MAIL A GIFT CARD",
+        "image_2": "shopify:\/\/shop_images\/Frame_98_2_1.jpg",
+        "description2": "<p>For purchases of <em><strong>up to $500.<\/strong><\/em><\/p>",
+        "gift_right_button": "Buy Now",
+        "gift_right_link": "https:\/\/d91310.myshopify.com\/products\/gift-card"
+      }
+    },
+    "61824934-b685-40dc-a3b5-bbfa55df880e": {
+      "type": "black-reference",
+      "settings": {
+        "padding_top": 84,
+        "padding_bottom": 84,
+        "padding_top_mb": 72,
+        "padding_bottom_mb": 72,
+        "black_reference_label": "CHECK YOUR CARD BALANCE",
+        "black_reference_link": "https:\/\/d91310.myshopify.com\/products\/gift-card"
+      }
+    },
+    "9f0d0502-5859-4268-82de-c3f5aa73b2cd": {
+      "type": "faq-two-columns",
+      "blocks": {
+        "f69273d1-a76c-4078-827e-2734058ab761": {
+          "type": "faq",
+          "settings": {
+            "question": "WHEN WILL I RECEIVE MY GIFT CARD ORDER?",
+            "answer": "<p>Plastic gift card orders will be fulfilled within 3 business days plus standard shipping time. Please see below shipping options and estimated fulfilment and delivery times.<\/p><p>Estimated fulfillment + delivery<\/p><p>Regular Mail ($2.00 option): 7-12 business days Express Mail ($14.00 option): 5-7 business days Priority Mail ($20.00 option): 4-5 business days<\/p>"
+          }
+        },
+        "74277a14-7061-4137-ba01-8fd3fe6c2b82": {
+          "type": "faq",
+          "settings": {
+            "question": "WHERE CAN I BUY A BRIDAL GALLERY GIFT CARD?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "f976ec7b-29aa-4af2-bd61-227d3c3a76ab": {
+          "type": "faq",
+          "settings": {
+            "question": "WHERE CAN I BUY A BRIDAL GALLERY GIFT CARD?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "26ee4ff7-6a41-4042-a8b0-4db1b259dab1": {
+          "type": "faq",
+          "settings": {
+            "question": "WHAT CAN I SPEND MY GIFT CARD ON?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "d4f92552-74cf-4d9a-853e-8af63dcaa3fa": {
+          "type": "faq",
+          "settings": {
+            "question": "WHAT AMOUNT CAN I LOAD MY GIFT CARD FOR?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "af9f3dd7-15ed-43c1-bf29-4a474e67cd6a": {
+          "type": "faq",
+          "settings": {
+            "question": "HOW CAN I PAY FOR MY ORDER?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "40dee240-82d1-431d-b85c-171dce166a29": {
+          "type": "faq",
+          "settings": {
+            "question": "DO BRIDAL GALLERY GIFT CARDS EXPIRE?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "f69273d1-a76c-4078-827e-2734058ab761",
+        "74277a14-7061-4137-ba01-8fd3fe6c2b82",
+        "f976ec7b-29aa-4af2-bd61-227d3c3a76ab",
+        "26ee4ff7-6a41-4042-a8b0-4db1b259dab1",
+        "d4f92552-74cf-4d9a-853e-8af63dcaa3fa",
+        "af9f3dd7-15ed-43c1-bf29-4a474e67cd6a",
+        "40dee240-82d1-431d-b85c-171dce166a29"
+      ],
+      "settings": {
+        "header": "FAQ",
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    }
+  },
+  "order": [
+    "a52d4869-8993-49b7-9330-d02a2cda5fc0",
+    "3539dece-9e4b-4b0d-b21b-ef057d9e8b7d",
+    "61824934-b685-40dc-a3b5-bbfa55df880e",
+    "9f0d0502-5859-4268-82de-c3f5aa73b2cd"
+  ]
+}

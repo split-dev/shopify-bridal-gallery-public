@@ -1,0 +1,160 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.contact-tiles-gallery__title{
+    text-align: center;
+    padding-bottom: 48px;
+    color: $c-text;
+    @include media-breakpoint-down(xs) {
+        padding-bottom: 32px;
+    }
+}
+.contact-tiles-gallery__wrapper {
+    display: flex;
+    max-width: 100%;
+    max-height: 733px;
+    overflow: hidden;
+    @include media-breakpoint-down(lg) {
+        flex-direction: column;
+        max-height: 100%;
+        align-items: center;
+    }
+    .contact-column-left {
+        width: 100%;
+        max-width: 424px;
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+        @include media-breakpoint-down(lg) {
+            flex-direction: row;
+            max-width: 100%;
+        }
+        @include media-breakpoint-down(xs) {
+            flex-direction: column;
+            margin: 0 0 15px 0;
+        } 
+        :first-child {
+            object-fit: cover;
+            max-width: 424px;
+            max-height: 364px;
+            width: 100%;
+            margin-bottom: 4px;
+            @include media-breakpoint-down(lg) {
+                max-height: 364px;
+                max-width: 100%;
+                margin: 0 4px 0 0;
+            }
+            @include media-breakpoint-down(xs) {
+                object-position: top;
+                max-height: 296.179px;
+                margin: 0 0 15px 0;
+            }
+        }
+        :last-child {
+            object-fit: cover;
+            max-height: 364px;
+            width: 100%;
+            @include media-breakpoint-down(lg) {
+                max-height: 364px;
+                max-width: 100%;  
+            }
+            @include media-breakpoint-down(xs) {
+                max-height: 296.179px;
+            }
+        }
+    }
+    .contact-column-centr {
+        width: 100%;
+        max-width: 464px;
+        min-width: 400px;
+        margin: 0 4px;
+        display: flex;
+        img {
+            object-fit: cover;
+            width: 100%;    
+            max-height: 733px;
+            @include media-breakpoint-down(lg) {
+                max-height: 600px;
+            }
+            @include media-breakpoint-down(xs) {
+                max-height: 545px;
+            }
+        }
+        @include media-breakpoint-down(lg) {
+            max-width: 100%;
+            margin: 4px 0;
+            }
+        @include media-breakpoint-down(xs) {
+            margin: 0 0 15px 0;
+        }
+    }
+    .contact-column-right {
+        display: flex;
+        flex-direction: column;
+        max-width: 424px;
+        width: 100%;
+        @include media-breakpoint-down(lg) {
+            flex-direction: row;
+            width: 100%;
+            max-width: 100%;
+        }
+        @include media-breakpoint-down(xs) {
+            flex-direction: column;
+        }
+        :first-child {
+            display: flex;
+            object-fit: cover;
+            max-width: 424px;
+            max-height: 211px;
+            height: 100%;
+            width: 100%;
+            margin: 0 0 4px 0;
+            @include media-breakpoint-down(lg) {
+                max-width: 100%;
+                margin: 0 4px 0 0;
+                max-height: 364px;
+                min-height: 364px
+            }
+            @include media-breakpoint-down(xs) {
+                margin: 0 0 15px 0;
+                max-height: 171.179px;
+                min-height: 171.179px;
+            }
+            img {
+                margin: 0;
+                height: 100%;
+                @include media-breakpoint-down(lg) {
+                    max-height: 364px;
+                    min-height: 364px;
+                    max-width: 100%;
+                }
+                @include media-breakpoint-down(xs) {
+                    max-height: 171.179px;
+                    min-height: 171.179px;
+                    height: 100%;
+                }
+            }
+        }
+        :last-child {
+            display: flex;
+            object-fit: cover;
+            max-width: 424px;
+            max-height: 517px;
+            height: 100%;
+            width: 100%; 
+            max-width: 100%;
+            img {
+                margin: 0;
+                height: 100%;
+                @include media-breakpoint-down(lg) {
+                    max-height: 364px;
+                    max-width: 100%;  
+                }
+                @include media-breakpoint-down(xs) {
+                    max-height: 420.672px;
+                }
+            }
+           
+        }
+    }
+}

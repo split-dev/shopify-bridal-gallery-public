@@ -1,0 +1,146 @@
+{
+  "sections": {
+    "cd99c733-473b-4e33-86be-ce906fd8cafe": {
+      "type": "banner_image",
+      "settings": {
+        "image_banner_title": "",
+        "image_banner_desc": "shopify:\/\/shop_images\/THEBRIDALGALLERY_TOP_3_1_13a7e6d0-90de-4a92-9fb7-18e7d1be63bb.png",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "109d90bd-fcd6-4607-b709-473bd4f402f4": {
+      "type": "events-list",
+      "blocks": {
+        "05ab231d-8623-4edb-9924-a3a8ff78f600": {
+          "type": "text",
+          "settings": {
+            "image_events": "shopify:\/\/shop_images\/image_events1.png",
+            "events_list_data_on": "",
+            "events_list_data_off": "12.12.2023",
+            "events_list_title": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+            "events_list_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?<\/p>",
+            "events_list_button": "book an appointment",
+            "events_button_link": "shopify:\/\/pages\/book-an-appointment"
+          }
+        },
+        "b74b0edc-75cc-49ba-ac73-b0f268b2a136": {
+          "type": "text",
+          "settings": {
+            "image_events": "shopify:\/\/shop_images\/Rectangle_3_3_a38d17c7-b6b1-4935-a826-464117781df7.png",
+            "events_list_data_on": "15.06.2023",
+            "events_list_data_off": "18.09.2023",
+            "events_list_title": "Mira Couture Trunk Show",
+            "events_list_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?<\/p>",
+            "events_list_button": "book an appointment",
+            "events_button_link": "shopify:\/\/pages\/book-an-appointment"
+          }
+        },
+        "07405b3f-1d9f-411d-80f2-6aadbc1d6fb7": {
+          "type": "text",
+          "settings": {
+            "image_events": "shopify:\/\/shop_images\/Rectangle_29.png",
+            "events_list_data_on": "01.07.2023",
+            "events_list_data_off": "12.10.2023",
+            "events_list_title": "Mira Couture Trunk Show",
+            "events_list_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?<\/p>",
+            "events_list_button": "book an appointment",
+            "events_button_link": "shopify:\/\/pages\/book-an-appointment"
+          }
+        },
+        "c60c32b5-a3c8-4de9-b45a-1c9013b11e95": {
+          "type": "text",
+          "settings": {
+            "image_events": "shopify:\/\/shop_images\/Photo_1.jpg",
+            "events_list_data_on": "23.01.2022",
+            "events_list_data_off": "30.08.2024",
+            "events_list_title": "Tempore earum asperiores dolore?",
+            "events_list_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic iusto esse totam nihil a ea dolorem. Tempore earum asperiores dolore?<\/p>",
+            "events_list_button": "book an appointment",
+            "events_button_link": "shopify:\/\/pages\/book-an-appointment"
+          }
+        }
+      },
+      "block_order": [
+        "05ab231d-8623-4edb-9924-a3a8ff78f600",
+        "b74b0edc-75cc-49ba-ac73-b0f268b2a136",
+        "07405b3f-1d9f-411d-80f2-6aadbc1d6fb7",
+        "c60c32b5-a3c8-4de9-b45a-1c9013b11e95"
+      ],
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 56,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 8
+      }
+    },
+    "18a2e9dc-8558-43f8-9318-e6a32345a0d9": {
+      "type": "custom_content_page",
+      "disabled": true,
+      "settings": {
+        "show_title": false,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 24
+      }
+    },
+    "7a69d8e4-5b3a-43bb-b14a-aba34e79728e": {
+      "type": "cta-banner",
+      "blocks": {
+        "template--19987611844881__7a69d8e4-5b3a-43bb-b14a-aba34e79728e-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Bridal Experience Awaits",
+            "heading_size": "h2"
+          }
+        },
+        "template--19987611844881__7a69d8e4-5b3a-43bb-b14a-aba34e79728e-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "For every bride there is a perfect wedding dress waiting to be discovered. At The Bridal Gallery, we look forward to helping you create the look of your dreams.",
+            "text_style": "body"
+          }
+        },
+        "557fbc99-d442-49bd-97e6-36317b6b6ce3": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "book an appointment",
+            "button_link_1": "https:\/\/d91310.myshopify.com\/pages\/book-an-appointment",
+            "button_style_primary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_primary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19987611844881__7a69d8e4-5b3a-43bb-b14a-aba34e79728e-heading-1",
+        "template--19987611844881__7a69d8e4-5b3a-43bb-b14a-aba34e79728e-text-1",
+        "557fbc99-d442-49bd-97e6-36317b6b6ce3"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg_1_44b8bf86-0f32-4d86-8a62-1287fe3f1ca7.jpg",
+        "image--mobile": "shopify:\/\/shop_images\/bg_2_1_56eba253-8184-4ce3-8a2e-e295a4beaea2.jpg",
+        "image_overlay": "overlay_left",
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 132,
+        "padding_bottom": 108,
+        "padding_top_mb": 24,
+        "padding_bottom_mb": 80
+      }
+    }
+  },
+  "order": [
+    "cd99c733-473b-4e33-86be-ce906fd8cafe",
+    "109d90bd-fcd6-4607-b709-473bd4f402f4",
+    "18a2e9dc-8558-43f8-9318-e6a32345a0d9",
+    "7a69d8e4-5b3a-43bb-b14a-aba34e79728e"
+  ]
+}

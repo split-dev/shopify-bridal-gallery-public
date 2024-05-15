@@ -1,0 +1,167 @@
+{
+  "sections": {
+    "20e84a1c-9512-413c-a656-b0ab832ed032": {
+      "type": "banner_image",
+      "settings": {
+        "image_banner_title": "Choose the Appointment Package That Fits You and Your Party",
+        "image_banner_desc": "shopify:\/\/shop_images\/AG0A3204_1_1_2b9d450d-7e5b-4c16-960b-3af626494c7c.png",
+        "image_banner_mob": "shopify:\/\/shop_images\/Rectangle_10_2_1.png",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "d7f98ecd-409b-4ea8-9a04-bafc586050f4": {
+      "type": "rich-text-with-icon",
+      "blocks": {
+        "e645290f-f05f-4f6c-bd06-316fbed0b479": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Symbol_e14c8745-a39b-40a0-b3fb-fa2164dcbe11.svg"
+          }
+        },
+        "template--20193260765457__d7f98ecd-409b-4ea8-9a04-bafc586050f4-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "We cannot wait to meet you and help you fulfill your bridal vision!",
+            "heading_size": "h4"
+          }
+        }
+      },
+      "block_order": [
+        "e645290f-f05f-4f6c-bd06-316fbed0b479",
+        "template--20193260765457__d7f98ecd-409b-4ea8-9a04-bafc586050f4-heading-1"
+      ],
+      "settings": {
+        "background_color": "rgba(0,0,0,0)",
+        "image_overlay": false,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 76,
+        "padding_bottom_mb": 76
+      }
+    },
+    "d624d7b5-16e9-4d5a-a58d-8328605fd387": {
+      "type": "book-an-appointment",
+      "blocks": {
+        "f51a94b6-5a84-4aef-a59f-ed0427fa0215": {
+          "type": "text",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/book_appointment_img_1_1_c00c3ba5-04bd-4311-8577-541d1201bb03.png",
+            "appointment_title": "First Bridal Styling",
+            "appointment_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst. Aliquam erat volutpat. Sed quis nibh malesuada tellus laoreet ultricies vel sed metus. Praesent vitae massa ac purus sollicitudin pellentesque ac quis lorem. Sed tristique dui eget ullamcorper sodales. Nam sollicitudin purus non fringilla condimentum. Curabitur luctus lacinia justo at sagittis. Ut congue neque eget hendrerit faucibus. Praesent sagittis purus sit amet maximus pharetra!<\/p>",
+            "appointment_button": "Book now",
+            "events_button_link": "shopify:\/\/pages\/book-appointment-first-bridal-styling"
+          }
+        },
+        "a6107c87-8824-4727-befa-66513484d294": {
+          "type": "text",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/Rectangle_8_1.png",
+            "appointment_title": "Second Bridal Styling",
+            "appointment_content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst. Aliquam erat volutpat. Sed quis nibh malesuada tellus laoreet ultricies vel sed metus. Praesent vitae massa ac purus sollicitudin pellentesque ac quis lorem. Sed tristique dui eget ullamcorper sodales. Nam sollicitudin purus non fringilla condimentum. Curabitur luctus lacinia justo at sagittis.<br\/><br\/>Ut congue neque eget hendrerit faucibus. Praesent sagittis purus sit amet maximus pharetra!<\/p>",
+            "appointment_button": "book an appointment",
+            "events_button_link": "shopify:\/\/pages\/second-bridal-styling"
+          }
+        },
+        "1ddfe0c3-49b3-4d33-bc07-480950907680": {
+          "type": "text",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/book_appointment_img_3_1.png",
+            "appointment_title": "Accessories Styling",
+            "appointment_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!<\/p>",
+            "appointment_button": "Book Now",
+            "events_button_link": "shopify:\/\/pages\/accessories-styling"
+          }
+        },
+        "26b94334-b79e-4548-9f0e-8fc5c151211d": {
+          "type": "text",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/Rectangle_4_1.png",
+            "appointment_title": "Bridesmaids Styling",
+            "appointment_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!<\/p>",
+            "appointment_button": "book an appointment",
+            "events_button_link": "shopify:\/\/pages\/bridesmaids-styling"
+          }
+        },
+        "fdac4784-bf86-4c10-a136-388136bc02ad": {
+          "type": "text",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/17_109506_2.jpg",
+            "appointment_title": "First Look",
+            "appointment_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!<\/p>",
+            "appointment_button": "Book now",
+            "events_button_link": "shopify:\/\/pages\/first-look"
+          }
+        },
+        "04ff6b34-5072-42e2-a2d5-12675d007e5e": {
+          "type": "text",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/Rectangle_5_1.png",
+            "appointment_title": "Wedding Guest Styling",
+            "appointment_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!<\/p>",
+            "appointment_button": "book now",
+            "events_button_link": "shopify:\/\/pages\/wedding-guest-styling"
+          }
+        },
+        "c3f85ee8-8e83-464f-83b5-deab39e8040c": {
+          "type": "text",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/book_appointment_img_2_1.png",
+            "appointment_title": "Bridal Alterations",
+            "appointment_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!<\/p>",
+            "appointment_button": "book an appointment",
+            "events_button_link": "shopify:\/\/pages\/bridal-alterations"
+          }
+        },
+        "db58c8c1-2b49-4042-ad0a-9fdf5f44c794": {
+          "type": "text",
+          "settings": {
+            "image_1": "shopify:\/\/shop_images\/Rectangle_7_1.png",
+            "appointment_title": "Occasion wear Alterations",
+            "appointment_content": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum dolores a maiores impedit, odio voluptates rerum neque, numquam esse quos accusamus? Odit tenetur sint nostrum reiciendis ut ab sed provident!<\/p>",
+            "appointment_button": "book now",
+            "events_button_link": "shopify:\/\/pages\/occasion-wear-alterations"
+          }
+        }
+      },
+      "block_order": [
+        "f51a94b6-5a84-4aef-a59f-ed0427fa0215",
+        "a6107c87-8824-4727-befa-66513484d294",
+        "1ddfe0c3-49b3-4d33-bc07-480950907680",
+        "26b94334-b79e-4548-9f0e-8fc5c151211d",
+        "fdac4784-bf86-4c10-a136-388136bc02ad",
+        "04ff6b34-5072-42e2-a2d5-12675d007e5e",
+        "c3f85ee8-8e83-464f-83b5-deab39e8040c",
+        "db58c8c1-2b49-4042-ad0a-9fdf5f44c794"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 160,
+        "padding_top_mb": 20,
+        "padding_bottom_mb": 32
+      }
+    },
+    "8a65b61b-8068-44a5-bd19-7ca9b0a9c199": {
+      "type": "custom_content_page",
+      "disabled": true,
+      "settings": {
+        "show_title": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    }
+  },
+  "order": [
+    "20e84a1c-9512-413c-a656-b0ab832ed032",
+    "d7f98ecd-409b-4ea8-9a04-bafc586050f4",
+    "d624d7b5-16e9-4d5a-a58d-8328605fd387",
+    "8a65b61b-8068-44a5-bd19-7ca9b0a9c199"
+  ]
+}

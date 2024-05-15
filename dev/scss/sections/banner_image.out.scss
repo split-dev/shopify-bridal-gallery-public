@@ -1,0 +1,48 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.navigation_banner {
+    position: relative;
+    display: block;
+    min-height: 336px;
+    height: 100%;
+    width: 100%;
+    picture {
+        &::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(19, 6, 0, 0.45);
+        }
+    }
+    img {
+        position: absolute;
+        top: 0;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    .content__h1 {
+        text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            color: $c-white;
+            padding: 90px 0 40px;
+        }
+        .h2 { 
+            max-width: 724px;
+        }
+    .breadcrumbs {
+        padding: 15px 0 0 0;
+       span,
+       a {
+        color: $c-white;
+        position: relative;
+       }
+    }
+}

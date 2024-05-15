@@ -1,0 +1,80 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.template-contact {
+    .navigation_banner {
+        .content__h2 {
+            padding: 20px 0 40px;
+        }
+        h2 {
+            padding: 49px 0 40px;
+            @include media-breakpoint-down(xs) {
+                padding: 12px 0 40px;
+            }
+        }
+    }
+}
+
+.multi-tiles{
+    width: 100%;
+    margin-top: -100px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        @include media-breakpoint-down(lg) {
+            flex-wrap: wrap;
+        }
+        @media screen and (max-width: 1220px) {
+            flex-wrap: wrap;
+        }
+        @include media-breakpoint-down(xs) {
+            display: block;
+            min-width: 100%;
+        }
+        .multi-tiles__content {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            padding: 40px 20px;
+            height: auto;
+            background-color: $c-dark-white;
+            width: calc(25% - 3px);
+            @media screen and (max-width: 1220px) {
+                width: calc(50% - 2px);
+                margin-bottom: 4px;
+            }
+            @include media-breakpoint-down(xs) {
+                padding: 32px 20px;
+                margin: 4px 0;
+                min-width: 100%;
+            }
+            .title-collection__content {
+                margin: 8px 0 24px;
+                .title-collection-item {
+                    color: $c-text;
+                }
+                .p-small{
+                    color: $c-dark-grey;
+                    margin: 0;
+                    a { 
+                        color: inherit;
+                        text-decoration: none !important;
+                    }
+                }
+            }
+            .contact_button {
+                margin-top: auto;
+                .btn.btn__secondary {
+                    height: 48px;
+                    @include media-breakpoint-down(xs) {
+                        height: 36px;
+                    }
+                }
+            }
+        }
+    }
+}

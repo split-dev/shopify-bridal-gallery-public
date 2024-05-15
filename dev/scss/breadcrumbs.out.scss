@@ -1,0 +1,43 @@
+@import 'settings/variables';
+@import "settings/bootstrap";
+
+.breadcrumbs {
+    &__split {
+        opacity: 0.8 !important;
+    }
+    * {
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 152%;
+        letter-spacing: 0.25px;
+        text-decoration: capitalize;
+        @include media-breakpoint-down(xs) {
+            font-size: 10px;
+            letter-spacing: 0.2px;
+        }
+    }
+    a {
+        transition: 0.3s;
+        opacity: 0.8;
+        color: $c-dark-blue;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+    span {
+        
+        color: $c-dark-blue;
+    }
+}
+.template-subcollection, .blog-hero, .contact-hero__section {
+    .breadcrumbs {
+        a {
+            color: $c-white;
+        }
+        span {
+            color: $c-white;
+        }
+    }
+}

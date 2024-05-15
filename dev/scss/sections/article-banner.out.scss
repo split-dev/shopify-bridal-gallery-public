@@ -1,0 +1,31 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.article-banner {
+    background-color: $c-almost-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .breadcrumbs {
+        a, span {
+        color: $c-dark-grey;
+        }
+    }
+    &__wrapper {
+        max-width: 872px;
+    }
+    &__title {
+        margin: 53px 0 20px;
+        color: $c-text;
+        @include media-breakpoint-down(xs) {
+            margin: 50px 0 12px;
+        }      
+    }
+    &__text {
+        color: $c-dark-grey;
+       p {
+        margin: 0;
+       }
+    }
+}

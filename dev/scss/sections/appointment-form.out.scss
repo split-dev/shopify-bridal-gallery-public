@@ -1,0 +1,725 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+
+.appointment-first {
+    .breadcrumbs {
+        padding-bottom: 20px;
+    }
+    &__wrapper {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include media-breakpoint-down(sm) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        & h3 {
+            color: $c-black-secondary;
+            @include media-breakpoint-down(sm) {
+                font-size: 20px;
+            }
+        }
+        & p {
+            color: $c-dark-blue;
+            padding: 8px 16px;
+            background-color: $c-almost-white;
+            font-weight: 500;
+        }
+    }
+    &__form {
+        margin-top: 80px;
+    }
+    .contact__fields {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        .field {
+            position: relative;
+            &-100 {
+                flex: 0 1 100% !important;
+                align-items: center;
+                position: relative;
+                .time {
+                    color: $c-black-secondary;
+                }
+            }
+            flex: 0 1 48%;
+
+        }
+        .field.success {
+            border: 1px solid $c-green;
+            position: relative;
+            .success-block {
+                position: absolute;
+                left: 0;
+                margin: 0;
+                bottom: -40px;
+            }
+            & small {
+                margin-left: 10px;
+                color: $c-green;
+            }
+        }
+        .field.error {
+            border: 1px solid $c-red;;
+            position: relative;
+            .error-block {
+                position: absolute;
+                left: 0;
+                margin: 0;
+                bottom: -40px;
+                & small {
+                    margin-left: 10px;
+                    color: $c-red;
+                }
+            }
+        }
+        .field .hide {
+            display: none;
+        }
+        .field .active {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .contact__credit {
+        & h5 {
+            padding-bottom: 60px;
+        }
+        .contact__fields {
+            .field {
+                flex: 0 1 48%;
+                &:nth-child(2),
+                &:nth-child(3) {
+                    max-width: 144px;
+                    @include media-breakpoint-down(sm) {
+                        max-width: 165px;
+                    }
+                }
+            }
+        }
+    }
+    .contact__button {
+        & button {
+            margin: 0 auto;
+        }
+    }
+    .check_terms {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        & input {
+            padding: 0;
+            height: initial;
+            width: initial;
+            margin-bottom: 0;
+            display: none;
+            cursor: pointer;
+            &:checked + label::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 46%;
+                left: 29px;
+                width: 6px;
+                height: 14px;
+                border: solid $c-dark-blue;
+                border-width: 0 2px 2px 0;
+                transform: translateY(-50%) rotate(45deg);
+            }
+        }
+        & label {
+            position: relative;
+            cursor: pointer;
+            color: $c-dark-blue;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+            &::before {
+                content:'';
+                -webkit-appearance: none;
+                background-color: transparent;
+                border-radius: 5px;
+                border: 2px solid $c-dark-blue;
+                padding: 10px;
+                display: inline-block;
+                position: relative;
+                vertical-align: middle;
+                cursor: pointer;
+                margin-right: 5px;
+            }
+            & p {
+                padding-left: 5px;
+            }
+            & a {
+                color: $c-dark-blue;
+            }
+        }
+    }
+    .popup {
+        display: flex;
+        background-color: $c-white;
+        color: $c-black-secondary;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        max-width: 650px;
+        width: 100%;
+        min-height: 360px;
+        z-index: 12;
+        transform: translate(-50%, -300%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform .5s;
+        @include media-breakpoint-down(sm) {
+            max-width: 344px;
+        }
+        &-inner {
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            & p {
+                margin: 20px 0px 40px 0px;
+                @include media-breakpoint-down(sm) {
+                    margin: 12px 0px 24px 0px;
+                }
+            }
+        }
+        &-close {
+            position: absolute;
+            top: 16px;
+            right: 14px;
+            & svg {
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+    .popup.active {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        visibility: visible;
+    }
+    .popup-second {
+        background-color: $c-white;
+        color: $c-black-secondary;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        max-width: 650px;
+        width: 100%;
+        min-height: 360px;
+        z-index: 12;
+        transform: translate(-50%, -300%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform .5s;
+
+        &-inner {
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            & p {
+                margin: 20px 0px 40px 0px;
+            }
+        }
+        &-close {
+            position: absolute;
+            top: 16px;
+            right: 14px;
+            & svg {
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+    .popup-second.active {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    right: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+}
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    display: block !important;
+}
+.field {
+    margin-bottom: 84px !important;
+    @include media-breakpoint-down(sm) {
+        flex: 0 1 100% !important;
+        margin-bottom: 47px !important;
+        &:last-child {
+            margin-bottom: 32px !important;
+        }
+    }
+    &__select {
+        border: 1px solid $c-light-grey-2;
+        min-height: 45px;
+        width: 100%;
+        padding: 11px 16px;
+        color: $c-black-secondary;
+        font-size: 15px;
+        opacity: 0.6;
+        font-weight: 300;
+        line-height: 152%;
+        letter-spacing: 0.3px;
+        box-shadow: none;
+    }
+    &__input-new {
+        border: 1px solid $c-light-grey-2;
+        min-height: 45px;
+        width: 100%;
+        padding: 11px 16px;
+        box-shadow: none;
+        &::placeholder {
+            color: $c-black-secondary;
+            font-size: 15px;
+            opacity: 0.6;
+            font-weight: 300;
+            line-height: 152%;
+            letter-spacing: 0.3px;
+        }
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    }
+    &__label-new {
+        position: absolute;
+        left: 0;
+        top: -30px;
+        color: $c-black-secondary;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 2.04px;
+        text-transform: uppercase;
+        @include media-breakpoint-down(sm) {
+            font-size: 10px;
+            top: -20px;
+        }
+        & span {
+            display: none;
+        }
+    }
+    &__weeding {
+        margin-right: 28px;
+        @include media-breakpoint-down(sm) {
+            margin-right: 0px;
+        }
+    }
+    & img {
+        width: 30px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+    }
+    .date-picker__icon svg {
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+    }
+    &>svg {
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+    }
+    &-textarea {
+        flex: 0 1 100% !important;
+        & textarea {
+            resize: none;
+            min-height: 120px;
+            @include media-breakpoint-down(sm) {
+                min-height: 100px;
+            }
+        }
+    }
+}
+.date-picker {
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	height: 60px;
+	background-color: $c-white;
+	margin: 0px auto 30px auto;
+	cursor: pointer;
+	user-select: none;
+    border: 1px solid $c-light-grey-2;
+}
+.date-picker .selected-date {
+	color: $c-black-secondary;
+    display: flex;
+    align-items: center;
+    padding: 11px 16px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 152%;
+    letter-spacing: 0.3px;
+}
+.dates {
+	display: none;
+	position: absolute;
+	top: 10%;
+	left: 0;
+	right: 0;
+    z-index: 20;
+	background-color: $c-white;
+    border: 1px solid $c-light-grey-2;
+    min-height: 431px;
+    min-width: 704px;
+    @include media-breakpoint-down(sm) {
+        min-width: auto;
+    }
+    &__first {
+        max-width: 386px;
+        padding-left: 16px;
+        @include media-breakpoint-down(sm) {
+            padding: 0px 16px;
+        }
+    }
+    &__second {
+        padding: 55px 16px 0px 50px;
+        @include media-breakpoint-down(sm) {
+            padding: 16px;
+        }
+        & ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            & li {
+                padding: 16px;
+                background-color: $c-almost-white;
+                flex: 0 1 48%;
+                margin-bottom: 12px;
+                cursor: pointer;
+                transition: all .3s;
+                &:hover {
+                    background-color: $c-gold;
+                    color: $c-white;
+                }
+            }
+        }
+        &-list {
+            & li {
+                &.active {
+                    background-color: $c-gold;
+                    color: $c-white;
+                }
+            }
+        }
+    }
+    &-location {
+        display: none;
+        align-items: center;
+        padding-bottom: 20px;
+        & svg {
+            margin-right: 8px;
+        }
+    }
+    .active {
+        display: flex;
+    }
+}
+.dates.active {
+	display: flex;
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+    }
+}
+.dates .month {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    padding: 16px 0px 16px 0px;
+    .mth {
+        font-weight: 600;
+    }
+}
+.dates .month-arrows {
+    display: flex;
+}
+.dates .month .arrows {
+	width: 35px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #313131;
+	font-size: 20px;
+    cursor: pointer;
+}
+.dates .month .arrows:hover {
+	background-color: #F3F3F3;
+}
+.dates .days {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+    padding-top: 15px;
+}
+.dates .days .day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $c-black-secondary;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
+    box-shadow:
+    -1px -1px $c-light-grey,
+    inset -1px -1px 0 0 $c-light-grey;
+    padding: 16px;
+    @include media-breakpoint-down(sm) {
+        width: 46px;
+        height: 46px;
+    }
+}
+.dates .days .day.selected {
+	background-color: $c-gold;
+    color: $c-white;
+}
+.days-list {
+    & ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 16px;
+        & li {
+            flex: 0 1 5%;
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+}
+
+.popup {
+  display: flex;
+  justify-content: center;
+  background-color: $c-white;
+  color: $c-black-secondary;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 650px;
+  width: 100%;
+  min-height: 360px;
+  z-index: 12;
+  transform: translate(-50%, -300%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform .5s;
+
+  @include media-breakpoint-down(sm) {
+    max-width: 344px;
+  }
+
+  &-inner {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    & p {
+      margin: 20px 0px 40px 0px;
+
+      @include media-breakpoint-down(sm) {
+        margin: 12px 0px 24px 0px;
+      }
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+
+    & svg {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+  }
+}
+
+.popup.active {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  visibility: visible;
+}
+
+#ContactForm {
+  /* Custom calendar */
+  .field__selected {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding-left: 18px;
+    padding-right: 29px;
+
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 152%;
+    letter-spacing: .3px;
+    text-align: left;
+    list-style: none;
+    color: #455869;
+
+    outline: none;
+    transition: all .2s;
+    cursor: pointer;
+  }
+
+  #divCal{
+    position: relative;
+    top: -27px;
+  }
+
+  #wedding-date__opener {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 4;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .calendar-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    background: #fff;
+  }
+
+  table {
+    clear: both;
+    font-size: 16px;
+    color: #444;
+    width: 393px;
+    border: 1px solid #dcdcff;
+    border-radius: 3px;
+    border-collapse: collapse;
+  }
+
+  td {
+    height: 56px;
+    width: 56px;
+    padding: 0 !important;
+
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid #dcdcff;
+    border-top: 1px solid #dcdcff;
+    cursor: pointer;
+  }
+
+  .normal,
+  td.not-current {
+    color: #1f1f1f;
+    margin: 0 auto;
+    padding: 0 !important;
+  }
+
+  tr.days {
+    border-right: 0.1rem solid white;
+  }
+
+  td.not-current {
+    color: #c0c0c0;
+  }
+
+  td.today {
+    font-weight: 700;
+    background-color: #d2b786;
+    color: #fff;
+  }
+
+  thead td {
+    padding-left: 15px !important;
+    text-align: start;
+    color: #28283b;
+    cursor: default;
+  }
+
+  #btnPrev,
+  #btnNext {
+    position: relative;
+    top: 15px;
+    z-index: 6;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    font-family: sans-serif;
+    font-size: 1em;
+    color: #c0c0c0;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+
+    cursor: pointer;
+  }
+
+  #btnPrev {
+    float: left;
+    left: 305px;
+  }
+
+  #btnNext {
+    float: right;
+    right: 35px;
+  }
+
+  #btnPrev:hover,
+  #btnNext:hover {
+    color: #28283b;
+    font-weight: bold;
+  }
+
+  .field__weeding {
+    position: relative;
+  }
+}

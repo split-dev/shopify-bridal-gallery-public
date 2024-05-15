@@ -1,0 +1,96 @@
+{{ 'black-reference.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign imageWidth = section.settings.image.width
+  assign imageHeight = imageWidth | divided_by: section.settings.image.aspect_ratio
+  if section.settings.image_lazy
+    assign imageLoading = 'lazy'
+  else
+    assign imageLoading = ''
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<a href="{{ section.settings.black_reference_link }}" target="_blank" class="title-collection-item text-underline text-white text-uppercas black-reference section-{{ section.id }}-padding">{{ section.settings.black_reference_label }}
+</a>
+
+{% schema %}
+{
+  "name": "Black Reference",
+  "settings": [
+	{
+	"type": "header",
+	"content": "t:sections.all.padding.section_padding_heading"
+	},
+	{
+		"type": "range",
+		"id": "padding_top",
+		"min": 0,
+		"max": 160,
+		"step": 4,
+		"unit": "px",
+		"label": "Padding top desktop",
+		"default": 80
+	},
+	{
+		"type": "range",
+		"id": "padding_bottom",
+		"min": 0,
+		"max": 160,
+		"step": 4,
+		"unit": "px",
+		"label": "Padding bottom desktop",
+		"default": 148
+	},
+	{
+		"type": "range",
+		"id": "padding_top_mb",
+		"min": 0,
+		"max": 120,
+		"step": 4,
+		"unit": "px",
+		"label": "Padding top mobile",
+		"default": 80
+	},
+	{
+		"type": "range",
+		"id": "padding_bottom_mb",
+		"min": 0,
+		"max": 120,
+		"step": 4,
+		"unit": "px",
+		"label": "Padding bottom mobile",
+		"default": 80
+	},
+	{
+		"type": "text",
+		"id": "black_reference_label",
+		"label": "Button Label"
+		},
+		{
+		"type": "url",
+		"id": "black_reference_link",
+		"label": "Black link"
+	}
+  ],
+	"presets": [
+		{
+			"name": "Black Reference",
+			"category": "Custom"
+		}
+	]
+}
+{% endschema %}

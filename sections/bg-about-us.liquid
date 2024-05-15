@@ -1,0 +1,151 @@
+{{ 'bg-about-us.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign imageWidth = section.settings.image.width
+  assign imageHeight = imageWidth | divided_by: section.settings.image.aspect_ratio
+  if section.settings.image_lazy
+  assign imageLoading = 'lazy'
+  else
+  assign imageLoading = ''
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="bg-about-us section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="bg-about-us__content">
+      <div class="bg-about-us__text">
+        <h3>{{ section.settings.title_vision }}</h3>
+        <div class="text-text">{{ section.settings.content_vision1 }}</div>
+        <p>{{ section.settings.content_vision2 }}</p>
+        <div class="text-text">{{ section.settings.content_vision3 }}</div>
+        <p>{{ section.settings.content_vision4 }}</p>
+      </div>
+      <div class="bg-about-us__text_img">
+        {%- if section.settings.image_6 -%}
+         {{ section.settings.image_6 | image_url: width: 1500 | image_tag: loading: 'lazy' }}
+        {% endif %}
+      </div>
+    </div>
+    <div class="bg-about-us__image">
+      {%- if section.settings.image_7 -%}
+        {{ section.settings.image_7| image_url: width: 1500 | image_tag: loading: 'lazy' }}
+       {% endif %}
+    </div>
+  </div>
+</section>
+  
+{% schema %}
+{
+    "name": " Section Bg Grey",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Content"
+      },
+      {
+        "type": "text",
+        "id": "title_vision",
+        "label": "Title Vision",
+        "default": "Our Vision"
+      },
+      {
+        "type": "richtext",
+        "id": "content_vision1",
+        "label": "Content Vision 1"
+      },
+      {
+        "type": "richtext",
+        "id": "content_vision2",
+        "label": "Content Vision 2"
+      },
+      {
+        "type": "richtext",
+        "id": "content_vision3",
+        "label": "Content Vision 3"
+      },
+      {
+        "type": "richtext",
+        "id": "content_vision4",
+        "label": "Content Vision 4"
+      },
+      {
+        "type": "header",
+        "content": "Section Media"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_6",
+        "label": "Img Our Vision 1"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_7",
+        "label": "Img Our Vision 2"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top desktop",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom desktop",
+        "default": 148
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top mobile",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom mobile",
+        "default": 80
+      }
+    ],
+    "presets": [
+      {
+        "name": "Bg About Us Text and Img",
+        "category": "Custom"
+      }
+    ]
+}
+{% endschema %}

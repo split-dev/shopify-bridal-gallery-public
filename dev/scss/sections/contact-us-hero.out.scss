@@ -1,0 +1,122 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.contact-hero {
+
+  &__breadcrumbs {
+    margin-top: 21px;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 12px;
+    }
+  }
+
+  &__section {
+    overflow: hidden;
+
+    picture {
+      max-height: 417px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right top;
+        max-height: -webkit-fill-available;
+      }
+    }
+
+    &__overlay {
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, rgba(19, 6, 0, 0.58) 0%, rgba(19, 6, 0, 0.00) 100%);
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 49px;
+    text-align: center;
+    color: $c-white;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 32px;
+    }
+  }
+
+  &__items {
+    margin-top: 92px;
+    display: flex;
+    flex-direction: row;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 32px;
+      flex-direction: column;
+    }
+
+    :last-child {
+      margin-right: 0;
+
+      @include media-breakpoint-down(xs) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__item {
+    background-color: $c-dark-white;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 4px;
+
+    @include media-breakpoint-down(xs) {
+      padding: 32px 20px;
+      margin-bottom: 4px;
+      margin-right: 0;
+    }
+
+    &-icon {
+      margin-bottom: 24px;
+
+      @include media-breakpoint-down(xs) {
+        margin-bottom: 15px;
+      }
+    }
+
+    &-title {
+      margin-bottom: 8px;
+      color: $c-text;
+    }
+
+    &-text {
+      margin-bottom: 24px;
+      text-align: center;
+      color: $c-dark-grey;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 152%;
+      letter-spacing: 0.24px;
+
+      @include media-breakpoint-down(xs) {
+        font-size: 10px;
+        letter-spacing: 0.2px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

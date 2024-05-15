@@ -1,0 +1,138 @@
+{{ 'text-and-nav.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="text-and-nav section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="text-and-nav__wrapper">
+      {% if template.suffix == 'swym' %}
+        <div>
+          {% render 'breadcrumbs' %}
+        </div>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h3 class="text-text d-block title-collection-item">{{ section.settings.title }}</h3>
+      {% endif %}
+      {% if section.settings.desc %}
+        <div class="text-and-nav__content">{{ section.settings.desc }}</div>
+      {% endif %}
+      <div class="text-and-nav__nav-wrapper">
+        {% if section.settings.nav_title != blank %}
+          <h3 class="text-text d-block title-collection-item">{{ section.settings.nav_title }}</h3>
+        {% endif %}
+        <div class="d-flex flex-wrap">
+          {% for block in section.blocks %}
+            {% if block.settings.label %}
+              <div class="text-and-nav__item d-flex">
+                <a class="p-small" href="{{ block.settings.url }}">{{ block.settings.label }}</a>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Text and Nav",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "desc",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "nav_title",
+      "label": "Nav Title"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 104
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "name": "NAV Item",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text and Nav",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

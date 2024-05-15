@@ -1,0 +1,301 @@
+{{ 'services-main-section.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+{%- liquid
+  if section.settings.image_lazy
+    assign imageLoading = 'lazy'
+  else
+    assign imageLoading = ''
+  endif
+-%}
+
+<section class="services-main__section section-{{ section.id }}-padding page-width">
+  <div class="services-main__secondary-images">
+    <div class="services-main__secondary-img-wrap">
+      {% if section.settings.image_section_1 %}
+        {%- liquid
+          assign image = section.settings.image_section_1
+          assign imageWidth = image.width
+          assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+          assign imageClasses = 'services-main__secondary-img'
+        %}
+
+        {{ image | image_url: width: 3840 | image_tag:
+        loading: imageLoading,
+        width: imageWidth,
+        height: imageHeight,
+        class: imageClasses,
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+    <div class="services-main__secondary-img-wrap">
+      {% if section.settings.image_section_2 %}
+        {%- liquid
+          assign image = section.settings.image_section_2
+          assign imageWidth = image.width
+          assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+          assign imageClasses = 'services-main__secondary-img'
+        %}
+
+        {{ image | image_url: width: 3840 | image_tag:
+        loading: imageLoading,
+        width: imageWidth,
+        height: imageHeight,
+        class: imageClasses,
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  </div>
+  <div class="services-main__blocks">
+    <div class="services-main__block services-main__block-1">
+      <div class="services-main__block-content">
+        <h3 class="services-main__block-title h3">{{ section.settings.header_1 }}</h3>
+        <div class="services-main__block-text">{{ section.settings.text_1 }}</div>
+        {%  if section.settings.button_label_1 %}
+          <a class="services-main__block-btn btn {% if section.settings.button_primary_1 %} btn__primary {% else %} btn__secondary {% endif %}"
+             href="{% if section.settings.button_link_1 %}{{ section.settings.button_link_1 }}{% endif %}"
+          >
+            {{ section.settings.button_label_1 }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="services-main__block-img-wrap">
+        {% if section.settings.image_1 %}
+          {%- liquid
+            assign image = section.settings.image_1
+            assign imageWidth = image.width
+            assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+            assign imageClasses = 'services-main__block-img'
+          %}
+
+          {{ image | image_url: width: 3840 | image_tag:
+          loading: imageLoading,
+          width: imageWidth,
+          height: imageHeight,
+          class: imageClasses,
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+        {% else %}
+
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="services-main__block services-main__block-2">
+      <div class="services-main__block-content">
+        <h3 class="services-main__block-title h3">{{ section.settings.header_1 }}</h3>
+        <div class="services-main__block-text">{{ section.settings.text_1 }}</div>
+        {%  if section.settings.button_label_2 %}
+          <a class="services-main__block-btn btn {% if section.settings.button_primary_2 %} btn__primary {% else %} btn__secondary {% endif %}"
+             href="{% if section.settings.button_link_2 %}{{ section.settings.button_link_2 }}{% endif %}"
+          >
+            {{ section.settings.button_label_2 }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="services-main__block-img-wrap">
+        {% if section.settings.image_2 %}
+          {%- liquid
+            assign image = section.settings.image_2
+            assign imageWidth = image.width
+            assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+            assign imageClasses = 'services-main__block-img'
+          %}
+
+          {{ image | image_url: width: 3840 | image_tag:
+          loading: imageLoading,
+          width: imageWidth,
+          height: imageHeight,
+          class: imageClasses,
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+
+        {% else %}
+
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Services main section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_section_1",
+      "label": "Secondary image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_section_2",
+      "label": "Secondary image 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_lazy",
+      "label": "Image lazy loading",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Block 1"
+    },
+    {
+      "type": "text",
+      "id": "header_1",
+      "label": "Section header",
+      "default": "An Unforgettable Experience"
+    },
+    {
+      "type": "richtext",
+      "id": "text_1",
+      "label": "Paragraph 1"
+    },
+    {
+      "type": "text",
+      "id": "button_label_1",
+      "label": "Button label 1",
+      "default": "book an appointment"
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "Button link 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_primary_1",
+      "label": "Enable button as primary",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image bor block 1"
+    },
+    {
+      "type": "header",
+      "content": "Block 2"
+    },
+    {
+      "type": "text",
+      "id": "header_2",
+      "label": "Section header",
+      "default": "An Unforgettable Experience"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2",
+      "label": "Paragraph 2"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "Button label 2",
+      "default": "book an appointment"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Button link 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_primary_2",
+      "label": "Enable button as primary",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image bor block 2"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services main section"
+    }
+  ]
+}
+{% endschema %}

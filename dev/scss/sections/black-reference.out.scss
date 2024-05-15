@@ -1,0 +1,13 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.black-reference {
+	font-size: 15px !important;
+	max-height: 300px;
+	width: 100%;
+	display: inline-flex !important;
+	justify-content: center;
+	text-align: center;
+	background-color: $c-text;
+	font-weight: 400;
+}

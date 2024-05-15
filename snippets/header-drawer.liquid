@@ -1,0 +1,657 @@
+{% comment %}
+  Renders a header drawer menu for mobile and desktop.
+
+  Usage:
+  {% render 'header-drawer' %}
+{% endcomment %}
+
+<header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
+  <div class="d-flex">
+    <details id="Details-menu-drawer-container" class="menu-drawer-container">
+      <summary
+        id="triggerOverlay"
+        class="header__icon header__icon--menu header__icon--summary link focus-inset"
+        aria-label="{{ 'sections.header.menu' | t }}"
+      >
+        <span>
+          {% render 'icon-hamburger' %}
+        </span>
+      </summary>
+      <div id="menu-drawer" class="header__custom-mobile-menu gradient menu-drawer motion-reduce">
+        <div class="menu-drawer__inner-container">
+          <div class="menu-drawer__navigation-container">
+            <nav class="menu-drawer__navigation">
+              <div class="header__custom-mobile-menu-head">
+                <span id="mobile-menu-close" onclick="customMenuClose()" class="p-3">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.33366 11.8334L0.166992 10.6667L4.83366 6.00002L0.166992 1.33335L1.33366 0.166687L6.00033 4.83335L10.667 0.166687L11.8337 1.33335L7.16699 6.00002L11.8337 10.6667L10.667 11.8334L6.00033 7.16669L1.33366 11.8334Z" fill="black"/>
+                  </svg>
+                </span>
+                {% if customer %}
+                  <a
+                    href="{{ routes.account_url }}"
+                    class="d-flex align-items-center text-underline text-dark-grey p-small"
+                  >
+                    {{ 'customer.account.title' | t }}
+                  </a>
+                  {% else %} 
+                    <button
+                      id="headerButtonLogin"
+                      data-toggle="register-modal"
+                      data-target="#registerModal"
+                      class="d-flex align-items-center text-underline text-dark-grey p-small"
+                    >
+                      {{ 'customer.login_page.sign_in' | t }}
+                    </button>
+                  {% endif %}
+              </div>
+                    
+
+
+              <div class="accordion-menu-wrapper active" id="menu-parent" data-accordion-wrapper>
+                <nav role="navigation" class="accordion-menu">
+                  <ul class="accordion-menu__list">
+
+                    
+                    
+                    {% if section.settings.link_label %}
+
+                      <li class="accordion-menu__item">
+                        <a
+                          href="#{{ section.settings.link_label }}"
+                          class="accordion-menu__link"
+                          data-accordion-menu>
+                          <span>
+                            {{ section.settings.link_label }}
+                          </span>
+                         
+                        </a>
+                        <ul class="accordion-menu__sublist accordion-menu--hidden" id="{{ section.settings.link_label }}">
+                          {% for block in section.blocks %}
+                            {% if linklists[block.settings.link_list_1].title != blank %}
+                              <li>
+                                <a
+                                  href="#{{ linklists[block.settings.link_list_1].handle }}"
+                                  class="accordion-menu__link"
+                                  data-accordion-menu>
+                                  <span>
+                                    {{ linklists[block.settings.link_list_1].title }}
+                                  </span>
+                                  
+                                </a>
+                                <ul class="accordion-menu__sublist accordion-menu--hidden" id="{{ linklists[block.settings.link_list_1].handle }}">
+                                  {% for link in linklists[block.settings.link_list_1].links %}
+                                    <li>
+                                      <a href="{{ link.url }}" class="accordion-menu__sublink">
+                                        {{- link.title | escape -}}
+                                      </a>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              </li>
+                            {% endif %}
+                            {% if linklists[block.settings.link_list_2].title != blank %}
+                              <li>
+                                <a
+                                  href="#{{ linklists[block.settings.link_list_2].handle }}"
+                                  class="accordion-menu__link"
+                                  data-accordion-menu>
+                                  <span>
+                                    {{ linklists[block.settings.link_list_2].title }}
+                                  </span>
+                                
+                                </a>
+                                <ul class="accordion-menu__sublist accordion-menu--hidden" id="{{ linklists[block.settings.link_list_2].handle }}">
+                                  {% for link in linklists[block.settings.link_list_2].links %}
+                                    <li>
+                                      <a href="{{ link.url }}" class="accordion-menu__sublink">
+                                        {{- link.title | escape -}}
+                                      </a>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              </li>
+                            {% endif %}
+                            {% if linklists[block.settings.link_list_3].title != blank %}
+                              <li>
+                                <a
+                                  href="#{{ linklists[block.settings.link_list_3].handle }}"
+                                  class="accordion-menu__link"
+                                  data-accordion-menu>
+                                  <span>
+                                    {{ linklists [block.settings.link_list_3].title }}
+                                  </span>
+                                  
+                                </a>
+                                <ul class="accordion-menu__sublist accordion-menu--hidden" id="{{ linklists[block.settings.link_list_3].handle }}">
+                                  {% for link in linklists[block.settings.link_list_3].links %}
+                                    <li>
+                                      <a href="{{ link.url }}" class="accordion-menu__sublink">
+                                        {{- link.title | escape -}}
+                                      </a>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              </li>
+                            {% endif %}
+                            {% if linklists[block.settings.link_list_4].title != blank %}
+                              <li>
+                                <a
+                                  href="#{{ linklists[block.settings.link_list_4].handle }}"
+                                  class="accordion-menu__link"
+                                  data-accordion-menu>
+                                  <span>
+                                    {{ linklists [block.settings.link_list_4].title }}
+                                  </span>
+                           
+                                </a>
+                                <ul class="accordion-menu__sublist accordion-menu--hidden" id="{{ linklists[block.settings.link_list_4].handle }}">
+                                  {% for link in linklists[block.settings.link_list_4].links %}
+                                    <li>
+                                      <a href="{{ link.url }}" class="accordion-menu__sublink">
+                                        {{- link.title | escape -}}
+                                      </a>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                              </li>
+                            {% endif %}
+                            
+                          {% endfor %}
+                        </ul>
+                      </li>
+    
+                    {% endif %}
+
+
+
+                    {%- for link in section.settings.menu.links -%}
+                      {%- if link.links != blank -%}
+                        <li class="accordion-menu__item">
+                          <a
+                            href="#{{ link.handle | escape }}"
+                            class="accordion-menu__link"
+                            data-accordion-menu>
+                            <span>
+                              {{ link.title | escape }}
+                            </span>
+                            
+                          </a>
+                        
+                          <ul class="accordion-menu__sublist accordion-menu--hidden" id="{{ link.handle | escape }}">
+                            {%- for childlink in link.links -%}
+                              {%- if childlink.links == blank -%}
+                                <li>
+                                  <a href="{{ childlink.url }}" class="accordion-menu__sublink">
+                                    {{ childlink.title | escape }}
+                                  </a>
+                                </li>
+                              {%- endif -%}
+                            {%- endfor -%}   
+                          </ul> 
+                        </li>
+                        {% else %}
+                        <li class="accordion-menu__item {% if forloop.first %} d-none {% endif %}">
+                          <a href="{{ link.url }}" class="accordion-menu__link">
+                            {{ link.title | escape }}
+                          </a>
+                        </li> 
+                      {%- endif -%}
+                    {%- endfor -%}     
+                  </ul>
+                </nav>
+              </div>
+
+
+
+              {%comment%}
+              <div class="header__custom-mobile-menu-nav">
+
+
+                
+                {% if section.settings.link_label %}
+                  <li class="accordion-menu__item" >
+                    {{ section.settings.link_label }}
+                  </li>
+
+
+
+                  {% for block in section.blocks %}
+                    
+                      {% if linklists[block.settings.link_list_1].title != blank %}
+                        <div class="">
+                          <p class="mb-2">{{ linklists[block.settings.link_list_1].title }}</p>
+                          <ul class="m-0 p-0">
+                            
+                            {% for link in linklists[block.settings.link_list_1].links %}
+                              <li>
+                                <a class="link-menu text-12px text-decoration-none" href="{{ link.url }}">
+                                  {{- link.title | escape -}}
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                      {% if linklists[block.settings.link_list_2].title != blank %}
+                        <div class="">
+                          <p class="mb-2">{{ linklists[block.settings.link_list_2].title }}</p>
+                          <ul class="m-0 p-0">
+                            {% for link in linklists[block.settings.link_list_2].links %}
+                              <li>
+                                <a class="link-menu text-12px text-decoration-none" href="{{ link.url }}">
+                                  {{- link.title | escape -}}
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                      {% if linklists[block.settings.link_list_3].title != blank %}
+                        <div class="">
+                          <p class="mb-2">{{ linklists[block.settings.link_list_3].title }}</p>
+                          <ul class="m-0 p-0">
+                            
+                            {% for link in linklists[block.settings.link_list_3].links %}
+                              <li>
+                                <a class="link-menu text-12px text-decoration-none" href="{{ link.url }}">
+                                  {{- link.title | escape -}}
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                      {% if linklists[block.settings.link_list_4].title != blank %}
+                        <div class="">
+                          <p class="mb-2">{{ linklists[block.settings.link_list_4].title }}</p>
+                          <ul class="m-0 p-0">
+                            
+                            {% for link in linklists[block.settings.link_list_4].links %}
+                              <li>
+                                <a class="link-menu text-12px text-decoration-none" href="{{ link.url }}">
+                                  {{- link.title | escape -}}
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                  
+                  {% endfor %}
+
+
+
+
+
+                {% endif %}
+
+                
+              </div>
+
+
+              
+              <ul class="menu-drawer__menu has-submenu list-menu" role="list">
+                {%- for link in section.settings.menu.links -%}
+                  <li>
+                    {%- if link.links != blank -%}
+                      <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
+                        <summary
+                          id="HeaderDrawer-{{ link.handle }}"
+                          class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
+                        >
+                          {{ link.title | escape }}
+                          {% render 'icon-arrow' %}
+                          {% render 'icon-caret' %}
+                        </summary>
+                        <div
+                          id="link-{{ link.handle | escape }}"
+                          class="menu-drawer__submenu has-submenu gradient motion-reduce"
+                          tabindex="-1"
+                        >
+                          <div class="menu-drawer__inner-submenu">
+                            <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                              {% render 'icon-arrow' %}
+                              {{ link.title | escape }}
+                            </button>
+                            <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                              {%- for childlink in link.links -%}
+                                <li>
+                                  {%- if childlink.links == blank -%}
+                                    <a
+                                      id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                      href="{{ childlink.url }}"
+                                      class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                      {% if childlink.current %}
+                                        aria-current="page"
+                                      {% endif %}
+                                    >
+                                      {{ childlink.title | escape }}
+                                    </a>
+                                  {%- else -%}
+                                    <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
+                                      <summary
+                                        id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+                                        class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
+                                      >
+                                        {{ childlink.title | escape }}
+                                        {% render 'icon-arrow' %}
+                                        {% render 'icon-caret' %}
+                                      </summary>
+                                      <div
+                                        id="childlink-{{ childlink.handle | escape }}"
+                                        class="menu-drawer__submenu has-submenu gradient motion-reduce"
+                                      >
+                                        <button
+                                          class="menu-drawer__close-button link link--text focus-inset"
+                                          aria-expanded="true"
+                                        >
+                                          {% render 'icon-arrow' %}
+                                          {{ childlink.title | escape }}
+                                        </button>
+                                        <ul
+                                          class="menu-drawer__menu list-menu"
+                                          role="list"
+                                          tabindex="-1"
+                                        >
+                                          {%- for grandchildlink in childlink.links -%}
+                                            <li>
+                                              <a
+                                                id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                                href="{{ grandchildlink.url }}"
+                                                class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
+                                                {% if grandchildlink.current %}
+                                                  aria-current="page"
+                                                {% endif %}
+                                              >
+                                                {{ grandchildlink.title | escape }}
+                                              </a>
+                                            </li>
+                                          {%- endfor -%}
+                                        </ul>
+                                      </div>
+                                    </details>
+                                  {%- endif -%}
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          </div>
+                        </div>
+                      </details>
+                    {%- else -%}
+                      <a
+                        id="HeaderDrawer-{{ link.handle }}"
+                        href="{{ link.url }}"
+                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
+                        {% if link.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ link.title | escape }}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+              {%endcomment%}
+            </nav>
+            {%comment%}
+            <div class="menu-drawer__utility-links">
+              {%- if shop.customer_accounts_enabled -%}
+                <a
+                  href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                  class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
+                >
+                  {% render 'icon-account' %}
+                  {%- liquid
+                    if customer
+                      echo 'customer.account_fallback' | t
+                    else
+                      echo 'customer.log_in' | t
+                    endif
+                  -%}
+                </a>
+              {%- endif -%}
+              {%- if section.settings.enable_country_selector or section.settings.enable_language_selector -%}
+                <div class="menu-drawer__localization header__localization">
+                  {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+                    <noscript>
+                      {%- form 'localization', id: 'HeaderCountryMobileFormNoScriptDrawer', class: 'localization-form' -%}
+                        <div class="localization-form__select">
+                          <h2 class="visually-hidden" id="HeaderCountryMobileLabelNoScriptDrawer">
+                            {{ 'localization.country_label' | t }}
+                          </h2>
+                          <select
+                            class="localization-selector link"
+                            name="country_code"
+                            aria-labelledby="HeaderCountryMobileLabelNoScriptDrawer"
+                          >
+                            {%- for country in localization.available_countries -%}
+                              <option
+                                value="{{ country.iso_code }}"
+                                {%- if country.iso_code == localization.country.iso_code %}
+                                  selected
+                                {% endif %}
+                              >
+                                {{ country.name }} ({{ country.currency.iso_code }}
+                                {{ country.currency.symbol }})
+                              </option>
+                            {%- endfor -%}
+                          </select>
+                          {% render 'icon-caret' %}
+                        </div>
+                        <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
+                      {%- endform -%}
+                    </noscript>
+  
+                    <localization-form class="no-js-hidden">
+                      {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'localization-form' -%}
+                        <div>
+                          <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
+                            {{ 'localization.country_label' | t }}
+                          </h2>
+                          {%- render 'country-localization', localPosition: 'HeaderCountryMobile' -%}
+                        </div>
+                      {%- endform -%}
+                    </localization-form>
+                  {% endif %}
+  
+                  {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+                    <noscript>
+                      {%- form 'localization',
+                        id: 'HeaderLanguageMobileFormNoScriptDrawer',
+                        class: 'localization-form'
+                      -%}
+                        <div class="localization-form__select">
+                          <h2 class="visually-hidden" id="HeaderLanguageMobileLabelNoScriptDrawer">
+                            {{ 'localization.language_label' | t }}
+                          </h2>
+                          <select
+                            class="localization-selector link"
+                            name="locale_code"
+                            aria-labelledby="HeaderLanguageMobileLabelNoScriptDrawer"
+                          >
+                            {%- for language in localization.available_languages -%}
+                              <option
+                                value="{{ language.iso_code }}"
+                                lang="{{ language.iso_code }}"
+                                {%- if language.iso_code == localization.language.iso_code %}
+                                  selected
+                                {% endif %}
+                              >
+                                {{ language.endonym_name | capitalize }}
+                              </option>
+                            {%- endfor -%}
+                          </select>
+                          {% render 'icon-caret' %}
+                        </div>
+                        <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
+                      {%- endform -%}
+                    </noscript>
+  
+                    <localization-form class="no-js-hidden">
+                      {%- form 'localization', id: 'HeaderLanguageMobileForm', class: 'localization-form' -%}
+                        <div>
+                          <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
+                            {{ 'localization.language_label' | t }}
+                          </h2>
+                          {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
+                        </div>
+                      {%- endform -%}
+                    </localization-form>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              <ul class="list list-social list-unstyled" role="list">
+                {%- if settings.social_twitter_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_twitter_link }}" class="list-social__link link">
+                      {%- render 'icon-twitter' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if settings.social_facebook_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_facebook_link }}" class="list-social__link link">
+                      {%- render 'icon-facebook' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if settings.social_pinterest_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_pinterest_link }}" class="list-social__link link">
+                      {%- render 'icon-pinterest' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if settings.social_instagram_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_instagram_link }}" class="list-social__link link">
+                      {%- render 'icon-instagram' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if settings.social_tiktok_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_tiktok_link }}" class="list-social__link link">
+                      {%- render 'icon-tiktok' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if settings.social_tumblr_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_tumblr_link }}" class="list-social__link link">
+                      {%- render 'icon-tumblr' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if settings.social_snapchat_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_snapchat_link }}" class="list-social__link link">
+                      {%- render 'icon-snapchat' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if settings.social_youtube_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_youtube_link }}" class="list-social__link link">
+                      {%- render 'icon-youtube' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+                {%- if settings.social_vimeo_link != blank -%}
+                  <li class="list-social__item">
+                    <a href="{{ settings.social_vimeo_link }}" class="list-social__link link">
+                      {%- render 'icon-vimeo' -%}
+                      <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+              </ul>
+            </div>
+            {%endcomment%}
+          </div>
+        </div>
+      </div>
+    </details>
+    {%- liquid
+      render 'header-search', input_id: 'Search-In-Modal-1'
+    -%}
+  </div>
+</header-drawer>
+
+<script>
+  function customMenuClose() {
+
+    document.getElementById('triggerOverlay').click();
+  }
+
+  var accordionMenu = function () {
+    
+    if (!Element.prototype.closest) {
+      if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+      }
+      Element.prototype.closest = function (s) {
+        var el = this;
+        var ancestor = this;
+        if (!document.documentElement.contains(el)) return null;
+        do {
+          if (ancestor.matches(s)) return ancestor;
+          ancestor = ancestor.parentElement;
+        } while (ancestor !== null);
+        return null;
+      };
+    }
+    // Listen for click on the document
+    // Accordiom menu functionality
+    document.addEventListener('click', function (event) {
+      // Bail if our clicked element doesn't match
+      var trigger = event.target.closest('[data-accordion-menu]');
+      if (!trigger) return;
+      // Get the target content
+      var target = document.querySelector(trigger.hash);
+      if (!target) return;
+      // Prevent default link behavior
+      event.preventDefault();
+      // Toggle our content
+      target.classList.toggle('accordion-menu--hidden');
+      // Toggle trigger class
+      trigger.classList.toggle('accordion-menu--active');
+    });
+    // Listen for click on the document
+    // Accordion parent menu functionality
+    document.addEventListener('click', function (event) {
+      // Bail if our clicked element doesn't match
+      var trigger = event.target.closest('[data-accordion-menu-nav]');
+      if (!trigger) return;
+      // Get the target content
+      var target = document.querySelector(trigger.hash);
+      if (!target) return;
+      // Prevent default link behavior
+      event.preventDefault();
+      // If the content is already expanded, collapse it and quit
+      if (target.classList.contains('active')) {
+        target.classList.remove('active');
+        return;
+      }
+      // Get all open accordion content, loop through it, and close it
+      var accordions = document.querySelectorAll('[data-accordion-wrapper]');
+      for (var i = 0; i < accordions.length; i++) {
+        accordions[i].classList.remove('active');
+      }
+      // Toggle our content
+      target.classList.toggle('active');
+    });
+};
+
+accordionMenu();
+</script>

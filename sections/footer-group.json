@@ -1,0 +1,61 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "fba75131-cd29-483d-8773-cf46893f1289": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Bridal Gallery",
+            "menu": "bridal-gallery"
+          }
+        },
+        "68c91fa5-9d76-4648-889b-c90a9bd5b7fe": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Resources",
+            "menu": "resources"
+          }
+        }
+      },
+      "block_order": [
+        "fba75131-cd29-483d-8773-cf46893f1289",
+        "68c91fa5-9d76-4648-889b-c90a9bd5b7fe"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "newsletter_enable": true,
+        "newsletter_section_heading": "Stay In Touch",
+        "newsletter_heading": "Sign up for promos and events!",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": false,
+        "margin_top": 0,
+        "padding_top": 60,
+        "padding_bottom": 36,
+        "schedule_heading": "Business Hours",
+        "schedule_day--1": "MON:",
+        "schedule_time--1": "10AM—5PM",
+        "schedule_day--2": "TUES:",
+        "schedule_time--2": "CLOSED",
+        "schedule_day--3": "WED\/THUR:",
+        "schedule_time--3": "12PM—8PM",
+        "schedule_day--4": "FRI\/SAT:",
+        "schedule_time--4": "10AM—5PM",
+        "schedule_day--5": "SUNDAY:",
+        "schedule_time--5": "10AM—5PM",
+        "schedule_day--6": "",
+        "schedule_time--6": "",
+        "schedule_day--7": "",
+        "schedule_time--7": ""
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

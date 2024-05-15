@@ -1,0 +1,174 @@
+{{ 'subcollection-banner.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign imageWidth = section.settings.image.width
+  assign imageHeight = imageWidth | divided_by: section.settings.image.aspect_ratio
+  if section.settings.image_lazy
+  assign imageLoading = 'lazy'
+  else
+  assign imageLoading = ''
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="subcollection-banner  section-{{ section.id }}-padding">
+ 
+  {%- if section.settings.image != blank or collection.image != blank -%}
+    <picture class="{% if section.settings.image_overlay %}subcollection-banner__overlay{% endif %}">
+      {%- if section.settings.image_mobile != blank -%}
+        <source
+          media="(max-width: 750px)"
+          srcset="
+            {%- if section.settings.image_mobile.width >= 375 -%}{{ section.settings.image_mobile | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if section.settings.image_mobile.width >= 550 -%}{{ section.settings.image_mobile | image_url: width: 550 }} 550w,{%- endif -%}
+            {%- if section.settings.image_mobile.width >= 750 -%}{{ section.settings.image_mobile | image_url: width: 750 }} 750w,{%- endif -%}
+          ">
+      {%- endif -%}
+      
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 3840 | image_tag:
+          loading: imageLoading,
+          width: imageWidth,
+          height: imageHeight,
+          class: 'subcollection-banner__image',
+          sizes: '100vw',
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+          {% else %}
+          {{ collection.image | image_url: width: 3840 | image_tag:
+            loading: imageLoading,
+            width: imageWidth,
+            height: imageHeight,
+            class: 'subcollection-banner__image',
+            sizes: '100vw',
+            widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+      {% endif %}
+      
+    </picture>
+  {%- else -%}
+    {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+  {%- endif -%}
+  <div class="page-width subcollection-banner__wrapper">
+    <div class="subcollection-banner__content">
+      {% render 'breadcrumbs' %}
+      {% if collection.title != blank %}
+        <h1 class="h2 text-white">
+          {{ collection.title }}
+        </h1>
+      {% endif %}
+      {% if collection.description != blank %}
+        <p class="subcollection-banner__text text-white text-15px">{{ collection.description }}</p>
+      {% endif %}
+      {% if section.settings.button_label %}
+        <a class="btn btn__ternary" href="{{ section.settings.button_url }}">{{ section.settings.button_label }}</a>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+  
+{% schema %}
+{
+    "name": "Subcollection Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_lazy",
+        "label": "Image lazy loading",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "image_overlay",
+        "label": "Image overlay",
+        "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "If the section follows first on the page lazy loading should not be enabled. This will cause the FCP (First Contentful Paint) to deteriorate"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "URL Button"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Label Button"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top desktop",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom desktop",
+        "default": 148
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top mobile",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom mobile",
+        "default": 80
+      }
+    ],
+    "presets": [
+      {
+        "name": "Subcollection Banner",
+        "category": "Custom"
+      }
+    ]
+}
+{% endschema %}

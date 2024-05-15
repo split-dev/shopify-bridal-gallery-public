@@ -1,0 +1,209 @@
+{{ 'contact-us-hero.out.css' | asset_url | stylesheet_tag }}
+
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+{%- liquid
+    if section.settings.image_lazy
+        assign imageLoading = 'lazy'
+    else
+        assign imageLoading = ''
+    endif
+-%}
+
+<section class="contact-hero__section section-{{ section.id }}-padding">
+  {%- if section.settings.image != blank -%}
+    <picture class="contact-hero__overlay">
+      {%- if section.settings.image_mobile != blank -%}
+        <source
+                media="(max-width: 750px)"
+                srcset="
+            {%- if section.settings.image_mobile.width >= 375 -%}{{ section.settings.image_mobile | image_url: width: 375 }} 375w,{%- endif -%}
+            {%- if section.settings.image_mobile.width >= 550 -%}{{ section.settings.image_mobile | image_url: width: 550 }} 550w,{%- endif -%}
+            {%- if section.settings.image_mobile.width >= 750 -%}{{ section.settings.image_mobile | image_url: width: 750 }} 750w,{%- endif -%}
+          ">
+      {%- endif -%}
+
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 3840 | image_tag:
+        loading: imageLoading,
+        width: imageWidth,
+        height: imageHeight,
+        class: 'contact-hero__image',
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+      {% endif %}
+    </picture>
+  {%- else -%}
+    {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+  {%- endif -%}
+
+  <div class="page-width contact-hero__wrapper">
+    <div class="contact-hero__content">
+      <div class="contact-hero__breadcrumbs">
+       {% render 'breadcrumbs' %}
+      </div>
+
+      <h1 class="contact-hero__title text-white h2">
+        {{ section.settings.header }}
+      </h1>
+    </div>
+    <div class="contact-hero__items">
+      {% for block in section.blocks %}
+        <div class="contact-hero__item">
+          {%- liquid
+            assign imageWidth = image.width
+            assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+          %}
+
+          {{ block.settings.image | image_url: width: 56| image_tag:
+          loading: imageLoading,
+          width: imageWidth,
+          height: imageHeight,
+          class: 'contact-hero__item-icon'
+         }}
+
+        <div class="contact-hero__item-title title-collection-item">{{ block.settings.heading }}</div>
+        <div class="contact-hero__item-text">{{ block.settings.text }}</div>
+      {% if block.settings.button_label %}
+        <a href="{% if block.settings.button_link %}{{ block.settings.button_link }}}{% else %}#{% endif %}" class="contact-hero__item-btn btn btn__secondary">{{ block.settings.button_label }}</a>
+      {% endif %}
+
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact us hero",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Section header",
+      "default": "Get in Touch"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image for desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image for mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_lazy",
+      "label": "Image lazy loading",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "text-icon",
+      "name": "Text with icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Contact heading",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Need help? Give us a call, and our experts will guide you in finding your dream wedding dress:</p>",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Call us",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact us hero"
+    }
+  ]
+}
+{% endschema %}

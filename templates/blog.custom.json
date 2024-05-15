@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "9d8f2efa-bedc-421e-951f-441dcafee693": {
+      "type": "blog-banner",
+      "settings": {
+        "banner_blog_title": "Insights, Ideas, and Beyond",
+        "banner_blog_text": "<p>Discover a world of love and celebrations in our blog. From wedding planning tips to anniversary ideas, we share insights and inspiration to help you create memorable moments.<\/p>",
+        "padding_top": 20,
+        "padding_bottom": 24,
+        "padding_top_mb": 20,
+        "padding_bottom_mb": 32
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "padding_top": 16,
+        "padding_bottom": 64,
+        "padding_top_mb": 16,
+        "padding_bottom_mb": 48
+      }
+    }
+  },
+  "order": [
+    "9d8f2efa-bedc-421e-951f-441dcafee693",
+    "main"
+  ]
+}

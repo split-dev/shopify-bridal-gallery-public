@@ -1,0 +1,87 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.collections-slider {
+  &__header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__button {
+    margin: 40px auto 0;
+
+    @include media-breakpoint-down(xs) {
+      margin: 24px auto 0;
+    }
+  }
+
+  &__items:focus-visible {
+    outline: none;
+    outline-offset: 0;
+    box-shadow: none;
+  }
+
+  &__item {
+    margin-right: 8px;
+    width: 22%;
+
+    @include media-breakpoint-down(lg) {
+      width: 30%;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 40%;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-right: 6px;
+      width: 35%;
+    }
+
+    @media (max-width: 500px) {
+      width: 45%;
+    }
+
+    &-link {
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+
+      &:hover img {
+        transform: scale(1.08);
+      }
+    }
+
+    &-title {
+      text-align: center;
+      margin-top: 20px;
+
+      @include media-breakpoint-down(xs) {
+        margin-right: 12px;
+      }
+    }
+
+    &-image-wrap {
+      height: 485px;
+      width: 100%;
+      overflow: hidden;
+
+      @include media-breakpoint-down(xs) {
+        height: 255px;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        -webkit-transition: opacity 0.4s;
+        object-position: center top;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+  }
+}

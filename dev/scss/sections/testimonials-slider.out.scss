@@ -1,0 +1,66 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+
+
+.testimonials-slider {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    h2 {
+        padding: 0 0 25px;
+        @include media-breakpoint-down(sm){
+            padding: 0 0 24px;
+        }
+        @include media-breakpoint-down(xs){
+            padding: 0 0 9px;
+        }
+    }
+    .js-testimonials-slider {
+        &:focus-visible {
+            outline: none;
+            outline-offset: none !important;
+            box-shadow: none !important;
+        }
+    }
+    &__item {
+        margin: 0 136px 32px;
+        max-width: 648px;
+        width: 100%;
+        opacity: 0.3 !important;
+        &.is-selected {
+            opacity: 1 !important;
+        }
+        @include media-breakpoint-down(sm){
+            width: 70%;
+            margin: 0 20px 32px;
+         }
+         @include media-breakpoint-down(xs){
+            width: 70%;
+            margin: 3px 0 6px;
+            padding: 0 15px;
+         }
+        .testimonials-slider-content{
+            color: $c-black;
+            @include media-breakpoint-down(sm){
+               color: $c-text;
+            }
+        }
+        .title-collection-item {
+            margin: 17px 0 20px;
+            color: $c-dark-grey;
+        }
+        .carousel-status{
+            padding-top: 36px;
+            font-family: Outfit;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.72px;
+            text-transform: uppercase;
+        }
+    }
+}
+

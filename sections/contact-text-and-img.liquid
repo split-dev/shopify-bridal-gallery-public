@@ -1,0 +1,177 @@
+{{ 'contact-text-and-img.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign imageWidth = section.settings.image.width
+  assign imageHeight = imageWidth | divided_by: section.settings.image.aspect_ratio
+  if section.settings.image_lazy
+  assign imageLoading = 'lazy'
+  else
+  assign imageLoading = ''
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="opening-text-and-img section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="opening-content">
+      <div class="opening-content__text-button">
+        <div class="opening-content__text">
+          <h3>{{ section.settings.title_contacts }}</h3>
+          <div class="p-small">{{ section.settings.content_contacts }}</div>
+          <div class="contacts_button">
+            {% if section.settings.contacts_button_link != blank %}
+              <a href="{{ section.settings.contacts_button_link }}" class="btn btn__primary">{{ section.settings.contacts_button }}</a>
+            {% endif %}
+        </div>
+        </div>
+      </div>
+      <div class="opening-content__image-bg">
+       <div class="opening-content__img">
+          {%- if section.settings.image_1 -%}
+            {{ section.settings.image_1| image_url: width: 2500 | image_tag: loading: 'lazy' }}
+          {% endif %}
+        </div>
+        <div class="opening-content__image-text">
+          <h4>{{ section.settings.title_opening }}</h4>
+          <div class="title-collection-item">
+            {% for block in section.blocks %}
+            <div class="date-line">
+              <p class="title-collection-item">{{ block.settings.date }}</p>
+              <div class="border-opening d-inline"></div>
+              <p class="title-collection-item">{{ block.settings.time }}</p>
+            </div>
+            {% endfor %}     
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+{% schema %}
+{
+    "name": "Opening Text Bg",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Content"
+      },
+      {
+        "type": "text",
+        "id": "title_contacts",
+        "label": "Title Opening",
+        "default": "Experience Our Charm"
+      },
+      {
+        "type": "richtext",
+        "id": "content_contacts",
+        "label": "Basic Content"
+      },
+      {
+        "type": "text",
+        "id": "contacts_button",
+        "label": "Button Label"
+      },
+      {
+        "type": "url",
+        "id": "contacts_button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "text",
+        "id": "title_opening",
+        "label": "Title Opening Hours Tile"
+      },
+      {
+        "type": "header",
+        "content": "Section Media"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_1",
+        "label": "Contact is Img bg"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top desktop",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom desktop",
+        "default": 148
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top mobile",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom mobile",
+        "default": 80
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Day Item",
+        "type": "text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "date",
+            "label": "Day"
+          },
+          {
+            "type": "text",
+            "id": "time",
+            "label": "Time"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text And Img (text bg)",
+        "category": "Custom"
+      }
+    ]
+}
+{% endschema %}

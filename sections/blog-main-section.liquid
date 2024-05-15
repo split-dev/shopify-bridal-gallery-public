@@ -1,0 +1,132 @@
+{{ 'blog-main-section.out.css' | asset_url | stylesheet_tag }}
+{{ 'blog-post-item.out.css' | asset_url | stylesheet_tag }}
+{{ 'blog-post-item--large.out.css' | asset_url | stylesheet_tag }}
+{{ 'blog-posts.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+    if section.settings.image_lazy
+        assign imageLoading = 'lazy'
+    else
+        assign imageLoading = ''
+    endif
+-%}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+<section class="blog-main section-{{ section.id }}-padding">
+  <h2 class="blog-main__header text-center h2 page-width">{{ section.settings.header }}</h2>
+
+  <div class="blog-main__blogs">
+    {% for article in blog.articles limit: 1 %}
+      {% render 'blog-post-item--large', article: article, content-align: 'left', imageLoading: imageLoading %}
+    {% endfor %}
+    <div class="blog-posts__tgb-wrapper">
+      <div class="page-width">
+        <h3 class="blog-main__blogs-small-title h3">{{ section.settings.header_small }}</h3>
+        <div class="blog-posts__posts flex-wrap">
+          {% for article in blog.articles offset: 1 %}
+            {% render 'blog-post-item', article: article %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% assign latest_article = blog.articles | last %}
+    {% render 'blog-post-item--large', article: latest_article, content-align: 'right', imageLoading: imageLoading %}
+
+  </div>
+
+
+
+</section>
+
+{% schema %}
+{
+  "name": "Blog Main Section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "image_lazy",
+      "label": "Image lazy loading",
+      "default": true
+    },
+    {
+      "type": "paragraph",
+      "content": "If the section follows first on the page lazy loading should not be enabled. This will cause the FCP (First Contentful Paint) to deteriorate"
+    },
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Section header",
+      "default": "Unforgettable Brides: Photos & Stories"
+    },
+    {
+      "type": "text",
+      "id": "header_small",
+      "label": "Header for small stories on mobile",
+      "default": "Our Real Weddings"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Main Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

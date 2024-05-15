@@ -1,0 +1,504 @@
+{{ 'appointment-form.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign imageWidth = section.settings.image.width
+  assign imageHeight = imageWidth | divided_by: section.settings.image.aspect_ratio
+  if section.settings.image_lazy
+  assign imageLoading = 'lazy'
+  else
+  assign imageLoading = ''
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+  .text-and-nav {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="appointment-first section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div>
+        {% render 'breadcrumbs' %}
+    </div>
+    <div class="appointment-first__wrapper">
+        <div class="appointment-first__header">
+            {% if section.settings.appointment_title != blank %}
+                <h3>{{ section.settings.appointment_title }}</h3>
+            {% endif %}
+            {% if section.settings.appointment_price != blank %}
+                <p>{{ section.settings.appointment_price }}</p>
+            {% endif %}
+        </div>
+        <div class="appointment-first__form">
+            <form
+              action=""
+              id="ContactForm"
+              data-form="ACCESSORIES_STYLING"
+              is-appointment="true"
+            >
+                {%- if form.posted_successfully? -%}
+                <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+                  {% render 'icon-success' %}
+                  {{ 'templates.contact.form.post_success' | t }}
+                </h2>
+              {%- elsif form.errors -%}
+                <div class="form__message">
+                  <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+                    {% render 'icon-error' %}
+                    {{ 'templates.contact.form.error_heading' | t }}
+                  </h2>
+                </div>
+                <ul class="form-status-list caption-large" role="list">
+                  <li>
+                    <a href="#ContactForm-email" class="link">
+                      {{ form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email }}
+                    </a>
+                  </li>
+                </ul>
+              {%- endif -%}
+              <div class="contact__fields">
+                  <label class="field__label-new">{{ 'templates.contact.form.date' | t }}</label>
+                  <div class="date-picker field field-100 field-date">
+                      <span class="selected-date">{{ 'templates.contact.form.select' | t }}</span>
+                      <div class="time text-15px"></div>
+                      <div class="date-picker__icon">
+                          {% render 'icon-calendar' %}
+                      </div>
+                  </div>
+
+                  <div class="dates">
+                      <div class="dates__first">
+                          <div class="month">
+                              <div class="mth text-15px"></div>
+                              <div class="month-arrows">
+                                  <div class="arrows prev-mth">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00163 0.71811C9.37537 0.32692 10 0.32692 10.3738 0.71811C10.7242 1.08485 10.7242 1.6623 10.3738 2.02904L5.62459 7L10.3738 11.971C10.7242 12.3377 10.7242 12.9152 10.3738 13.2819C10 13.6731 9.37537 13.6731 9.00163 13.2819L3 7L9.00163 0.71811Z" fill="#1F1F1F"/>
+                                      </svg>
+                                  </div>
+                                  <div class="arrows next-mth">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M4.99837 0.71811C4.62463 0.32692 3.99996 0.32692 3.62622 0.71811C3.27584 1.08485 3.27584 1.6623 3.62622 2.02904L8.37541 7L3.62622 11.971C3.27584 12.3377 3.27584 12.9152 3.62622 13.2819C3.99996 13.6731 4.62463 13.6731 4.99837 13.2819L11 7L4.99837 0.71811Z" fill="#1F1F1F"/>
+                                      </svg>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="days-list">
+                              <ul>
+                                  <li class="text-15px">Mo</li>
+                                  <li class="text-15px">Tu</li>
+                                  <li class="text-15px">We</li>
+                                  <li class="text-15px">Th</li>
+                                  <li class="text-15px">Fr</li>
+                                  <li class="text-15px">Sa</li>
+                                  <li class="text-15px">Su</li>
+                              </ul>
+                          </div>
+                          <div class="days"></div>
+                      </div>
+                      <div class="dates__second">
+                          <div class="dates-location">
+                              {% if section.settings.dates_location != blank %}
+                                  {% render 'icon-info' %}
+                                  <span>{{ section.settings.dates_location }}</span>
+                              {% endif %}
+                          </div>
+                          <ul class="dates__second-list" id="list">
+
+                          </ul>
+                      </div>
+                  </div>
+
+                  <div class="field">
+                      <input
+                      class="field__input-new"
+                      autocomplete="first name"
+                      type="text"
+                      id="ContactForm-name"
+                      name="contact[{{ 'templates.contact.form.first_name' | t }}]"
+                      value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
+                      >
+                      <label class="field__label-new" for="ContactForm-name">{{ 'templates.contact.form.first_name' | t }}</label>
+                      <div class="hide error-block">
+                        {% render 'icon-error-new' %}
+                        <small class="error p-small"></small>
+                      </div>
+                      <div class="hide success-block">
+                        {% render 'icon-success-new' %}
+                        <small class="success p-small"></small>
+                      </div>
+                  </div>
+                  <div class="field">
+                      <input
+                      class="field__input-new"
+                      autocomplete="last name"
+                      type="text"
+                      id="ContactForm-last_name"
+                      name="contact[{{ 'templates.contact.form.last_name' | t }}]"
+                      value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
+                      >
+                      <label class="field__label-new" for="ContactForm-LastName">{{ 'templates.contact.form.last_name' | t }}</label>
+                      <div class="hide error-block">
+                        {% render 'icon-error-new' %}
+                        <small class="error p-small"></small>
+                      </div>
+                      <div class="hide success-block">
+                        {% render 'icon-success-new' %}
+                        <small class="success p-small"></small>
+                      </div>
+                  </div>
+                  <div class="field field--with-error">
+                      <input
+                      autocomplete="email"
+                      type="email"
+                      id="ContactForm-email"
+                      class="field__input-new"
+                      name="contact[email]"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      aria-required="true"
+                      {% if form.errors contains 'email' %}
+                          aria-invalid="true"
+                          aria-describedby="ContactForm-email-error"
+                      {% endif %}
+                      placeholder="{{ 'templates.contact.form.email_address' | t }}"
+                      >
+                      <label class="field__label-new" for="ContactForm-email">
+                      {{- 'templates.contact.form.email' | t }}
+                      <span aria-hidden="true">*</span></label
+                      >
+                        <div class="hide error-block">
+                          {% render 'icon-error-new' %}
+                          <small class="error p-small"></small>
+                        </div>
+                        <div class="hide success-block">
+                          {% render 'icon-success-new' %}
+                          <small class="success p-small"></small>
+                        </div>
+                  </div>
+                  <div class="field">
+                      <input
+                        type="tel"
+                        id="ContactForm-phone"
+                        class="field__input-new"
+                        autocomplete="tel"
+                        name="contact[{{ 'templates.contact.form.phone' | t }}]"
+                        pattern="[0-9\-]*"
+                        value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                        placeholder="{{ 'templates.contact.form.phone_number' | t }}"
+                      >
+                      <label class="field__label-new" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+                      <div class="hide error-block">
+                        {% render 'icon-error-new' %}
+                        <small class="error p-small"></small>
+                      </div>
+                      <div class="hide success-block">
+                        {% render 'icon-success-new' %}
+                        <small class="success p-small"></small>
+                      </div>
+                  </div>
+                  <div class="field">
+                    <input type="number" id="ContactForm-guest" class="field__input-new" autocomplete="Number Of Guests At Appointment"
+                      name="contact[{{ 'templates.contact.form.guest' | t }}]" pattern="[0-9\-]*"
+                      value="{% if form.guest %}{{ form.guest }}{% elsif customer %}{{ customer.guest }}{% endif %}">
+                    <label class="field__label-new" for="ContactForm-guest">{{ 'templates.contact.form.guest' | t }}</label>
+                    <div class="hide error-block">
+                      {% render 'icon-error-new' %}
+                      <small class="error p-small"></small>
+                    </div>
+                    <div class="hide success-block">
+                      {% render 'icon-success-new' %}
+                      <small class="success p-small"></small>
+                    </div>
+                  </div>
+              </div>
+              <div class="contact__credit">
+                  {% if section.settings.credit_title != blank %}
+                      <h5>{{ section.settings.credit_title }}</h5>
+                  {% endif %}
+                  <div class="contact__fields">
+                      <div class="field">
+                          <input
+                            type="text"
+                            id="ContactForm-card"
+                            class="field__input-new"
+                            autocomplete="Credit card number"
+                            name="contact[{{ 'templates.contact.form.card' | t }}]"
+                            value="{% if form.card %}{{ form.card }}{% elsif customer %}{{ customer.card }}{% endif %}"
+                            placeholder="{{ 'templates.contact.form.card_number' | t }}"
+                          >
+                          {% if section.settings.card != blank %}
+                              {{ section.settings.card }}
+                          {% endif %}
+                          <label class="field__label-new" for="ContactForm-card">{{ 'templates.contact.form.card' | t }}</label>
+                          <div class="hide error-block">
+                            {% render 'icon-error-new' %}
+                            <small class="error p-small"></small>
+                          </div>
+                          <div class="hide success-block">
+                            {% render 'icon-success-new' %}
+                            <small class="success p-small"></small>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <input
+                            type="text"
+                            id="ContactForm-expiration"
+                            class="field__input-new"
+                            maxlength="5"
+                            autocomplete="Expiration date"
+                            name="contact[{{ 'templates.contact.form.expiration' | t }}]"
+                            pattern="[0-9\-]*"
+                            value="{% if form.expiration %}{{ form.expiration }}{% elsif customer %}{{ customer.expiration }}{% endif %}"
+                            placeholder="{{ 'templates.contact.form.expiration_date' | t }}"
+                          >
+                          <label class="field__label-new" for="ContactForm-expiration">{{ 'templates.contact.form.expiration' | t }}</label>
+                          <div class="hide error-block">
+                            {% render 'icon-error-new' %}
+                            <small class="error p-small"></small>
+                          </div>
+                          <div class="hide success-block">
+                            {% render 'icon-success-new' %}
+                            <small class="success p-small"></small>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <input
+                            type="text"
+                            id="ContactForm-cvd"
+                            maxlength="3"
+                            class="field__input-new"
+                            autocomplete="CVD"
+                            name="contact[{{ 'templates.contact.form.cvd' | t }}]"
+                            pattern="[0-9\-]*"
+                            value="{% if form.cvd %}{{ form.cvd }}{% elsif customer %}{{ customer.cvd }}{% endif %}"
+                            placeholder="{{ 'templates.contact.form.cvd_number' | t }}"
+                          >
+                          <label class="field__label-new" for="ContactForm-cvd">{{ 'templates.contact.form.cvd' | t }}</label>
+                          <div class="hide error-block">
+                            {% render 'icon-error-new' %}
+                            <small class="error p-small"></small>
+                          </div>
+                          <div class="hide success-block">
+                            {% render 'icon-success-new' %}
+                            <small class="success p-small"></small>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <input
+                            type="text"
+                            id="ContactForm-full_name"
+                            class="field__input-new"
+                            autocomplete="Name on Card"
+                            name="contact[{{ 'templates.contact.form.name_card' | t }}]"
+                            pattern="[0-9\-]*"
+                            value="{% if form.name_card %}{{ form.name_card }}{% elsif customer %}{{ customer.name_card }}{% endif %}"
+                            placeholder="{{ 'templates.contact.form.full_name' | t }}"
+                          >
+                          <label class="field__label-new" for="ContactForm-full_name">{{ 'templates.contact.form.name_card' | t }}</label>
+                          <div class="hide error-block">
+                            {% render 'icon-error-new' %}
+                            <small class="error p-small"></small>
+                          </div>
+                          <div class="hide success-block">
+                            {% render 'icon-success-new' %}
+                            <small class="success p-small"></small>
+                          </div>
+                      </div>
+                      <div class="field">
+                          <input
+                            type="text"
+                            id="ContactForm-code"
+                            maxlength="6"
+                            class="field__input-new"
+                            autocomplete="Postal Code"
+                            name="contact[{{ 'templates.contact.form.postal_code' | t }}]"
+                            pattern="[0-9\-]*"
+                            value="{% if form.postal_code %}{{ form.postal_code }}{% elsif customer %}{{ customer.postal_code }}{% endif %}"
+                          >
+                          <label class="field__label-new" for="ContactForm-code">{{ 'templates.contact.form.postal_code' | t }}</label>
+                          <div class="hide error-block">
+                            {% render 'icon-error-new' %}
+                            <small class="error p-small"></small>
+                          </div>
+                          <div class="hide success-block">
+                            {% render 'icon-success-new' %}
+                            <small class="success p-small"></small>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              {% if section.settings.permission != blank %}
+              <div class="check_terms">
+                <input
+                  type="checkbox"
+                  id="checkTerms"
+                  name="checkTerms" />
+                <label class="p-small" for="checkTerms">
+                  <p>{{ section.settings.permission }}</p>
+                </label>
+              </div>
+            {% endif %}
+              <div class="contact__button">
+                <button type="submit" id="appointment_button" class="btn btn__primary" disabled>
+                  {{ 'templates.contact.form.button_text' | t }}
+                </button>
+              </div>
+              </form>
+        </div>
+    </div>
+
+    <div class="popup">
+        <div class="popup-inner">
+            {% if section.settings.popup_title != blank %}
+                <h3>{{ section.settings.popup_title }}</h3>
+            {% endif %}
+            {% if section.settings.popup_text != blank %}
+                <p>{{ section.settings.popup_text }}</p>
+            {% endif %}
+            {% if section.settings.popup_text != blank %}
+                <button class="btn btn__secondary " type="button">{{ section.settings.popup_button }}</button>
+            {% endif %}
+        </div>
+        <div class="popup-close">
+            {% render 'icon-close' %}
+        </div>
+    </div>
+    <div class="overlay"></div>
+  </div>
+</section>
+
+<script src="{{ 'form.js' | asset_url }}" async></script>
+
+{% schema %}
+{
+    "name": "Accessories Styling",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Content"
+      },
+      {
+        "type": "text",
+        "id": "appointment_title",
+        "label": "Appointment title"
+      },
+      {
+        "type": "text",
+        "id": "appointment_price",
+        "label": "Appointment price"
+      },
+      {
+        "type": "text",
+        "id": "credit_title",
+        "label": "Credit title",
+        "default": "Credit card info"
+      },
+      {
+        "type": "html",
+        "id": "card",
+        "label": "Card"
+      },
+      {
+        "type": "text",
+        "id": "permission",
+        "label": "Permission text",
+        "default": "I give permission for sms and calls from app bridal"
+      },
+      {
+        "type": "text",
+        "id": "popup_title",
+        "label": "Popup title",
+        "default": "You have selected our sale price range."
+      },
+      {
+        "type": "richtext",
+        "id": "popup_text",
+        "label": "Popup text",
+        "default": "<p>Please increase your budget or shop our sale section of ready to wear sample dresses. Appointments for try-ons can be booked Monday – Friday. Please select Sample Appointment when booking.</p>"
+      },
+      {
+        "type": "text",
+        "id": "popup_button",
+        "label": "Button text",
+        "default": "Close"
+      },
+      {
+        "type": "text",
+        "id": "dates_location",
+        "label": "Text location",
+        "default": "Local time - Canada"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top desktop",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom desktop",
+        "default": 148
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top mobile",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom mobile",
+        "default": 80
+      }
+    ],
+    "presets": [
+      {
+        "name": "Accessories Styling",
+        "category": "Custom"
+      }
+    ]
+}
+{% endschema %}
+
+
+
+
+
+

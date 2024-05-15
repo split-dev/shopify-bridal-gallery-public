@@ -1,0 +1,52 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.image-with-text {
+
+  &__grid {
+    @include media-breakpoint-down(xs) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__heading {
+    color: $c-text;
+  }
+
+  &__text {
+    p {
+      color: $c-text;
+      @include media-breakpoint-down(xs) {
+        color: $c-dark-grey;
+        margin: 0;
+      }
+    }
+  }
+
+  &__btn {
+    margin-top: 40px;
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 24px;
+    }
+  }
+
+  &__media-item {
+    max-width: 647px;
+    max-height: 710px;
+    overflow: hidden;
+  }
+
+  &__content {
+    padding: 0 136px 0 0;
+
+    @include media-breakpoint-down(lg) {
+      padding: 0 60px 0 0;
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding: 0;
+      margin-bottom: 40px;
+    }
+  }
+}

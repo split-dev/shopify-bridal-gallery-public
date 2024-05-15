@@ -1,0 +1,145 @@
+{{ 'book-an-appointment.out.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign imageWidth = section.settings.image.width
+  assign imageHeight = imageWidth | divided_by: section.settings.image.aspect_ratio
+  if section.settings.image_lazy
+  assign imageLoading = 'lazy'
+  else
+  assign imageLoading = ''
+  endif
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="book-appointment section-{{ section.id }}-padding">
+  <div class="page-width">
+    {% for block in section.blocks %}
+      <div class="book-appointment__wrapper">
+        <div class="book-appointment__text-wrapper">
+          <div class="book-appointment__text">
+            <h3 class="book-appointment__title">{{ block.settings.appointment_title }}</h3>
+            <div class="book-appointment__content p-small">{{ block.settings.appointment_content }}</div>
+            <div class="book-appointment__button title-small-upper">
+              {% if block.settings.events_button_link != blank %}
+                <a href="{{ block.settings.events_button_link }}" class="btn btn__primary">{{ block.settings.appointment_button }}</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="book-appointment__img">
+          {%- if block.settings.image_1 -%}
+            {{ block.settings.image_1| image_url: width: 2500 | image_tag: loading: 'lazy' }}
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+  
+{% schema %}
+{
+    "name": "Section Appointment",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Content"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top desktop",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom desktop",
+        "default": 148
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top mobile",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom mobile",
+        "default": 80
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Tile Blocks",
+        "type": "text",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image_1",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "appointment_title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "appointment_content",
+            "label": "Basic Content"
+          },
+          {
+            "type": "text",
+            "id": "appointment_button",
+            "label": "Button Label"
+          },
+          {
+            "type": "url",
+            "id": "events_button_link",
+            "label": "Button link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Book An Appointment",
+        "category": "Custom"
+      }
+    ]
+}
+{% endschema %}

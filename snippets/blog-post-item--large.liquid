@@ -1,0 +1,78 @@
+{% comment %}
+Inputs:
+- article (article object): article to render;
+- content-align (string: "left"/ "right") - where content and vertacal image should be rendered;
+- imageLoading (string: 'lazy'/ '') ;
+{% endcomment %}
+
+<div class="blog-large__item page-width {% if content-align == 'right' %} blog-large__item-reverse {% else %} blog-large__item-plain {% endif %}">
+    <div class="blog-large__content">
+        <h3 class="blog-large__title h3">{{ article.title }}</h3>
+        <p class="blog-large__excerpt text-15px"> {{ article.excerpt }}</p>
+        <a href="{{ article.url }}" class="blog-large__btn btn btn__primary">Explore now</a>
+
+        <div class="blog-large__img-wrap">
+            {%- liquid
+                if article.metafields.custom.vertical_image_1 != blank
+                    assign image = article.metafields.custom.vertical_image_1
+                elsif article.metafields.custom.vertical_image_2 != blank
+                    assign image = article.metafields.custom.vertical_image_2
+                elsif article.metafields.custom.vertical_image_3 != blank
+                    assign image = article.metafields.custom.vertical_image_3
+                endif
+            %}
+
+            {% if image != blank %}
+                {%- liquid
+                    assign imageWidth = image.width
+                    assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+                    assign imageClasses = 'blog-large__image'
+                %}
+
+                {{ image | image_url: width: 3840 | image_tag:
+                imageLoading: imageLoading,
+                width: imageWidth,
+                height: imageHeight,
+                class: imageClasses,
+                sizes: '100vw',
+                widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+            {% else %}
+                {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+        </div>
+    </div>
+
+    <div class="blog-large__image-large">
+        <div class="blog-large__img-wrap">
+        {%- liquid
+            if article.metafields.custom.horizontal_image_ != blank
+                assign image = article.metafields.custom.horizontal_image_
+            elsif article.image != blank
+                assign image = article.image
+            endif
+        %}
+
+        {% if image != blank %}
+            {%- liquid
+                assign imageWidth = image.width
+                assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+                assign imageClasses = 'blog-large__image'
+            %}
+
+            {{ image | image_url: width: 3840 | image_tag:
+            imageLoading: imageLoading,
+            width: imageWidth,
+            height: imageHeight,
+            class: imageClasses,
+            sizes: '100vw',
+            widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+        {% else %}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        </div>
+    </div>
+
+
+</div>

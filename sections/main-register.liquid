@@ -1,0 +1,171 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+{{ 'register.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="customer register d-flex justify-content-center section-{{ section.id }}-padding">
+  <div class="w-100 page-width" style="max-width: 550px;">
+    <svg style="display: none">
+      <symbol id="icon-error" viewBox="0 0 13 13">
+        <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+        <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+        <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+        <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+      </symbol>
+    </svg>
+    <h1 class="text-center text-text h2 mb-5">
+      {{ 'customer.register.title' | t }}
+    </h1>
+    {%- form 'create_customer', novalidate: 'novalidate' -%}
+      {%- if form.errors -%}
+        <h3 class="form__message text-text"tabindex="-1" autofocus>
+          <svg aria-hidden="true" focusable="false">
+            <use href="#icon-error" />
+          </svg>
+          {{ 'templates.contact.form.error_heading' | t }}
+        </h3>
+        <ul class="text-text text-15px checbox-block mb-5 mt-4">
+          {%- for field in form.errors -%}
+            <li>
+              {%- if field == 'form' -%}
+                {{ form.errors.messages[field] }}
+              {%- else -%}
+                <a class="text-dark-grey" href="#RegisterForm-{{ field }}">
+                  {{ form.errors.translated_fields[field] | capitalize }}
+                  {{ form.errors.messages[field] }}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+      <div class="custom-form__field mt-4">
+        <label for="RegisterForm-FirstName" class="title-small-upper mb-3 d-block text-black">
+          {{ 'customer.register.first_name' | t }}
+        </label>
+        <input
+          class="custom-form__input text-text text-15px mb-3"
+          type="text"
+          name="customer[first_name]"
+          id="RegisterForm-FirstName"
+          {% if form.first_name %}
+            value="{{ form.first_name }}"
+          {% endif %}
+          autocomplete="given-name"
+          placeholder="{{ 'customer.register.first_name' | t }}"
+        >
+      </div>
+      <div class="custom-form__field mt-4">
+        <label for="RegisterForm-email" class="title-small-upper mb-3 d-block text-black">
+          {{ 'customer.register.email' | t }}
+        </label>
+        <input
+          class="custom-form__input text-text text-15px mb-3"
+          type="email"
+          name="customer[email]"
+          id="RegisterForm-email"
+          {% if form.email %}
+            value="{{ form.email }}"
+          {% endif %}
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="email"
+          aria-required="true"
+          {% if form.errors contains 'email' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-email-error"
+          {% endif %}
+          placeholder="{{ 'customer.register.email' | t }}"
+        >
+      </div>
+      {%- if form.errors contains 'email' -%}
+        <span id="RegisterForm-email-error" class="form__message mt-3 text-text mb-4">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#icon-error" />
+          </svg>
+          {{ form.errors.translated_fields.email | capitalize }}
+          {{ form.errors.messages.email }}.
+        </span>
+      {%- endif -%}
+      <div class="custom-form__field mt-3">
+        <label for="RegisterForm-password" class="title-small-upper mb-3 d-block text-black">
+          {{ 'customer.register.password' | t }}
+        </label>
+        <input
+          class="custom-form__input text-text text-15px"
+          type="password"
+          name="customer[password]"
+          id="RegisterForm-password"
+          aria-required="true"
+          {% if form.errors contains 'password' %}
+            aria-invalid="true"
+            aria-describedby="RegisterForm-password-error"
+          {% endif %}
+          placeholder="{{ 'customer.register.password' | t }}"
+        >
+        <span class="password-look password-toggle" data-target="CustomerPassword">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M15.3424 7.84812C15.3212 7.79938 14.8012 6.64625 13.6399 5.485C12.5624 4.40875 10.7112 3.125 7.99991 3.125C5.28866 3.125 3.43741 4.40875 2.35991 5.485C1.19866 6.64625 0.678659 7.7975 0.657409 7.84812C0.636042 7.89613 0.625 7.94808 0.625 8.00062C0.625 8.05317 0.636042 8.10512 0.657409 8.15312C0.678659 8.20125 1.19866 9.35437 2.35991 10.5156C3.43741 11.5919 5.28866 12.875 7.99991 12.875C10.7112 12.875 12.5624 11.5919 13.6399 10.5156C14.8012 9.35437 15.3212 8.20312 15.3424 8.15312C15.3638 8.10512 15.3748 8.05317 15.3748 8.00062C15.3748 7.94808 15.3638 7.89613 15.3424 7.84812ZM7.99991 12.125C6.03866 12.125 4.32616 11.4113 2.90928 10.0044C2.31533 9.41409 1.81272 8.73854 1.41803 8C1.81261 7.26158 2.31523 6.58622 2.90928 5.99625C4.32616 4.58875 6.03866 3.875 7.99991 3.875C9.96116 3.875 11.6737 4.58875 13.0905 5.99625C13.6846 6.58622 14.1872 7.26158 14.5818 8C14.1837 8.76312 12.1874 12.125 7.99991 12.125ZM7.99991 5.125C7.43129 5.125 6.87544 5.29362 6.40264 5.60952C5.92985 5.92543 5.56136 6.37445 5.34376 6.89979C5.12615 7.42512 5.06922 8.00319 5.18015 8.56088C5.29108 9.11858 5.5649 9.63086 5.96698 10.0329C6.36905 10.435 6.88133 10.7088 7.43902 10.8198C7.99672 10.9307 8.57479 10.8738 9.10012 10.6562C9.62546 10.4386 10.0745 10.0701 10.3904 9.59726C10.7063 9.12447 10.8749 8.56862 10.8749 8C10.8739 7.23781 10.5707 6.50712 10.0317 5.96816C9.49279 5.42921 8.7621 5.12599 7.99991 5.125ZM7.99991 10.125C7.57962 10.125 7.16878 10.0004 6.81932 9.76687C6.46987 9.53338 6.1975 9.20149 6.03666 8.8132C5.87583 8.42491 5.83375 7.99764 5.91574 7.58543C5.99773 7.17322 6.20012 6.79458 6.49731 6.4974C6.79449 6.20021 7.17313 5.99782 7.58534 5.91583C7.99755 5.83384 8.42482 5.87592 8.81311 6.03676C9.2014 6.19759 9.53328 6.46996 9.76678 6.81941C10.0003 7.16887 10.1249 7.57971 10.1249 8C10.1249 8.56359 9.90102 9.10409 9.50251 9.5026C9.104 9.90112 8.56349 10.125 7.99991 10.125Z" fill="black"/>
+          </svg>
+        </span>
+      </div>
+      {%- if form.errors contains 'password' -%}
+        <span id="RegisterForm-password-error" class="form__message mt-4 text-text mb-4">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#icon-error" />
+          </svg>
+          {{ form.errors.translated_fields.password | capitalize }}
+          {{ form.errors.messages.password }}.
+        </span>
+      {%- endif -%}
+      <button class="btn btn__primary text-center btn-gold mt-5 w-100">
+        {{ 'customer.register.submit' | t }}
+      </button>
+    {%- endform -%}
+  </div>
+  
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-register.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

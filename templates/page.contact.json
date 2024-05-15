@@ -1,0 +1,373 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "cac616c8-0e2f-4a18-89c7-b701e27e8bc7": {
+      "type": "banner_image",
+      "settings": {
+        "image_banner_title": "Get in Touch",
+        "image_banner_desc": "shopify:\/\/shop_images\/banner_bg.png",
+        "image_banner_mob": "shopify:\/\/shop_images\/Rectangle_10_1_f3a1ecdd-e4aa-4758-a2b9-adcec21f30fd.png",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "9fe0f6b2-b9ae-4f64-91dd-ea323305c450": {
+      "type": "multi-column-tiles",
+      "blocks": {
+        "456dfa61-069f-4ea0-92a5-d3c2173ce097": {
+          "type": "text",
+          "settings": {
+            "title": "Visit US",
+            "content": "Explore our boutique and discover the perfect wedding gown at our location:",
+            "content_contacts": "701 Columbia Street, New Westminster BC",
+            "button_link_1": "https:\/\/www.google.com\/maps\/place\/\/data=!4m2!3m1!1s0x5485d86e0c07ef39:0x7946d2fbdf04929b?source=g.page.share",
+            "column_button": "view on google map",
+            "blank": true
+          }
+        },
+        "7345a8e3-fce8-4044-bb5f-035c9a4016c8": {
+          "type": "text",
+          "settings": {
+            "title": "Send us an email",
+            "content": "Have a question? Reach out to us via email, and we'll be happy to assist you:",
+            "content_contacts": "info@thebridalgallery.com",
+            "button_link_1": "mailto:info@thebridalgallery.com",
+            "column_button": "Email Us",
+            "blank": true
+          }
+        },
+        "fc83f4e0-cafe-4cde-a92b-6a24dbd7f152": {
+          "type": "text",
+          "settings": {
+            "title": "Call for assistance",
+            "content": "Need help? Give us a call, and our experts will guide you in finding your dream wedding dress:",
+            "content_contacts": "(604) 521-8433",
+            "button_link_1": "tel:6045218433",
+            "column_button": "call us",
+            "blank": false
+          }
+        },
+        "3bea5479-d598-4a51-8e81-4c7d774a61a4": {
+          "type": "text",
+          "settings": {
+            "title": "Text us",
+            "content": "For quick and convenient support, send us a text message, and we'll provide expert advice:",
+            "content_contacts": "(604) 256-8133",
+            "button_link_1": "tel:(604) 521-8433",
+            "column_button": "Chat Now",
+            "blank": false
+          }
+        }
+      },
+      "block_order": [
+        "456dfa61-069f-4ea0-92a5-d3c2173ce097",
+        "7345a8e3-fce8-4044-bb5f-035c9a4016c8",
+        "fc83f4e0-cafe-4cde-a92b-6a24dbd7f152",
+        "3bea5479-d598-4a51-8e81-4c7d774a61a4"
+      ],
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top_desc": -105,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0,
+        "margin_top_mb": -150
+      }
+    },
+    "69cf458e-68d2-4467-88a3-1fb8ed28f958": {
+      "type": "contact-text-and-img",
+      "blocks": {
+        "b81d655f-2b77-4449-9e48-75919015a831": {
+          "type": "text",
+          "settings": {
+            "date": "MON:",
+            "time": "11AM-5PM"
+          }
+        },
+        "43bff692-1848-49ac-a50b-d5719f046896": {
+          "type": "text",
+          "settings": {
+            "date": "Tues:",
+            "time": "Closed"
+          }
+        },
+        "cc6c6e06-f6e1-40a6-af60-9f4c5abe3c40": {
+          "type": "text",
+          "settings": {
+            "date": "Wed\/Thur:",
+            "time": "12:00pm – 8:00pm"
+          }
+        },
+        "2d05e7b6-9002-4b82-b705-d29a90c18907": {
+          "type": "text",
+          "settings": {
+            "date": "Fri:",
+            "time": "10:00am – 5:00pm"
+          }
+        },
+        "0e2a19c3-5775-4983-8307-9bee5fee5abb": {
+          "type": "text",
+          "settings": {
+            "date": "Sat:",
+            "time": "9:30am – 5:30pm"
+          }
+        },
+        "10a98684-1dcf-48e7-b3e2-d0c5142b262c": {
+          "type": "text",
+          "settings": {
+            "date": "Sun:",
+            "time": "10:00am 5:00pm"
+          }
+        }
+      },
+      "block_order": [
+        "b81d655f-2b77-4449-9e48-75919015a831",
+        "43bff692-1848-49ac-a50b-d5719f046896",
+        "cc6c6e06-f6e1-40a6-af60-9f4c5abe3c40",
+        "2d05e7b6-9002-4b82-b705-d29a90c18907",
+        "0e2a19c3-5775-4983-8307-9bee5fee5abb",
+        "10a98684-1dcf-48e7-b3e2-d0c5142b262c"
+      ],
+      "settings": {
+        "title_contacts": "Experience Our Charm",
+        "content_contacts": "<p>Step into a world of delightful charm at our bridal salon. Discover the perfect setting where dreams come true. Visit our 'Our Location' page to explore our salon's address, contact information, and opening hours. Immerse yourself in the beauty of our collections and make an appointment to embark on your unforgettable bridal journey. Experience the magic of our enchanting salon today!<\/p>",
+        "contacts_button": "book an appointment",
+        "contacts_button_link": "shopify:\/\/pages\/book-an-appointment",
+        "title_opening": "Opening hours",
+        "image_1": "shopify:\/\/shop_images\/Pic.png",
+        "padding_top": 40,
+        "padding_bottom": 96,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 48
+      }
+    },
+    "aad8b765-e679-4621-b592-9a32c8f6b193": {
+      "type": "contact-tiles-gallery",
+      "settings": {
+        "title": "Take A Look Inside The Gallery",
+        "contact_us_1": "shopify:\/\/shop_images\/Rectangle_25_1_3921c827-033b-4b48-9798-b1227ab8f9d9.png",
+        "contact_us_2": "shopify:\/\/shop_images\/Rectangle_26_1_d59e8dfa-88d0-4f9b-b87c-dae6e2011a88.png",
+        "contact_us_3": "shopify:\/\/shop_images\/Rectangle_27_1_f58fc592-9f7c-4102-9d74-6507be7389d3.png",
+        "contact_us_4": "shopify:\/\/shop_images\/Rectangle_28_1_c9b1e62b-3abe-4279-a2b5-2e0c80aa9194.png",
+        "contact_us_5": "shopify:\/\/shop_images\/Rectangle_29_1.png",
+        "padding_top": 80,
+        "padding_bottom": 0
+      }
+    },
+    "41bcb7bc-eb3a-4d1d-8782-b0a8f07ea0c6": {
+      "type": "text-with-icon-grid",
+      "blocks": {
+        "b5406b23-9ba0-4ef0-94f8-3111456f959b": {
+          "type": "text-icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abstract-shape_1.svg",
+            "heading": "Feature 1",
+            "text": "<p>The Bridal Gallery's master tailors have decades of experience in creating custom-fitted garments. Their expertise and craftsmanship ensure a flawless fit for every bride.<\/p>"
+          }
+        },
+        "4dcf59e1-2c90-4266-a06d-ccf8348be479": {
+          "type": "text-icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abstract-shape_1.svg",
+            "heading": "Feature 2",
+            "text": "<p>Each bride is unique, and our tailors at The Bridal Gallery provide a personalized touch, considering style, body type, and personality for a perfect fit.<\/p>"
+          }
+        },
+        "d2608284-e548-4fe5-bcee-427f02c96081": {
+          "type": "text-icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abstract-shape_1.svg",
+            "heading": "Feature 3",
+            "text": "<p>Our alterations go beyond fittings. We offer modifications like details, embellishments, length adjustments, and more to meet every bride's preferences.<\/p>"
+          }
+        },
+        "04157833-7d0f-43b6-a772-20583efb34fe": {
+          "type": "text-icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/abstract-shape_1.svg",
+            "heading": "Feature 4",
+            "text": "<p>We prioritize quality at The Bridal Gallery. Our dedicated team ensures that each altered dress meets our high standards and exceeds bride's expectations.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "b5406b23-9ba0-4ef0-94f8-3111456f959b",
+        "4dcf59e1-2c90-4266-a06d-ccf8348be479",
+        "d2608284-e548-4fe5-bcee-427f02c96081",
+        "04157833-7d0f-43b6-a772-20583efb34fe"
+      ],
+      "settings": {
+        "padding_top": 104,
+        "padding_bottom": 104,
+        "padding_top_mb": 60,
+        "padding_bottom_mb": 20
+      }
+    },
+    "bb9458ec-f39e-452e-b575-e934f75574cb": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--19697353425169__bb9458ec-f39e-452e-b575-e934f75574cb-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "An Unforgettable Experience",
+            "heading_size": "h3"
+          }
+        },
+        "template--19697353425169__bb9458ec-f39e-452e-b575-e934f75574cb-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst. Aliquam erat volutpat. Sed quis nibh malesuada tellus laoreet ultricies vel sed metus. Praesent vitae massa ac purus sollicitudin pellentesque ac quis lorem. Sed tristique dui eget ullamcorper sodales. Nam sollicitudin purus non fringilla condimentum. Curabitur luctus lacinia justo at sagittis.<\/p><p><br\/>Ut congue neque eget hendrerit faucibus. Praesent sagittis purus sit amet maximus pharetra!<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--19697353425169__bb9458ec-f39e-452e-b575-e934f75574cb-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "Book an appointment",
+            "button_style_secondary": false,
+            "button_link": "shopify:\/\/pages\/book-an-appointment"
+          }
+        }
+      },
+      "block_order": [
+        "template--19697353425169__bb9458ec-f39e-452e-b575-e934f75574cb-heading-1",
+        "template--19697353425169__bb9458ec-f39e-452e-b575-e934f75574cb-text-1",
+        "template--19697353425169__bb9458ec-f39e-452e-b575-e934f75574cb-button-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Rectangle_3_3.png",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 56,
+        "padding_bottom": 152,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 40
+      }
+    },
+    "c77d118c-1d23-42ab-8c19-5dedadb4bfcc": {
+      "type": "cta-banner",
+      "blocks": {
+        "template--19697353425169__c77d118c-1d23-42ab-8c19-5dedadb4bfcc-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Bridal Experience Awaits",
+            "heading_size": "h2"
+          }
+        },
+        "template--19697353425169__c77d118c-1d23-42ab-8c19-5dedadb4bfcc-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "For every bride there is a perfect wedding dress waiting to be discovered. At The Bridal Gallery, we look forward to helping you create the look of your dreams.",
+            "text_style": "body"
+          }
+        },
+        "template--19697353425169__c77d118c-1d23-42ab-8c19-5dedadb4bfcc-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "book an appointment",
+            "button_link_1": "shopify:\/\/pages\/book-an-appointment",
+            "button_style_primary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_primary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19697353425169__c77d118c-1d23-42ab-8c19-5dedadb4bfcc-heading-1",
+        "template--19697353425169__c77d118c-1d23-42ab-8c19-5dedadb4bfcc-text-1",
+        "template--19697353425169__c77d118c-1d23-42ab-8c19-5dedadb4bfcc-buttons-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg_4.png",
+        "image--mobile": "shopify:\/\/shop_images\/bg_5.png",
+        "image_overlay": "total",
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "mobile_content_alignment": "center",
+        "padding_top": 144,
+        "padding_bottom": 124,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "69a9b5d8-6b60-4d6b-a3a8-f34eb0d5daaa": {
+      "type": "testimonials-slider",
+      "blocks": {
+        "690fe443-0f87-40e8-8623-9079c2bc8c7f": {
+          "type": "text",
+          "settings": {
+            "testimonials_name": "Emily S.",
+            "testimonials_text": "<p>\"Absolutely stunning wedding dresses! The salon offers a wide range of beautifully crafted gowns that made my dream wedding a reality. The staff was incredibly helpful and attentive, ensuring a personalized experience from start to finish. I can't thank them enough for helping me find the perfect dress. Highly recommended!\"<\/p>"
+          }
+        },
+        "ae333f09-c92a-44d3-bb60-5fcb7b19e7da": {
+          "type": "text",
+          "settings": {
+            "testimonials_name": "Sheldon C.",
+            "testimonials_text": "<p>\"Absolutely stunning wedding dresses! The salon offers a wide range of beautifully crafted gowns that made my dream wedding a reality. The staff was incredibly helpful and attentive, ensuring a personalized experience from start to finish. I can't thank them enough for helping me find the perfect dress. Highly recommended!\"<\/p>"
+          }
+        },
+        "d07a337b-6d25-46a8-8726-2dabf0e16a0d": {
+          "type": "text",
+          "settings": {
+            "testimonials_name": "Rajesh K.",
+            "testimonials_text": "<p>\"Absolutely stunning wedding dresses! The salon offers a wide range of beautifully crafted gowns that made my dream wedding a reality. The staff was incredibly helpful and attentive, ensuring a personalized experience from start to finish. I can't thank them enough for helping me find the perfect dress. Highly recommended!\"<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "690fe443-0f87-40e8-8623-9079c2bc8c7f",
+        "ae333f09-c92a-44d3-bb60-5fcb7b19e7da",
+        "d07a337b-6d25-46a8-8726-2dabf0e16a0d"
+      ],
+      "settings": {
+        "testimonials_title": "Testimonials",
+        "padding_top": 60,
+        "padding_bottom": 64,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cac616c8-0e2f-4a18-89c7-b701e27e8bc7",
+    "9fe0f6b2-b9ae-4f64-91dd-ea323305c450",
+    "69cf458e-68d2-4467-88a3-1fb8ed28f958",
+    "aad8b765-e679-4621-b592-9a32c8f6b193",
+    "41bcb7bc-eb3a-4d1d-8782-b0a8f07ea0c6",
+    "bb9458ec-f39e-452e-b575-e934f75574cb",
+    "c77d118c-1d23-42ab-8c19-5dedadb4bfcc",
+    "form",
+    "69a9b5d8-6b60-4d6b-a3a8-f34eb0d5daaa"
+  ]
+}

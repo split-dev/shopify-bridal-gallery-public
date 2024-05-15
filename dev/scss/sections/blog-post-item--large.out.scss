@@ -1,0 +1,132 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.blog-large {
+  &__item {
+    display: flex;
+    margin-bottom: 80px;
+
+    &-plain {
+      flex-direction: row;
+
+      @include media-breakpoint-down(xs) {
+        flex-direction: column;
+        margin-bottom: 48px;
+      }
+    }
+
+    &-reverse {
+      flex-direction: row-reverse;
+
+      @include media-breakpoint-down(xs) {
+        flex-direction: column;
+        margin-bottom: 48px;
+      }
+    }
+
+    &:last-of-type {
+      margin-top: 80px;
+      @include media-breakpoint-down(xs) {
+        margin-top: 32px;
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  &__item-plain &__content {
+    margin-right: 136px;
+
+    @include media-breakpoint-down(lg) {
+      margin-right: 50px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-right: 0;
+    }
+  }
+
+  &__item-reverse &__image-large {
+    margin-right: 136px;
+
+    @include media-breakpoint-down(lg) {
+      margin-right: 50px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-right: 0;
+    }
+  }
+
+    &__content {
+      max-width: 425px;
+
+      @include media-breakpoint-down(lg) {
+        width: calc(50% - 25px);
+      }
+
+      @include media-breakpoint-down(xs) {
+        max-width: 100%;
+        width: 100%
+      }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $c-black;
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__excerpt {
+    margin-bottom: 40px;
+    color: $c-black;
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__btn {
+    margin-bottom: 64px;
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__image-large {
+    flex-grow: 1;
+    max-width: 760px;
+
+    @include media-breakpoint-down(lg) {
+      width: calc(50% - 25px);
+    }
+
+    @include media-breakpoint-down(xs) {
+      max-width: 100%;
+      width: 100%
+    }
+
+    &__img-wrap {
+      min-height: 580px;
+    }
+  }
+
+  &__img-wrap {
+    min-height: 545px;
+
+    @include media-breakpoint-down(xs) {
+      min-height: 260px;
+    }
+  }
+
+  &__image {
+    max-height: 100%;
+    min-height: inherit;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

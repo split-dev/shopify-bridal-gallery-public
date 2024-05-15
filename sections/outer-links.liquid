@@ -1,0 +1,217 @@
+{{ 'outer-links.out.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+{%- endstyle -%}
+
+<section class="outer-links-section section-{{ section.id }}-padding">
+  <div class="outer-links__inner">
+    <div class="outer-links__content-wrap-desc page-width">
+        <a href="{% if section.settings.button_link_1 %}{{ section.settings.button_link_1 }}{% endif %}" target="_blank" class="outer-links__content outer-links__content-1">
+          <h3 class="outer-links__header">{{ section.settings.heading_1 }}</h3>
+          <div class="outer-links__text">{{ section.settings.text_1 }}</div>
+          <button class="outer-links__button btn btn__ternary">{{ section.settings.button_label_1 }}</button>
+        </a>
+
+        <a href="{% if section.settings.button_link_2 %}{{ section.settings.button_link_2 }}{% endif %}" target="_blank" class="outer-links__content outer-links__content-2">
+          <h3 class="outer-links__header">{{ section.settings.heading_2 }}</h3>
+          <div class="outer-links__text">{{ section.settings.text_2 }}</div>
+          <button class="outer-links__button btn btn__ternary">{{ section.settings.button_label_2 }}</button>
+        </a>
+    </div>
+
+    <a href="{% if section.settings.button_link_1 %}{{ section.settings.button_link_1 }}{% endif %}" target="_blank" class="outer-links__link outer-links__link-1">
+      <div class="outer-links__content-wrap-mobile page-width">
+        <div class="outer-links__content outer-links__content-1">
+          <h3 class="outer-links__header">{{ section.settings.heading_1 }}</h3>
+          <div class="outer-links__text">{{ section.settings.text_1 }}</div>
+          <button class="outer-links__button btn btn__ternary">{{ section.settings.button_label_1 }}</button>
+        </div>
+      </div>
+      <div class="outer-links__image-wrap outer-links__image-wrap-1 {% if section.settings.image_overlay %}outer-links__image-overlay {% endif %}">
+        {%- liquid
+          assign image = section.settings.image_1
+          assign imageWidth = image.width
+          assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+          assign imageClasses = 'outer-links__image'
+        %}
+
+        {{ image | image_url: width: 3840 | image_tag:
+        width: imageWidth,
+        height: imageHeight,
+        class: imageClasses,
+        sizes: '100vw',
+        widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+      </div>
+    </a>
+
+    <a href="{% if section.settings.button_link_2 %}{{ section.settings.button_link_2 }}{% endif %}" target="_blank" class="outer-links__link outer-links__link-2" >
+      <div class="outer-links__content-wrap-mobile page-width">
+        <div class="outer-links__content outer-links__content-2">
+          <h3 class="outer-links__header">{{ section.settings.heading_2 }}</h3>
+          <div class="outer-links__text">{{ section.settings.text_2 }}</div>
+          <button class="outer-links__button btn btn__ternary">{{ section.settings.button_label_2 }}</button>
+        </div>
+      </div>
+      <div class="outer-links__image-wrap outer-links__image-wrap-2 {% if section.settings.image_overlay %}outer-links__image-overlay {% endif %}">
+      {%- liquid
+        assign image= section.settings.image_2
+        assign imageWidth = image.width
+        assign imageHeight = imageWidth | divided_by: image.aspect_ratio
+
+        assign imageClasses = 'outer-links__image'
+      %}
+
+      {{ image | image_url: width: 3840 | image_tag:
+      width: imageWidth,
+      height: imageHeight,
+      class: imageClasses,
+      sizes: '100vw',
+      widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+    </div>
+    </a>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Outer links",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "First banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "t:sections.image-banner.settings.image-desktop.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_overlay",
+      "label": "Enable image overlays",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_1",
+      "default": "visit our second site",
+      "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text_1",
+      "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+      "label": "t:sections.rich-text.blocks.text.settings.text.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label_1",
+      "default": "check site",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Second banner"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "t:sections.image-banner.settings.image-desktop.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_2",
+      "default": "visit our second site",
+      "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2",
+      "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+      "label": "t:sections.rich-text.blocks.text.settings.text.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "default": "check site",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top desktop",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom desktop",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Outer links"
+    }
+  ]
+}
+{% endschema %}

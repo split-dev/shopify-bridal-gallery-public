@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "85accf16-b1e7-4af2-8ebf-9f564362f74d": {
+      "type": "blog-post-cust",
+      "settings": {
+        "image_lazy": false,
+        "padding_top": 20,
+        "padding_bottom": 60,
+        "padding_top_mb": 12,
+        "padding_bottom_mb": 20
+      }
+    },
+    "9e8712c7-765b-42ca-b006-e8089fa48a59": {
+      "type": "blog-posts",
+      "settings": {
+        "header": "Other TBG Brides",
+        "button_label": "view all",
+        "button_link": "#",
+        "image_lazy": true,
+        "blog": "our-real-brides",
+        "padding_top": 104,
+        "padding_bottom": 72,
+        "padding_top_mb": 60,
+        "padding_bottom_mb": 48
+      }
+    },
+    "f9114825-5d9d-4d16-accc-440de7831a5e": {
+      "type": "rich-text-with-icon",
+      "blocks": {
+        "f2b1080c-0280-41d8-8b51-5ffef934ac83": {
+          "type": "icon",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Symbol.svg"
+          }
+        },
+        "template--19856790257937__f9114825-5d9d-4d16-accc-440de7831a5e-168925838008a3cd88-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Share Your Unforgettable Wedding Story! Tell us about your magical wedding day at The Bridal Gallery and become a part of our real weddings collection. Your photos and memories will inspire future brides and be featured on our website.",
+            "heading_size": "h4"
+          }
+        },
+        "template--19856790257937__f9114825-5d9d-4d16-accc-440de7831a5e-168925838008a3cd88-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "share my wedding",
+            "button_link": "shopify:\/\/blogs\/our-real-brides",
+            "button_style_primary_1": false
+          }
+        }
+      },
+      "block_order": [
+        "f2b1080c-0280-41d8-8b51-5ffef934ac83",
+        "template--19856790257937__f9114825-5d9d-4d16-accc-440de7831a5e-168925838008a3cd88-0",
+        "template--19856790257937__f9114825-5d9d-4d16-accc-440de7831a5e-168925838008a3cd88-2"
+      ],
+      "settings": {
+        "background_color": "rgba(0,0,0,0)",
+        "image": "shopify:\/\/shop_images\/image_12.png",
+        "image_mobile": "shopify:\/\/shop_images\/image_12_1.png",
+        "image_overlay": true,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mb": 60,
+        "padding_bottom_mb": 60
+      }
+    }
+  },
+  "order": [
+    "85accf16-b1e7-4af2-8ebf-9f564362f74d",
+    "9e8712c7-765b-42ca-b006-e8089fa48a59",
+    "f9114825-5d9d-4d16-accc-440de7831a5e"
+  ]
+}

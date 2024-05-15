@@ -1,0 +1,148 @@
+{
+  "sections": {
+    "cd99c733-473b-4e33-86be-ce906fd8cafe": {
+      "type": "banner_image",
+      "settings": {
+        "image_banner_title": "",
+        "image_banner_desc": "shopify:\/\/shop_images\/THEBRIDALGALLERY_TOP_3_1.png",
+        "image_banner_mob": "shopify:\/\/shop_images\/banner_bg_mob.png",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "ca649c2c-4f0f-4917-9aef-d8f8fc3cb313": {
+      "type": "about-text-and-img",
+      "settings": {
+        "title_mission": "Our Mission",
+        "content_mission1": "<p><em>To Provide The Best Bridal Experience For Every Customer.<\/em><\/p>",
+        "content_mission2": "<p>Born in Vancouver and in business for over 30 years, The Bridal Gallery offers some of the world's best bridal and evening dress lines.<br\/>Our service is attentive, personal, and unpretentious. Our people are passionate about finding you the perfect wedding dress and delivering an experience like no other.<\/p>",
+        "title_history": "The History",
+        "content_history1": "<p><em>To Provide The Best Bridal Experience For Every Customer.<\/em><\/p>",
+        "content_history2": "<p>It was a quaint shop providing rentals of special occasion dresses for women and tuxedos for men. Knowing little about the formalwear industry and having no training, they gained experience organically. Both came to realize a passion for the company that would go well beyond. In 1985, young and full of energy, they moved locations and opened the first Bridal Gallery.<\/p>",
+        "content_history3": "<p><em>The goal was to showcase world renowned lines in a designer showroom environment, while providing a fun, personable shopping experience for all.<\/em><\/p>",
+        "content_history4": "<p>As the business began to take off they outgrew their space and in 1993, decided to move to New Westminster, where the current location of The Bridal Gallery stands. Today the store occupies 16,000 square feet on 3 levels, and is Canada's largest wedding apparel store. Although many things have changed through the years, the original Bridal Gallery philosophy remains intact: continuous improvement and the highest quality is sought in every gown, every design element, and every aspect of the customer experience.<\/p>",
+        "image_1": "shopify:\/\/shop_images\/About_us1.png",
+        "image_2": "shopify:\/\/shop_images\/About_us2.png",
+        "image_3": "shopify:\/\/shop_images\/History_1.png",
+        "image_4": "shopify:\/\/shop_images\/History_2.png",
+        "image_5": "shopify:\/\/shop_images\/History_3.png",
+        "padding_top": 72,
+        "padding_bottom": 112,
+        "padding_top_mb": 40,
+        "padding_bottom_mb": 20
+      }
+    },
+    "573a9f7f-d3ed-4e98-a9ac-9981a95b2fce": {
+      "type": "bg-about-us",
+      "settings": {
+        "title_vision": "Our Vision",
+        "content_vision1": "<p><em>An idea, a vision, a purpose.<\/em><\/p>",
+        "content_vision2": "<p>A place where friendships and memories are made. Our goal to connect brides with the perfect dress has been our goal for the past 30 years. Why we do what we do is evident in every detail, every stitch, every laugh, and every tear, because there is nothing better than that feeling when you know you have delivered an experience like no other, and that is why we put so much into each and every new bride that walks through our doors.<\/p>",
+        "content_vision3": "<p><em>The process of finding a wedding gown is a journey. With many feelings, dreams, and ideas all centered around love.<\/em><\/p>",
+        "content_vision4": "<p>Brides come from all walks of life, backgrounds, and cultures but all have the same goal... to walk down the aisle on their wedding day feeling confident, beautiful and surrounded by those who love them.<\/p>",
+        "image_6": "shopify:\/\/shop_images\/OurVision_1.png",
+        "image_7": "shopify:\/\/shop_images\/OurVision_2.png",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 36
+      }
+    },
+    "cbf87710-04b7-4f99-a783-364c22849110": {
+      "type": "cta-banner",
+      "blocks": {
+        "template--19871212667153__cbf87710-04b7-4f99-a783-364c22849110-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your Bridal Experience Awaits",
+            "heading_size": "h2"
+          }
+        },
+        "template--19871212667153__cbf87710-04b7-4f99-a783-364c22849110-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "For every bride there is a perfect wedding dress waiting to be discovered. At The Bridal Gallery, we look forward to helping you create the look of your dreams.",
+            "text_style": "body"
+          }
+        },
+        "template--19871212667153__cbf87710-04b7-4f99-a783-364c22849110-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "book an appointment",
+            "button_link_1": "shopify:\/\/pages\/book-an-appointment",
+            "button_style_primary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_primary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19871212667153__cbf87710-04b7-4f99-a783-364c22849110-heading-1",
+        "template--19871212667153__cbf87710-04b7-4f99-a783-364c22849110-text-1",
+        "template--19871212667153__cbf87710-04b7-4f99-a783-364c22849110-buttons-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg_1_6a7a55b0-2fce-4f83-89c9-1769417daf56.jpg",
+        "image--mobile": "shopify:\/\/shop_images\/bg_5.png",
+        "image_overlay": "overlay_left",
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "mobile_content_alignment": "center",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mb": 80,
+        "padding_bottom_mb": 80
+      }
+    },
+    "94d57406-3082-419f-84d8-b11b1ad2bc04": {
+      "type": "testimonials-slider",
+      "blocks": {
+        "09d9faa8-5ebb-4099-98c8-32cd8f25ec01": {
+          "type": "text",
+          "settings": {
+            "testimonials_name": "Emily S.",
+            "testimonials_text": "<p>\"Absolutely stunning wedding dresses! The salon offers a wide range of beautifully crafted gowns that made my dream wedding a reality. The staff was incredibly helpful and attentive, ensuring a personalized experience from start to finish. I can't thank them enough for helping me find the perfect dress. Highly recommended!\"<\/p>"
+          }
+        },
+        "9b78bdda-7345-4de9-b8e8-43273606be91": {
+          "type": "text",
+          "settings": {
+            "testimonials_name": "Emily S.",
+            "testimonials_text": "<p>\"Absolutely stunning wedding dresses! The salon offers a wide range of beautifully crafted gowns that made my dream wedding a reality. The staff was incredibly helpful and attentive, ensuring a personalized experience from start to finish. I can't thank them enough for helping me find the perfect dress. Highly recommended!\"<\/p>"
+          }
+        },
+        "39034b08-81a4-492f-bd33-e41ef49105d1": {
+          "type": "text",
+          "settings": {
+            "testimonials_name": "Emily S.",
+            "testimonials_text": "<p>\"Absolutely stunning wedding dresses! The salon offers a wide range of beautifully crafted gowns that made my dream wedding a reality. The staff was incredibly helpful and attentive, ensuring a personalized experience from start to finish. I can't thank them enough for helping me find the perfect dress. Highly recommended!\"<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "09d9faa8-5ebb-4099-98c8-32cd8f25ec01",
+        "9b78bdda-7345-4de9-b8e8-43273606be91",
+        "39034b08-81a4-492f-bd33-e41ef49105d1"
+      ],
+      "settings": {
+        "testimonials_title": "Testimonials",
+        "padding_top": 60,
+        "padding_bottom": 64,
+        "padding_top_mb": 48,
+        "padding_bottom_mb": 28
+      }
+    }
+  },
+  "order": [
+    "cd99c733-473b-4e33-86be-ce906fd8cafe",
+    "ca649c2c-4f0f-4917-9aef-d8f8fc3cb313",
+    "573a9f7f-d3ed-4e98-a9ac-9981a95b2fce",
+    "cbf87710-04b7-4f99-a783-364c22849110",
+    "94d57406-3082-419f-84d8-b11b1ad2bc04"
+  ]
+}

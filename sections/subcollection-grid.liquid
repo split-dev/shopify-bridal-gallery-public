@@ -1,0 +1,91 @@
+{{ 'subcollection-grid.out.css' | asset_url | stylesheet_tag }}
+{{ 'subcollection-tile.out.css' | asset_url | stylesheet_tag }}
+
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="subcollection-grid  section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="subcollection-grid__wrapper">
+      {% assign collection_list = section.settings.collection_list %}
+      {% for collection in collection_list %}
+        {% render 'subcollection-tile', card_collection: collection  %}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+  
+{% schema %}
+{
+    "name": "Subcollection Grid",
+    "settings": [
+      {
+        "type": "collection_list",
+        "id": "collection_list",
+        "label": "Collections"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top desktop",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 160,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom desktop",
+        "default": 148
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding top mobile",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mb",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Padding bottom mobile",
+        "default": 80
+      }
+    ],
+    "presets": [
+      {
+        "name": "Subcollection Grid",
+        "category": "Custom"
+      }
+    ]
+}
+{% endschema %}

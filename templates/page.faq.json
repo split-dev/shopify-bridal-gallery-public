@@ -1,0 +1,271 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "cbf36595-e8b6-4678-8299-3aeabe2f554f": {
+      "type": "banner_image",
+      "settings": {
+        "image_banner_title": "Frequently Asked Questions",
+        "image_banner_desc": "shopify:\/\/shop_images\/THEBRIDALGALLERY_TOP_3_1.jpg",
+        "image_banner_mob": "shopify:\/\/shop_images\/Rectangle_10_2.png",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 0
+      }
+    },
+    "a04ac046-6fd4-417b-a203-a79b09c0ab5f": {
+      "type": "faq-cust",
+      "blocks": {
+        "185d95b3-82ac-46dc-8099-e6343060324d": {
+          "type": "faq",
+          "settings": {
+            "question": "Does your store only carry wedding gowns?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst. Go go go.<\/p>"
+          }
+        },
+        "1cb6efb5-66ab-4949-8e21-b9a66d1431b8": {
+          "type": "faq",
+          "settings": {
+            "question": "How long do appointments run?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "a0d6c8cc-7e64-4ad3-93c3-d3eb1692fb64": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I just drop in to look at dresses?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "1c0b7163-b043-4d77-b939-f8d140f1f1ac": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I bring a group of friends and family with me to help make my decision?",
+            "answer": "<p>Choosing a wedding gown will be one of your most important wedding planning decisions and is a wonderful and often emotional event for most brides. We truly feel it is a moment to be shared with close friends and family. It is a very special experience at The Bridal Gallery and a very involved process for both the consultant and Bride to find that perfect dream dress. Appointments can often run a few hours. We strongly recommend that you bring your mom or important support person with you to your appointment so that she does not miss out on the experience of finding your wedding gown.That said, most brides find it very difficult to make their own decision when too many opinions are presented. Secondly, seating can be limited and on busy days many of your guests may end up standing through your appointment. We can accommodate groups much more easily on weekdays and even reserve a private area of the store just for you. If you wish to bring children we can reserve a time during the week to accommodate.<\/p>"
+          }
+        },
+        "9d54dfde-f41c-4b19-bc09-8bdc16df5cea": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I just drop in to look at dresses?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "48a7645f-db99-48a0-9136-51d84bc3d09f": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I need to book an appointment to look at bridesmaid dresses?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "185d95b3-82ac-46dc-8099-e6343060324d",
+        "1cb6efb5-66ab-4949-8e21-b9a66d1431b8",
+        "a0d6c8cc-7e64-4ad3-93c3-d3eb1692fb64",
+        "1c0b7163-b043-4d77-b939-f8d140f1f1ac",
+        "9d54dfde-f41c-4b19-bc09-8bdc16df5cea",
+        "48a7645f-db99-48a0-9136-51d84bc3d09f"
+      ],
+      "settings": {
+        "header": "Shopping and Appointments",
+        "padding_top": 80,
+        "padding_bottom": 60,
+        "padding_top_mb": 60,
+        "padding_bottom_mb": 40
+      }
+    },
+    "0ce9a10b-56fa-4299-b6d3-265f6e3e0cc7": {
+      "type": "faq-cust",
+      "blocks": {
+        "9b5e2764-7832-4ef3-89f3-24caf3162668": {
+          "type": "faq",
+          "settings": {
+            "question": "After my wedding, where would you recommend I take my wedding dress to have it cleaned?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "2786ab51-4fc2-439f-ba26-7aa579402ae8": {
+          "type": "faq",
+          "settings": {
+            "question": "How do you recommend I store my gown after the wedding?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "9b5e2764-7832-4ef3-89f3-24caf3162668",
+        "2786ab51-4fc2-439f-ba26-7aa579402ae8"
+      ],
+      "settings": {
+        "header": "Post-Wedding Care:",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 40
+      }
+    },
+    "0a9b073d-cd9e-424d-8f38-354cb44f20ed": {
+      "type": "faq-cust",
+      "blocks": {
+        "77544d6c-0907-4b3f-896e-6792e5bd75d6": {
+          "type": "faq",
+          "settings": {
+            "question": "There are so many dresses out there. Where do I start, and how do I find \"the one\"?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "8bbcbcd7-3114-4b79-b71b-b9b6497f01f2": {
+          "type": "faq",
+          "settings": {
+            "question": "How much are your gowns?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "0541903d-5efc-4a84-b89c-7e22c3d931d5": {
+          "type": "faq",
+          "settings": {
+            "question": "What is involved in ordering a dress?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "519a0bf7-0a49-457b-9a53-f852a6f7f1b5": {
+          "type": "faq",
+          "settings": {
+            "question": "If the dress is ordered to my measurements, why will I need alterations? Isn't it supposed to fit me perfectly?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "c25d8018-2ae4-4483-a771-01062a1f7d52": {
+          "type": "faq",
+          "settings": {
+            "question": "How do alterations work?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "77544d6c-0907-4b3f-896e-6792e5bd75d6",
+        "8bbcbcd7-3114-4b79-b71b-b9b6497f01f2",
+        "0541903d-5efc-4a84-b89c-7e22c3d931d5",
+        "519a0bf7-0a49-457b-9a53-f852a6f7f1b5",
+        "c25d8018-2ae4-4483-a771-01062a1f7d52"
+      ],
+      "settings": {
+        "header": "FAQ Section headFinding the Perfect Dresser",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 40
+      }
+    },
+    "b2fabaed-e9f3-4f31-b018-4ae42ca1ee57": {
+      "type": "faq-cust",
+      "blocks": {
+        "df488d75-946e-4a4d-ab14-ca8f0e33bfe4": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you have accessories that I can try on during my appointment?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "afb6d6bb-5ea8-49dc-bf16-0f596887432f": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you allow photography in the store?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "0b1468e9-6f84-4a6a-8b61-37df30f34eb4": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best time to order my accessories?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "430e984a-ee52-4c56-a291-3612fe50080a": {
+          "type": "faq",
+          "settings": {
+            "question": "Do you offer discounts if we book tuxedo or suit rental services with you?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "df488d75-946e-4a4d-ab14-ca8f0e33bfe4",
+        "afb6d6bb-5ea8-49dc-bf16-0f596887432f",
+        "0b1468e9-6f84-4a6a-8b61-37df30f34eb4",
+        "430e984a-ee52-4c56-a291-3612fe50080a"
+      ],
+      "settings": {
+        "header": "Accessories and Other Services:",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 40
+      }
+    },
+    "b84b94f0-0e29-4f01-9fd2-4022df424e59": {
+      "type": "faq-cust",
+      "blocks": {
+        "86045ba3-e0e5-4e07-9d31-6ff50ce39428": {
+          "type": "faq",
+          "settings": {
+            "question": "Will you phone me when my dress comes in?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "87eb277a-d70d-4db8-85ef-464308bd8068": {
+          "type": "faq",
+          "settings": {
+            "question": "What do I do with my dress when it arrives?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "3de289cb-0cdd-4ca3-a0ed-5936d8fac4e7": {
+          "type": "faq",
+          "settings": {
+            "question": "If my wedding is less than 6 months away, can you still accommodate me?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        },
+        "a46e64d0-f040-4bbd-97f6-07c14874e740": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I cancel my order if I change my mind or my wedding is cancelled?",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt, odio eget tempus interdum, sapien quam porttitor erat, vitae convallis mi turpis eget leo. In eu aliquam metus, et lobortis odio. In hac habitasse platea dictumst.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "86045ba3-e0e5-4e07-9d31-6ff50ce39428",
+        "87eb277a-d70d-4db8-85ef-464308bd8068",
+        "3de289cb-0cdd-4ca3-a0ed-5936d8fac4e7",
+        "a46e64d0-f040-4bbd-97f6-07c14874e740"
+      ],
+      "settings": {
+        "header": "Order Management and Changes:",
+        "padding_top": 0,
+        "padding_bottom": 112,
+        "padding_top_mb": 0,
+        "padding_bottom_mb": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cbf36595-e8b6-4678-8299-3aeabe2f554f",
+    "a04ac046-6fd4-417b-a203-a79b09c0ab5f",
+    "0ce9a10b-56fa-4299-b6d3-265f6e3e0cc7",
+    "0a9b073d-cd9e-424d-8f38-354cb44f20ed",
+    "b2fabaed-e9f3-4f31-b018-4ae42ca1ee57",
+    "b84b94f0-0e29-4f01-9fd2-4022df424e59"
+  ]
+}

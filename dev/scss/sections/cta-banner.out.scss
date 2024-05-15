@@ -1,0 +1,103 @@
+@import '../settings/variables';
+@import "../settings/bootstrap-media";
+
+.banner__content {
+  .cta_banner__heading {
+    margin-bottom:8px;
+  }
+
+  .banner__buttons{
+    margin-top:32px;
+
+    @include media-breakpoint-down(xs) {
+      margin-top:24px;
+    }
+  }
+
+  &--middle-left .banner__box {
+    max-width: 550px;
+    @include media-breakpoint-down(xs) {
+      max-width: 100%;
+    }
+  }
+  &--middle-center .banner__box {
+    max-width: 650px;
+  }
+
+  &--middle-center, &--top-center, &--bottom-center {
+    max-width: 644px;
+    margin: 0 auto;
+    @include media-breakpoint-down(xs) {
+      padding: 0 15px;
+    }
+    &:before {
+      content: none !important;
+    }
+  }
+  &--middle-left {
+    &:before {
+      content: none !important;
+    }
+  }
+}
+
+.banner__media {
+  &--desktop {
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    display: none;
+
+    @include media-breakpoint-down(xs) {
+      display: block;
+    }
+  }
+
+  &__left_overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(19, 6, 0, 0.58) 0%, rgba(19, 6, 0, 0.00) 100%);
+
+    @include media-breakpoint-down(xs) {
+      background: rgba(19, 6, 0, 0.32);
+    }
+  }
+
+  &__total_overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.40);
+  }
+}
+
+.cta_banner{
+  max-height: 482px;
+  overflow: hidden;
+
+  @include media-breakpoint-down(xs) {
+    min-height: 482px;
+  }
+
+  &__media {
+    img {
+      object-position: center top;
+    }
+  }
+
+  &__heading, &__richtext {
+    color: $c-white
+  }
+}
